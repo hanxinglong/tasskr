@@ -1,0 +1,13 @@
+icon {
+	height:12px;
+	display:inline-block;
+}
+
+.openFolderIcon {
+	width:15px;
+	background:url('glyphicons-halflings.png') -409px -121px;
+	cursor:hand;cursor: pointer;
+}
+.openFolderIcon:hover {
+	background:url('glyphicons-halflings_hover.png') -409px -121px;
+}

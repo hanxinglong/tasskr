@@ -9,7 +9,7 @@ var FolderView = Backbone.View.extend({
 // 		"keyup textarea.folderInput" : "onKeyUp"
 // 	},
 
-	initialize: function() {console.log('new folder nvew')
+	initialize: function() {
 		//_.bindAll(this, 'onKeyUp');
 		this.model.folderView = this;
 		this.$el.html( $(ich.folderViewTemplate( this.model.toJSON() )) );

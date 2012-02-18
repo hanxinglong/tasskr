@@ -44,35 +44,30 @@
 	"buffers":
 	[
 		{
-			"file": "/Users/dan/rails/tasskr5/app/views/folders/index.html.erb",
-			"settings":
-			{
-				"buffer_size": 1074,
-				"line_ending": "Unix"
-			}
-		},
-		{
+			"contents": "",
 			"file": "/Users/dan/rails/tasskr5/app/assets/javascripts/views/folderContainerView.js",
+			"file_size": -1,
+			"file_write_time": -1,
 			"settings":
 			{
-				"buffer_size": 621,
-				"line_ending": "Unix"
+				"buffer_size": 0,
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "/Users/dan/rails/tasskr5/app/assets/javascripts/views/folderView.js",
 			"settings":
 			{
-				"buffer_size": 1700,
-				"line_ending": "Unix"
+				"buffer_size": 0,
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "/Users/dan/rails/tasskr5/app/assets/javascripts/models/folderModel.js",
 			"settings":
 			{
-				"buffer_size": 447,
-				"line_ending": "Unix"
+				"buffer_size": 0,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -100,6 +95,7 @@
 	},
 	"file_history":
 	[
+		"/Users/dan/rails/tasskr5/app/views/folders/index.html.erb",
 		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/addFolderView.js",
 		"/Users/dan/rails/tasskr5/app/assets/javascripts/models/folderModel.js",
 		"/Users/dan/rails/tasskr5/app/assets/javascripts/collections/foldersCollection.js",
@@ -121,7 +117,6 @@
 		"/Users/dan/rails/tasskr5/app/assets/stylesheets/app/addFolderView.css.scss",
 		"/Users/dan/rails/tasskr5/app/assets/stylesheets/app.css.scss",
 		"/Users/dan/rails/tasskrMobile/app/assets/javascripts/models/folderModel.js",
-		"/Users/dan/rails/tasskr5/app/views/folders/index.html.erb",
 		"/Users/dan/rails/tasskrMobile/app/assets/javascripts/models/baseModel.js",
 		"/Users/dan/rails/tasskr5/app/models/folder.rb",
 		"/Users/dan/rails/tasskr5/app/assets/javascripts/models/folder.js",
@@ -370,45 +365,45 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/Users/dan/rails/tasskr5/app/views/folders/index.html.erb",
+					"file": "/Users/dan/rails/tasskr5/app/assets/javascripts/views/folderContainerView.js",
 					"settings":
 					{
-						"buffer_size": 1074,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1056,
-								1056
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 8.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "/Users/dan/rails/tasskr5/app/assets/javascripts/views/folderContainerView.js",
+					"file": "/Users/dan/rails/tasskr5/app/assets/javascripts/views/folderView.js",
 					"settings":
 					{
-						"buffer_size": 621,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								406,
-								406
+								0,
+								0
 							]
 						],
 						"settings":
@@ -424,45 +419,18 @@
 				},
 				{
 					"buffer": 2,
-					"file": "/Users/dan/rails/tasskr5/app/assets/javascripts/views/folderView.js",
-					"settings":
-					{
-						"buffer_size": 1700,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								381,
-								381
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
 					"file": "/Users/dan/rails/tasskr5/app/assets/javascripts/models/folderModel.js",
 					"settings":
 					{
-						"buffer_size": 447,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								410,
-								410
+								0,
+								0
 							]
 						],
 						"settings":

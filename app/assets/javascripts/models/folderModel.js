@@ -3,7 +3,7 @@ var FolderModel = BaseModel.extend({
 	defaults: {
 		name: 'undefined',
 		order: 0,
-		openFolder: false,
+		openFolder: true,
 		createdInDb: false,
 		selected: false,
 	},

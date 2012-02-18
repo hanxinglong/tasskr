@@ -1,0 +1,16 @@
+ul#foldersContainer {
+	margin:0;border:0;
+	padding: 20px 10px 20px 10px;
+
+	li.folderContainer {
+		list-style: none;
+
+		div.folder {
+			border-bottom:1px solid #aaa;
+		}
+	}
+
+	ul.tasks {
+		padding-bottom:20px;
+	}
+}

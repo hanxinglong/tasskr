@@ -6,7 +6,7 @@
 			<li>Charts</li>
 		</ul>
 	</div>
-	<div id="rightContent" style="background-color:#fff;padding:10px;">asd
+	<div id="rightContent">asd
 	</div>
 </div></div>
 <div id="middleContainer"><div>
@@ -34,11 +34,13 @@ $(function() {
 
 
 <script id="folderContainerViewTemplate" type="text/html">
-	<div class="folderContainer"></div>
+	<div></div>
 	<ul class="tasks"{{^openFolder}} style="display:none;"{{/openFolder}}></ul>
 </script>
 
 
 <script id="folderViewTemplate" type="text/html">
-	<div>{{name}}</div>
+	<div>
+		<icon class="openFolderIcon"></icon> {{name}}
+	</div>
 </script>
