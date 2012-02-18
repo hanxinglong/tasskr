@@ -1,0 +1,1 @@
+Date::DATE_FORMATS[:chart] = "%a %b %d"

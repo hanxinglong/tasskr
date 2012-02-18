@@ -1,0 +1,100 @@
+$leftColumnWidth: 15%;
+$midColumnWidth: 50%;
+$rightColumnWidth: 35%;
+$headerHeight: 30px;
+$footerHeight: 20px;
+$headerBg: #aaaabb;
+$footerBg: #888899;
+$midColumnBg: #666677;
+
+html, body {
+	height:100%;
+	background-color:$midColumnBg;
+}
+
+header {
+	width:100%;
+	position:fixed;
+	height:$headerHeight;
+	background-color:$headerBg;
+	#logo {
+		width:28%;
+		float:left;
+		padding: 5px 0 0 10px;
+	}
+	nav {
+		text-align:right;
+		float:right;
+		width:68%;
+		padding: 5px 10px 0 0;
+		ul {
+			padding:0;margin:0;border:0;
+			& li {
+				list-style: none;
+				display:inline;
+			}
+		}
+	}
+}
+
+footer {
+	width:100%;
+	position:fixed;
+	bottom:0;
+	height:$footerHeight;
+	text-align:center;
+	padding:5px;
+	background-color:$footerBg;
+	color:#fff;
+}
+
+#content {
+	overflow:auto;
+	padding-top:$headerHeight;
+	padding-bottom:$footerHeight;
+	#leftContainer {
+		width:$leftColumnWidth;
+		left:0;
+		position:fixed;
+		background-color:#fff;
+		height:100%;
+		div:first-child {
+			margin:5px 5px 5px 10px;
+		}
+	}
+	#middleContainer {
+		width:$midColumnWidth;
+		margin-left:$leftColumnWidth;
+		height:100%;
+		div:first-child {
+			margin:5px 5px 5px 5px;
+		}
+	}
+	#rightContainer {
+		width:$rightColumnWidth;
+		position:fixed;
+		right:0;
+		height:100%;
+		background-color:#aaaabb;
+		div:first-child {
+			margin:0;
+		}
+	}
+}
+
+
+#tabs {
+	padding-top:10px;
+	ul {
+		padding:0;margin:0;border:0;
+		li {
+			list-style: none;
+			display:inline;
+			border-top-left-radius:3px;
+			border-top-right-radius:3px;
+			background-color:#fff;
+			padding: 5px;
+			margin: 0 -5px 0 5px;
+		}
+	}
+}

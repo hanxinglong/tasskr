@@ -1,0 +1,44 @@
+<div id="leftContainer"><div>left</div></div>
+<div id="rightContainer"><div>
+	<div id="tabs">
+		<ul>
+			<li>Schedule</li>
+			<li>Charts</li>
+		</ul>
+	</div>
+	<div id="rightContent" style="background-color:#fff;padding:10px;">asd
+	</div>
+</div></div>
+<div id="middleContainer"><div>
+	<div id="addFolderViewContainer"></div>
+	<ul id="foldersContainer"></ul>
+</div></div>
+
+<script>
+Backbone.Model.prototype.idAttribute = "_id";
+var app = {};
+$(function() {
+	app.addFolderView = new AddFolderView;
+	app.folders = new FoldersCollection();
+	//app.folders.reset(<%= raw @result.to_json %>);
+	//createCookie('timezoneOffset',getTimeZoneOffsetDST(),10);
+});
+</script>
+
+
+<script id="addFolderViewTemplate" type="text/html">
+	<div>
+		<input type="text" placeholder="Add Project" id="addFolderInput">
+	</div>
+</script>
+
+
+<script id="folderContainerViewTemplate" type="text/html">
+	<div class="folderContainer"></div>
+	<ul class="tasks"{{^openFolder}} style="display:none;"{{/openFolder}}></ul>
+</script>
+
+
+<script id="folderViewTemplate" type="text/html">
+	<div>{{name}}</div>
+</script>
