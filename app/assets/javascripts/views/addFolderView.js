@@ -23,9 +23,9 @@ var AddFolderView = Backbone.View.extend({
 					name: $('#addFolderInput').val()
 				});
 				app.folders.add(folder, {at:0});
-				//folder.save();
+				folder.save();
 				$('#foldersContainer').prepend(folder.folderContainerView.el);
-				folder.folderContainerView.$el.html(folder.folderView.render().el);
+				
 				$('#addFolderInput').val('');
 				// //folder.input().caretToEnd();
 				// folder.addTask(0);

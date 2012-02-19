@@ -35,3 +35,54 @@ function fixSizes() {
 $(function(){
 	fixSizes();
 });
+$(window).scroll(function() {
+	fixSizes();
+});
+$(window).resize(function() {
+	fixSizes();
+});
+
+
+function getTimeZoneOffsetDST() {
+    // NOTE: return new Date().getTimezoneOffset() is not enought !
+    var today = new Date();
+    // 2nd Sunday in March can't occur after the 14th :
+    var dstBeg = new Date("March 14, "+ today.getFullYear() +" 02:00:00");
+    // 1st Sunday in November can't occur after the 7th :
+    var dstEnd = new Date("November 07, "+ today.getFullYear() +" 02:00:00");
+    dstBeg.setDate( 14 - dstBeg.getDay() ); // Calculate second Sunday in March
+    dstEnd.setDate( 7 - dstEnd.getDay() ); // Calculate first Sunday in November
+    if ( today >= dstBeg && today < dstEnd ) { // isDST
+        // e.g. for GMT+02:00 returns -120 !
+        return today.getTimezoneOffset() + 60;
+    }
+    else {
+        return today.getTimezoneOffset();
+    }
+}
+
+
+function createCookie(name,value,days) {
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime()+(days*24*60*60*1000));
+        var expires = "; expires="+date.toGMTString();
+    }
+    else var expires = "";
+    document.cookie = name+"="+value+expires+"; path=/";
+}
+
+function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+function eraseCookie(name) {
+    createCookie(name,"",-1);
+}

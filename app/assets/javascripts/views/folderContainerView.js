@@ -2,12 +2,11 @@ var FolderContainerView = Backbone.View.extend({
 
 	tagName: "li",
 
-	className: "folderContainer",
-
 	events: {},
 
 	initialize: function() {
 		this.model.folderContainerView = this;
+		//this.folder.folderContainerView.$el.html(folder.folderView.render().el);
 		this.render();
 	},
 

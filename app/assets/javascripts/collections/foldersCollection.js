@@ -4,15 +4,15 @@ var FoldersCollection = BaseCollection.extend({
 
   initialize: function() {
     this.bind('reset', this.addViewsToDom);
-    //this.bind('add', this.setOrderFromIndex);
+    this.bind('add', this.setOrderFromIndex);
   },
 
   addViewsToDom: function() {
-    var els = [];
     _.each(this.models, function(m) {
-      els.push(m.folderContainerView.render().el);
+      $('#foldersContainer').append(m.folderContainerView.render().el);
+      m.folderView.delegateEvents();
     });
-    $('#foldersContainer').append(els);
+    
   }
   
 });

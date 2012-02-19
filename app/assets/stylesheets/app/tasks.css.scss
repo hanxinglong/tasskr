@@ -1,12 +1,27 @@
+@import "variables";
+
 ul#foldersContainer {
 	margin:0;border:0;
 	padding: 20px 10px 20px 10px;
 
-	li.folderContainer {
+	li {
 		list-style: none;
 
-		div.folder {
-			border-bottom:1px solid #aaa;
+		div.folderContainer {
+			div.folder {
+				border-bottom:1px solid #aaa;
+				cursor:pointer;cursor:hand;
+
+				div {}
+				textarea {
+					margin:0;padding:0;border:0;
+					background-color:$midColumnBg;
+				}
+				textarea:focus {
+					outline: none;
+					width:100%;
+				}
+			}
 		}
 	}
 

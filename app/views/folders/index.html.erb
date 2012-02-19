@@ -20,8 +20,8 @@ var app = {};
 $(function() {
 	app.addFolderView = new AddFolderView;
 	app.folders = new FoldersCollection();
-	//app.folders.reset(<%= raw @result.to_json %>);
-	//createCookie('timezoneOffset',getTimeZoneOffsetDST(),10);
+	app.folders.reset(<%= raw @result.to_json %>);
+	createCookie('timezoneOffset',getTimeZoneOffsetDST(),10);
 });
 </script>
 
@@ -34,13 +34,31 @@ $(function() {
 
 
 <script id="folderContainerViewTemplate" type="text/html">
-	<div></div>
+	<div class="folderContainer"></div>
 	<ul class="tasks"{{^openFolder}} style="display:none;"{{/openFolder}}></ul>
 </script>
 
 
 <script id="folderViewTemplate" type="text/html">
-	<div>
-		<icon class="openFolderIcon"></icon> {{name}}
-	</div>
+		<table style="width:100%">
+			<tr>
+				<td>
+					<table style="width:100%;">
+						<tr>
+							<td style="vertical-align:top;width:25px;">
+								<icon class="button {{#openFolder}}openFolderIcon{{/openFolder}}{{^openFolder}}closedFolderIcon{{/openFolder}}"></icon>
+							</td>
+							<td>
+								<div class="folderName">{{name}}</div>
+								<div class="folderNameEdit" style="display:none;"><textarea class="folderInput" style="width:100%;" rows="1">{{name}}</textarea><div>
+							</td>
+						</tr>
+					</table>
+				</td>
+				<td style="text-align:right;vertical-align:top;width:40px;">
+					<icon class="plusIcon button"></icon>
+					<icon class="trashIcon button"></icon>
+				</td>
+			</tr>
+		</table>
 </script>

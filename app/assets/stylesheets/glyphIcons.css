@@ -1,13 +1,38 @@
 icon {
-	height:12px;
+	height:13px;
 	display:inline-block;
+}
+
+icon.button {
+	cursor:hand;cursor: pointer;
 }
 
 .openFolderIcon {
 	width:15px;
-	background:url('glyphicons-halflings.png') -409px -121px;
-	cursor:hand;cursor: pointer;
+	background:url('glyphicons-halflings.png') -409px -120px;
 }
-.openFolderIcon:hover {
-	background:url('glyphicons-halflings_hover.png') -409px -121px;
+.button.openFolderIcon:hover {
+	background:url('glyphicons-halflings_hover.png') -409px -120px;
+}
+
+.closedFolderIcon {
+	width:15px;
+	background:url('glyphicons-halflings.png') -385px -120px;
+}
+.closedFolderIcon.button:hover {background:url('glyphicons-halflings_hover.png') -385px -120px;}
+
+.plusIcon {
+	width:12px;
+	background:url('glyphicons-halflings.png') -1px -96px;
+}
+.button.plusIcon:hover {
+	background:url('glyphicons-halflings_hover.png') -1px -96px;
+}
+
+.trashIcon {
+	width:11px;
+	background:url('glyphicons-halflings.png') -458px 0px;
+}
+.trashIcon.button:hover {
+	background:url('glyphicons-halflings_hover.png') -458px 0px;
 }

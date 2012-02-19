@@ -9,9 +9,8 @@
 		-webkit-border-radius: 3px;
 		-moz-border-radius:  3px;
 		border-radius:3px;
-		border: 1px solid ($midColumnBg + #000);
+		border: 1px solid #999;
 	}
 
-	padding: 20px;
-	border-bottom:$columnSpacerWidth solid $headerBg;
+	padding: 10px;
 }
