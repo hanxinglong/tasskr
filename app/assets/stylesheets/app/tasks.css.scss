@@ -3,29 +3,43 @@
 ul#foldersContainer {
 	margin:0;border:0;
 	padding: 20px 10px 20px 10px;
-
 	li {
 		list-style: none;
+	}
+}
 
-		div.folderContainer {
-			div.folder {
-				border-bottom:1px solid #aaa;
-				cursor:pointer;cursor:hand;
-
-				div {}
-				textarea {
-					margin:0;padding:0;border:0;
-					background-color:$midColumnBg;
-				}
-				textarea:focus {
-					outline: none;
-					width:100%;
-				}
-			}
+div.container {
+	div.folder {
+		border-bottom:1px solid #aaa;
+		cursor:pointer;cursor:hand;
+		textarea.nameFieldEdit {
+			margin:0;padding:0;border:0;
+			background-color:$midColumnBg;
+		}
+		textarea.nameFieldEdit:focus {
+			outline: none;
+			width:100%;
 		}
 	}
+	div.task {
+		border-bottom:1px solid #aaa;
+		cursor:pointer;cursor:hand;
+		textarea.nameFieldEdit {
+			margin:0;padding:0;border:0;
+			background-color:$midColumnBg;
+		}
+		textarea.nameFieldEdit:focus {
+			outline: none;
+			width:100%;
+		}
+	}
+}
 
-	ul.tasks {
-		padding-bottom:20px;
+
+ul.tasks {
+	padding:0 0 20px 15px;
+	li.task {
+		cursor:pointer;cursor:hand;
+		border-bottom:1px solid #ddd;
 	}
 }

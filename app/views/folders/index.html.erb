@@ -34,8 +34,8 @@ $(function() {
 </script>
 
 
-<script id="folderContainerViewTemplate" type="text/html">
-	<div class="folderContainer"></div>
+<script id="containerViewTemplate" type="text/html">
+	<div class="container"></div>
 	<ul class="tasks"{{^openFolder}} style="display:none;"{{/openFolder}}></ul>
 </script>
 
@@ -50,8 +50,33 @@ $(function() {
 								<icon class="button {{#openFolder}}openFolderIcon{{/openFolder}}{{^openFolder}}closedFolderIcon{{/openFolder}}"></icon>
 							</td>
 							<td>
-								<div class="folderName">{{name}}</div>
-								<div class="folderNameEdit" style="display:none;"><textarea class="folderInput" style="width:100%;" rows="1">{{name}}</textarea><div>
+								<div class="nameField">{{name}}</div>
+								<div class="nameFieldEdit" style="display:none;"><textarea class="folderInput" style="width:100%;" rows="1">{{name}}</textarea><div>
+							</td>
+						</tr>
+					</table>
+				</td>
+				<td style="text-align:right;vertical-align:top;width:40px;">
+					<icon class="plusIcon button"></icon>
+					<icon class="trashIcon button"></icon>
+				</td>
+			</tr>
+		</table>
+</script>
+
+
+<script id="taskViewTemplate" type="text/html">
+	<table style="width:100%">
+			<tr>
+				<td>
+					<table style="width:100%;">
+						<tr>
+							<td style="vertical-align:top;width:25px;">
+								<icon class="button {{#openFolder}}openFolderIcon{{/openFolder}}{{^openFolder}}closedFolderIcon{{/openFolder}}"></icon>
+							</td>
+							<td>
+								<div class="nameField">{{name}}</div>
+								<div class="nameFieldEdit" style="display:none;"><textarea class="folderInput" style="width:100%;" rows="1">{{name}}</textarea><div>
 							</td>
 						</tr>
 					</table>

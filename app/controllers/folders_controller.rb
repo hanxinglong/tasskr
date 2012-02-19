@@ -83,9 +83,30 @@ class FoldersController < ApplicationController
 		folders = current_or_guest_user.folders.order_by([:order, :asc])
 		folders.each do |f|
 			tasks = f.tasks.where(hideTask: false).order_by([:order, :asc])
-			f['childtasks'] = tasks
+			# topTasks = tasks.find_all{|item| item.parent_task == nil}
+			# topTasks['childtasks'] = makeTaskTree 
+
+
+			# topTasks.each_with_index do |t, key|
+			# 	#makeTaskTree(t, tasks)
+			# 	topTasks[key]['childtasks'] = makeTaskTree t, tasks
+			# 	logger.debug "====== #{topTasks[key]}"
+			# end
+			f['childtasks'] = makeTaskTree f, tasks
 			@result << f
 		end
+
+		@result.each do |z|
+			logger.debug "= #{z._id}"
+			z[:childtasks].each do |x|
+				logger.debug "== #{x._id}"
+				x[:childtasks].each do |c|
+					logger.debug "=== #{c._id}"
+				end
+			end
+			logger.debug
+		end
+
 		respond_to do |format|
 			format.json { render :json => @result }
 			format.html { }
@@ -117,6 +138,28 @@ class FoldersController < ApplicationController
 		folder = current_or_guest_user.folders.find params[:id] 
 		folder.destroy
 		render :json => ""
+	end
+
+
+
+	# might be broken
+	def makeTaskTree(item, tasks)
+		result = []
+
+		if item[:folder_id] == nil
+			children = tasks.find_all {|t| t.parentTaskId == nil}
+		else
+			children = tasks.find_all {|t| t.parentTaskId == item._id.to_s}
+		end
+
+		if children
+			children.each do |c|
+				c['childtasks'] = makeTaskTree c, tasks
+				result << c
+			end
+		end
+
+		return result
 	end
 
 end

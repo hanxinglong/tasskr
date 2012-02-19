@@ -9,7 +9,7 @@ class TasksController < ApplicationController
 	# end
 
 	def create
-		task = Task.new pick(params[:task], :folder_id, :name, :order, :checked, :notes, :createdInDb, :hideTask, :startDate, :startDateString, :completedDate)
+		task = Task.new pick(params[:task], :folder_id, :name, :order, :checked, :notes, :createdInDb, :hideTask, :startDate, :startDateString, :completedDate, :parentTaskId, :openFolder)
 		if task.save
 			x = Hash.new
 			x['_id'] = task._id 
@@ -22,7 +22,7 @@ class TasksController < ApplicationController
 
 	def update
 		task = Task.find params[:id]
-		if task.update_attributes pick(params[:task], :folder_id, :name, :order, :checked, :notes, :createdInDb, :hideTask, :startDate, :startDateString, :completedDate)
+		if task.update_attributes pick(params[:task], :folder_id, :name, :order, :checked, :notes, :createdInDb, :hideTask, :startDate, :startDateString, :completedDate, :parentTaskId, :openFolder)
 			render :json => ''
 		else
 			render :json => task.errors
