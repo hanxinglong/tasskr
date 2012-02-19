@@ -8,7 +8,7 @@ var TaskModel = BaseModel.extend({
 		selected: false,
 		hideTask: false,
 		parentTaskId: null,
-		openFolder: true,
+		openFolder: false,
 	},
 
 	url: function() {
@@ -20,6 +20,7 @@ var TaskModel = BaseModel.extend({
 	initialize: function() {
 		this.lazySave = _.debounce(this.save, 400);
 		this.bind("change:name", this.onChangeName);
+		this.bind("change:openFolder",this.onChangeOpenFolder);
 		//this.bind("change:checked", this.onChangeChecked);
 		//this.bind("change:startDate", this.onChangeStartDate);
 		new TaskView({ model:this});

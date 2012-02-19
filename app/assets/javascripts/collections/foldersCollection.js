@@ -10,7 +10,6 @@ var FoldersCollection = BaseCollection.extend({
   addViewsToDom: function() {
     _.each(this.models, function(m) {
       $('#foldersContainer').append(m.containerView.render().el);
-      m.view.delegateEvents();    // not needed?
     });
   }
   

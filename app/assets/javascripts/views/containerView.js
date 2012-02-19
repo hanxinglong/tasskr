@@ -17,7 +17,6 @@ var ContainerView = Backbone.View.extend({
 		// render child tasks
 		_.each(this.model.tasks.models, function(t) {
 			$(this.el).children('ul.tasks').first().append(t.containerView.render().el);
-			t.view.delegateEvents();
 		}, this);
 
 		return this;

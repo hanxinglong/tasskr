@@ -9,6 +9,7 @@ var TaskView = BaseView.extend({
 		"click .trashIcon": "deleteModel",
 		"click .plusIcon": "addTask",
 		"click .openFolderIcon" : "toggleOpenFolder",
+		"click .closedFolderIcon" : "toggleOpenFolder",
 	},
 
 	initialize: function() {
