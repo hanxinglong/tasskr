@@ -8,7 +8,7 @@ var TaskModel = BaseModel.extend({
 		selected: false,
 		hideTask: false,
 		parentTaskId: null,
-		openFolder: false,
+		openFolder: true,
 	},
 
 	url: function() {
@@ -49,7 +49,7 @@ var TaskModel = BaseModel.extend({
 		});
 		this.tasks.add(task, {at:at});
 		task.save();
-		//task.input().caretToStart();
+		task.makeEditable();
 	},
 
 	// onChangeChecked: function() {

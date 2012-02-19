@@ -24,11 +24,10 @@ var AddFolderView = Backbone.View.extend({
 				});
 				app.folders.add(folder, {at:0});
 				folder.save();
-				$('#foldersContainer').prepend(folder.folderContainerView.el);
+				$('#foldersContainer').prepend(folder.containerView.el);
 				
 				$('#addFolderInput').val('');
-				// //folder.input().caretToEnd();
-				// folder.addTask(0);
+				folder.addTask(0);
 			}
 			e.stopPropagation();
 			e.preventDefault();

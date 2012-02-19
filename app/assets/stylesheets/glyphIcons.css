@@ -11,9 +11,7 @@ icon.button {
 	width:15px;
 	background:url('glyphicons-halflings.png') -409px -120px;
 }
-.button.openFolderIcon:hover {
-	background:url('glyphicons-halflings_hover.png') -409px -120px;
-}
+.openFolderIcon.button:hover {background:url('glyphicons-halflings_hover.png') -409px -120px;}
 
 .closedFolderIcon {
 	width:15px;
@@ -21,18 +19,32 @@ icon.button {
 }
 .closedFolderIcon.button:hover {background:url('glyphicons-halflings_hover.png') -385px -120px;}
 
-.plusIcon {
+.addIcon {
 	width:12px;
 	background:url('glyphicons-halflings.png') -1px -96px;
 }
-.button.plusIcon:hover {
-	background:url('glyphicons-halflings_hover.png') -1px -96px;
-}
+.addIcon.button:hover {background:url('glyphicons-halflings_hover.png') -1px -96px;}
 
 .trashIcon {
 	width:11px;
 	background:url('glyphicons-halflings.png') -458px 0px;
 }
-.trashIcon.button:hover {
-	background:url('glyphicons-halflings_hover.png') -458px 0px;
+.trashIcon.button:hover {background:url('glyphicons-halflings_hover.png') -458px 0px;}
+
+.plusIcon {
+	width:11px;
+	background:url('glyphicons-halflings.png') -409px -96px;
 }
+.plusIcon.button:hover {background:url('glyphicons-halflings_hover.png') -409px -96px;}
+
+.minusIcon {
+	width:11px;
+	background:url('glyphicons-halflings.png') -434px -96px;
+}
+.minusIcon.button:hover {background:url('glyphicons-halflings_hover.png') -434px -96px;}
+
+.checkIcon {
+	width:13px;
+	background:url('glyphicons-halflings.png') -289px 0px;
+}
+.checkIcon.button:hover {background:url('glyphicons-halflings_hover.png') -289px 0px;}

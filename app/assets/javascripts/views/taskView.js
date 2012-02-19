@@ -7,9 +7,9 @@ var TaskView = BaseView.extend({
 		"blur .nameFieldEdit": "blurTextArea",
 		"keyup .nameFieldEdit" : "onKeyUp",
 		"click .trashIcon": "deleteModel",
-		"click .plusIcon": "addTask",
-		"click .openFolderIcon" : "toggleOpenFolder",
-		"click .closedFolderIcon" : "toggleOpenFolder",
+		"click .addIcon": "addTask",
+		// "click .plusIcon" : "toggleOpenFolder",
+		// "click .minusIcon" : "toggleOpenFolder",
 	},
 
 	initialize: function() {

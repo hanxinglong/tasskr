@@ -12,11 +12,15 @@ div.container {
 	div.folder {
 		border-bottom:1px solid #aaa;
 		cursor:pointer;cursor:hand;
-		textarea.nameFieldEdit {
+		.nameField {
+			font-size:120%;
+		}
+		textarea {
 			margin:0;padding:0;border:0;
 			background-color:$midColumnBg;
+			font-size:120%;
 		}
-		textarea.nameFieldEdit:focus {
+		textarea:focus {
 			outline: none;
 			width:100%;
 		}
@@ -24,11 +28,11 @@ div.container {
 	div.task {
 		border-bottom:1px solid #aaa;
 		cursor:pointer;cursor:hand;
-		textarea.nameFieldEdit {
+		textarea {
 			margin:0;padding:0;border:0;
 			background-color:$midColumnBg;
 		}
-		textarea.nameFieldEdit:focus {
+		textarea:focus {
 			outline: none;
 			width:100%;
 		}
@@ -40,6 +44,6 @@ ul.tasks {
 	padding:0 0 20px 15px;
 	li.task {
 		cursor:pointer;cursor:hand;
-		border-bottom:1px solid #ddd;
+		border-bottom:1px solid #bbb;
 	}
 }

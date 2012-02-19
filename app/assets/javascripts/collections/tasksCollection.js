@@ -17,7 +17,7 @@ var TasksCollection = BaseCollection.extend({
 			}
 		} else {
 			$(this.at(index-1).view.el).after(model.containerView.render().el);
-			}
 		}
+	}
 	
 });

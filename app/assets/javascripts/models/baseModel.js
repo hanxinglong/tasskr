@@ -22,6 +22,7 @@ var BaseModel = Backbone.Model.extend({
 			this.view.$('.nameFieldEdit').show();
 			//this.view.onKeyUp();		// resize textarea
 			this.view.$('.nameFieldEdit').find('textarea').caretToEnd();
+
 		}
 	},
 

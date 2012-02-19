@@ -1,6 +1,7 @@
 <div id="leftContainer"><div>
-	<div id="addFolderViewContainer"></div>
+	&nbsp;
 </div></div>
+
 <div id="rightContainer"><div>
 	<div id="tabs">
 		<ul>
@@ -11,7 +12,18 @@
 	<div id="rightContent">asd
 	</div>
 </div></div>
+
 <div id="middleContainer"><div>
+	<div style="padding:20px;">
+		<table style="width:100%;"><tr>
+			<td>
+				<div id="addFolderViewContainer"></div>
+			</td><td style="text-align:right;width:1%;white-space:nowrap;">
+				<input type="button" value="Add Project">
+				<input type="button" value="Clear Completed">
+			</td>
+		</tr></table>
+	</div>
 	<ul id="foldersContainer"></ul>
 </div></div>
 
@@ -51,7 +63,7 @@ $(function() {
 							</td>
 							<td>
 								<div class="nameField">{{name}}</div>
-								<div class="nameFieldEdit" style="display:none;"><textarea class="folderInput" style="width:100%;" rows="1">{{name}}</textarea><div>
+								<div class="nameFieldEdit" style="display:none;"><textarea style="width:100%;" rows="1">{{name}}</textarea><div>
 							</td>
 						</tr>
 					</table>
@@ -69,17 +81,8 @@ $(function() {
 	<table style="width:100%">
 			<tr>
 				<td>
-					<table style="width:100%;">
-						<tr>
-							<td style="vertical-align:top;width:25px;">
-								<icon class="button {{#openFolder}}openFolderIcon{{/openFolder}}{{^openFolder}}closedFolderIcon{{/openFolder}}"></icon>
-							</td>
-							<td>
-								<div class="nameField">{{name}}</div>
-								<div class="nameFieldEdit" style="display:none;"><textarea class="folderInput" style="width:100%;" rows="1">{{name}}</textarea><div>
-							</td>
-						</tr>
-					</table>
+					<div class="nameField">{{name}}</div>
+					<div class="nameFieldEdit" style="display:none;"><textarea style="width:100%;" rows="1">{{name}}</textarea><div>
 				</td>
 				<td style="text-align:right;vertical-align:top;width:40px;">
 					<icon class="plusIcon button"></icon>

@@ -42,7 +42,7 @@ var FolderModel = BaseModel.extend({
 		});
 		this.tasks.add(task, {at:at});
 		task.save();
-		//task.input().caretToStart();
+		task.makeEditable();
 	},
 
 
