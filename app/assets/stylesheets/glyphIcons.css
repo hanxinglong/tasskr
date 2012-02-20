@@ -48,3 +48,9 @@ icon.button {
 	background:url('glyphicons-halflings.png') -289px 0px;
 }
 .checkIcon.button:hover {background:url('glyphicons-halflings_hover.png') -289px 0px;}
+
+.dragHorizIcon {
+	width:8px;
+	background:url('glyphicons-halflings.png') -435px -120px;
+}
+.dragHorizIcon.button:hover {background:url('glyphicons-halflings_hover.png') -435px -120px;}

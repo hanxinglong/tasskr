@@ -5,12 +5,14 @@ ul#foldersContainer {
 	padding: 20px 10px 20px 10px;
 	li {
 		list-style: none;
+		cursor:pointer;cursor:hand;
+		padding:0;margin:0;border:0;
 	}
 }
 
 div.container {
 	div.folder {
-		border-bottom:1px solid #aaa;
+		border-bottom:1px solid #888;
 		cursor:pointer;cursor:hand;
 		.nameField {
 			font-size:120%;
@@ -26,7 +28,7 @@ div.container {
 		}
 	}
 	div.task {
-		border-bottom:1px solid #aaa;
+		border-bottom:1px solid #ccc;
 		cursor:pointer;cursor:hand;
 		textarea {
 			margin:0;padding:0;border:0;
@@ -41,9 +43,5 @@ div.container {
 
 
 ul.tasks {
-	padding:0 0 20px 15px;
-	li.task {
-		cursor:pointer;cursor:hand;
-		border-bottom:1px solid #bbb;
-	}
+	padding:0 0 0px 15px;
 }

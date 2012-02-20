@@ -68,9 +68,10 @@ $(function() {
 						</tr>
 					</table>
 				</td>
-				<td style="text-align:right;vertical-align:top;width:40px;">
+				<td style="text-align:right;vertical-align:top;width:1%;white-space:nowrap;">
 					<icon class="plusIcon button"></icon>
 					<icon class="trashIcon button"></icon>
+					<icon class="dragHorizIcon button"></icon>
 				</td>
 			</tr>
 		</table>
@@ -81,12 +82,22 @@ $(function() {
 	<table style="width:100%">
 			<tr>
 				<td>
-					<div class="nameField">{{name}}</div>
-					<div class="nameFieldEdit" style="display:none;"><textarea style="width:100%;" rows="1">{{name}}</textarea><div>
+					<table style="width:100%;">
+						<tr>
+							<td style="vertical-align:top;width:25px;">
+								<input type="checkbox">
+							</td>
+							<td>
+								<div class="nameField">{{name}}</div>
+								<div class="nameFieldEdit" style="display:none;"><textarea style="width:100%;" rows="1">{{name}}</textarea><div>
+							</td>
+						</tr>
+					</table>
 				</td>
-				<td style="text-align:right;vertical-align:top;width:40px;">
+				<td style="text-align:right;vertical-align:top;width:40px;white-space:nowrap;">
 					<icon class="plusIcon button"></icon>
 					<icon class="trashIcon button"></icon>
+					<icon class="dragHorizIcon button"></icon>
 				</td>
 			</tr>
 		</table>
