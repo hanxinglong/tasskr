@@ -29,12 +29,9 @@
 
 
 function fixSizes() {
-	$('#rightContent').height($(window).height());	
+    $('#rightContent').height( $(window).height() - $('footer').outerHeight(true) - $('header').outerHeight(true) - $('#tabs').outerHeight(true)  );	
 }
 
-$(function(){
-	fixSizes();
-});
 $(window).scroll(function() {
 	fixSizes();
 });

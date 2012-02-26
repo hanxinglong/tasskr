@@ -9,6 +9,7 @@ var ContainerView = Backbone.View.extend({
 	},
 
 	render: function() {
+		// render container for view
 		this.$el.html( $(ich.containerViewTemplate( this.model.toJSON() )) );
 
 		// render view

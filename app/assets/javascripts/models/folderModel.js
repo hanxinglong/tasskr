@@ -46,4 +46,19 @@ var FolderModel = BaseModel.extend({
 	},
 
 
+	selectModel: function() {
+		if (!_.isUndefined(app.selectedModel)) { app.selectedModel.deselectModel(); }
+		app.selectedModel = this;
+		this.makeEditable();
+		this.view.$el.addClass('selected');
+	},
+
+
+	deselectModel: function() {
+		this.makeNonEditable();
+		delete app.selectedModel;
+		this.view.$el.removeClass('selected');
+	},
+
+
 });

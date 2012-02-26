@@ -27,6 +27,7 @@ div.container {
 			width:100%;
 		}
 	}
+	div.folder.selected {}
 	div.task {
 		border-bottom:1px solid #ccc;
 		cursor:pointer;cursor:hand;
@@ -38,6 +39,9 @@ div.container {
 			outline: none;
 			width:100%;
 		}
+	}
+	div.task.selected {
+		background-color:$taskHighlightBgColor;
 	}
 }
 

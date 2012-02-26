@@ -21,6 +21,7 @@ var TaskModel = BaseModel.extend({
 		this.lazySave = _.debounce(this.save, 400);
 		this.bind("change:name", this.onChangeName);
 		this.bind("change:openFolder",this.onChangeOpenFolder);
+		this.bind("change:notes", this.onChangeNotes);
 		//this.bind("change:checked", this.onChangeChecked);
 		//this.bind("change:startDate", this.onChangeStartDate);
 		new TaskView({ model:this});
@@ -50,6 +51,28 @@ var TaskModel = BaseModel.extend({
 		this.tasks.add(task, {at:at});
 		task.save();
 		task.makeEditable();
+	},
+
+	selectModel: function() {
+		if (!_.isUndefined(app.selectedModel)) { app.selectedModel.deselectModel(); }
+		app.selectedModel = this;
+		this.makeEditable();
+		new TaskEditView({ model:this});
+		app.tabMenuView.selectTaskTab();
+		this.view.$el.addClass('selected');
+	},
+
+	deselectModel: function() {
+		this.taskEditView.remove();
+		app.tabMenuView.$('#taskTab').hide();
+		app.tabMenuView.selectScheduleTab();
+		this.makeNonEditable();
+		delete app.selectedModel;
+		this.view.$el.removeClass('selected');
+	},
+
+	onChangeNotes: function() {
+		this.lazySave();
 	},
 
 	// onChangeChecked: function() {

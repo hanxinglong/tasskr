@@ -7,6 +7,7 @@ var AddFolderView = Backbone.View.extend({
 	},
 
 	initialize: function() {
+		app.addFolderView = this;
 		$('#addFolderViewContainer').html(this.render().el);
 	},
 

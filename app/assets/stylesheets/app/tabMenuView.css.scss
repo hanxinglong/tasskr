@@ -1,0 +1,29 @@
+@import "variables";
+
+#tabs {
+	ul {
+		padding:0;margin:0;border:0;
+		li {
+			list-style: none;
+			display:inline-block;
+			border-top-left-radius:4px;
+			border-top-right-radius:4px;
+			background-color:darken($rightColumnBg, 30%);
+			padding: 5px 5px 2px 5px;
+			margin: 0 -1px 0 -1px;
+			cursor:hand;cursor:pointer;
+		}
+		li:first-child {
+			margin-left:0px;
+		}
+		li:hover {
+			background-color:darken($rightColumnBg, 15%);
+		}
+		li.selected {
+			background-color:$rightColumnBg;
+		}
+		li.selected:hover {
+			background-color:$rightColumnBg;
+		}
+	}
+}

@@ -3,14 +3,8 @@
 </div></div>
 
 <div id="rightContainer"><div>
-	<div id="tabs">
-		<ul>
-			<li>Schedule</li>
-			<li>Charts</li>
-		</ul>
-	</div>
-	<div id="rightContent">asd
-	</div>
+	<div id="tabs"></div>
+	<div id="rightContent"></div>
 </div></div>
 
 <div id="middleContainer"><div>
@@ -19,8 +13,8 @@
 			<td>
 				<div id="addFolderViewContainer"></div>
 			</td><td style="text-align:right;width:1%;white-space:nowrap;">
-				<input type="button" value="Add Project">
-				<input type="button" value="Clear Completed">
+				<span class="btn">Add Project</span>
+				<span class="btn">Clear Completed</span>
 			</td>
 		</tr></table>
 	</div>
@@ -31,10 +25,17 @@
 Backbone.Model.prototype.idAttribute = "_id";
 var app = {};
 $(function() {
-	app.addFolderView = new AddFolderView;
+	new AddFolderView;
+	new TabMenuView;
+	new ScheduleView;
+	new ChartsView;
+	app.tabMenuView.selectScheduleTab();
+
 	app.folders = new FoldersCollection();
 	app.folders.reset(<%= raw @result.to_json %>);
 	createCookie('timezoneOffset',getTimeZoneOffsetDST(),10);
+
+	fixSizes();
 });
 </script>
 
@@ -101,4 +102,35 @@ $(function() {
 				</td>
 			</tr>
 		</table>
+</script>
+
+
+<script id="tabMenuViewTemplate" type="text/html">
+	<ul>
+		<li id="scheduleTab">Schedule</li>
+		<li id="chartsTab">Charts</li>
+		<li id="taskTab" style="display:none;">Task</li>
+	</ul>
+</script>
+
+
+<script id="taskEditViewTemplate" type="text/html">
+	<table style="height:100%;width:100%;">
+		<tr><td>
+			<textarea style="width:100%;height:100%;" placeholder="Notes">{{notes}}</textarea>
+		</td></tr>
+		<tr style="height:1%;"><td>
+			asdf
+		</td></tr>
+	</table>
+</script>
+
+
+<script id="chartsViewTemplate" type="text/html">
+	<div>chartsView</div>
+</script>
+
+
+<script id="scheduleViewTemplate" type="text/html">
+	<div>scheduleView</div>
 </script>

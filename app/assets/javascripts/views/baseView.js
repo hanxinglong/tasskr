@@ -1,14 +1,12 @@
 var BaseView = Backbone.View.extend({
 
 	clickedOn: function(e) {
-		if (this.$('.taskName').is(':visible')) {
-			this.model.makeEditable();
-		}
+		this.model.selectModel();
 		e.stopPropagation();
 	},
 
 	blurTextArea: function() {
-		this.model.makeNonEditable();
+		this.model.deselectModel();
 	},
 
 	onKeyUp: function() {
@@ -24,13 +22,6 @@ var BaseView = Backbone.View.extend({
 		if (input.val() != this.model.get('name')) {
 			this.model.set({name: input.val()});
 		}
-	},
-
-	clickedOn: function(e) {
-		if (this.$('.nameField').is(':visible')) {
-			this.model.makeEditable();
-		}
-		e.stopPropagation();
 	},
 
 	blurTextArea: function() {
