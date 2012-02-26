@@ -21,6 +21,9 @@ div.container {
 			margin:0;padding:0;border:0;
 			background-color:$midColumnBg;
 			font-size:120%;
+			-webkit-box-shadow: none;
+			-moz-box-shadow: none;
+			box-shadow: none;
 		}
 		textarea:focus {
 			outline: none;
@@ -34,6 +37,9 @@ div.container {
 		textarea {
 			margin:0;padding:0;border:0;
 			background-color:$midColumnBg;
+			-webkit-box-shadow: none;
+			-moz-box-shadow: none;
+			box-shadow: none;
 		}
 		textarea:focus {
 			outline: none;
@@ -41,7 +47,11 @@ div.container {
 		}
 	}
 	div.task.selected {
-		background-color:$taskHighlightBgColor;
+		background-color:lighten($taskHighlightBgColor, 25%);
+		border-bottom:1px solid $taskHighlightBgColor;
+		textarea {
+			background-color:lighten($taskHighlightBgColor, 25%);
+		}
 	}
 }
 

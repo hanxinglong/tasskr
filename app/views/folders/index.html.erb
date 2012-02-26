@@ -8,22 +8,11 @@
 </div></div>
 
 <div id="middleContainer"><div>
-	<div style="padding:20px;">
-		<table style="width:100%;"><tr>
-			<td>
-				<div id="addFolderViewContainer"></div>
-			</td><td style="text-align:right;width:1%;white-space:nowrap;">
-				<span class="btn">Add Project</span>
-				<span class="btn">Clear Completed</span>
-			</td>
-		</tr></table>
-	</div>
+	<div id="addFolderViewContainer"></div>
 	<ul id="foldersContainer"></ul>
 </div></div>
 
 <script>
-Backbone.Model.prototype.idAttribute = "_id";
-var app = {};
 $(function() {
 	new AddFolderView;
 	new TabMenuView;
@@ -33,17 +22,22 @@ $(function() {
 
 	app.folders = new FoldersCollection();
 	app.folders.reset(<%= raw @result.to_json %>);
-	createCookie('timezoneOffset',getTimeZoneOffsetDST(),10);
-
-	fixSizes();
 });
 </script>
 
 
 <script id="addFolderViewTemplate" type="text/html">
-	<div>
-		<input type="text" placeholder="Add Project" id="addFolderInput">
-	</div>
+	<table style="width:100%;">
+		<tr>
+			<td>
+				<input type="text" placeholder="Add Project" id="addFolderInput">
+			</td>
+			<td style="text-align:right;width:1%;">
+				&nbsp;<span class="btn">Add Project</span>
+				<span class="btn">Clear Completed</span>
+			</td>
+		</tr>
+	</table>
 </script>
 
 

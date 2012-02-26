@@ -11,16 +11,7 @@
 		<div id="logo">
 			<%= link_to image_tag('logo.png'), root_path %>
 		</div>
-		<nav>
-			<ul>
-				<% if logged_in? %>
-					<li><%= link_to "Log Out", logout_path %></li>
-				<% else %>
-					<li><%= link_to "Sign Up", signup_path %></li>
-					<li><%= link_to 'Sign In', signin_path %></li>
-				<% end %>
-			</ul>
-		</nav>
+		<nav></nav>
 	</header>
 
 	<div id="content">
@@ -33,3 +24,26 @@
 
 </body>
 </html>
+
+
+<script>
+Backbone.Model.prototype.idAttribute = "_id";
+var app = {};
+$(function() {
+	new MenuView();
+	createCookie('timezoneOffset',getTimeZoneOffsetDST(),10);
+	fixSizes();
+});
+</script>
+
+
+<script id="menuViewTemplate" type="text/html">
+	<ul>
+		<% if logged_in? %>
+		<li><span class="btn" id="logoutButton">Log Out</span></li>
+		<% else %>
+			<li><span class="btn" id="signUpButton">Sign Up</span></li>
+			<li><span class="btn" id="loginButton">Log In</span></li>
+		<% end %>
+	</ul>
+</script>
