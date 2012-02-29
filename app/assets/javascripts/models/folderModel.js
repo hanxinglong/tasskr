@@ -33,6 +33,13 @@ var FolderModel = BaseModel.extend({
 
 
 	addTask: function(at) {
+		// if this model doesn't have an id yet then wait until it does
+		if (this.isNew()) {
+			var tempAddFunction = _.bind(this.addTask, this);
+			_.delay(tempAddFunction, 100, at);
+			return false;
+		}
+
 		if (this.get('openFolder') == false) {
 			this.set({openFolder:true});
 		}

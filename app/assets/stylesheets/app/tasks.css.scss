@@ -29,6 +29,9 @@ div.container {
 			outline: none;
 			width:100%;
 		}
+		&:hover {
+			border-bottom:1px solid $taskHighlightBgColor;
+		}
 	}
 	div.folder.selected {}
 	div.task {
@@ -44,6 +47,9 @@ div.container {
 		textarea:focus {
 			outline: none;
 			width:100%;
+		}
+		&:hover {
+			border-bottom:1px solid $taskHighlightBgColor;
 		}
 	}
 	div.task.selected {

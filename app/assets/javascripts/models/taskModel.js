@@ -40,9 +40,18 @@ var TaskModel = BaseModel.extend({
 	},
 
 	addTask: function(at) {
+		// if this model doesn't have an id yet then wait until it does
+		if (this.isNew()) {
+			var tempAddFunction = _.bind(this.addTask, this);
+			_.delay(tempAddFunction, 100, at);
+			return false;
+		}
+
+		// make sure model is not minimized
 		if (this.get('openFolder') == false) {
 			this.set({openFolder:true});
 		}
+		
 		var task = new TaskModel({
 			name: '',
 			parentTaskId: this.id,
