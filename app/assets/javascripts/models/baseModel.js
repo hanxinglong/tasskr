@@ -1,5 +1,6 @@
 var BaseModel = Backbone.Model.extend({
 
+
 	save: function(attributes, options) {
 		m = this;
 		if (this.isNew()) {
@@ -15,6 +16,7 @@ var BaseModel = Backbone.Model.extend({
 			Backbone.Model.prototype.save.call(this, attributes, options);
 		}
 	},
+
 
 	makeEditable: function() {
 		if (this.view.$('.nameField').is(':visible')) {
