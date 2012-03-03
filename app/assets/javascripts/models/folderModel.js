@@ -40,9 +40,11 @@ var FolderModel = BaseModel.extend({
 			return false;
 		}
 
+		// make sure model is not minimized
 		if (this.get('openFolder') == false) {
 			this.set({openFolder:true});
 		}
+		
 		var task = new TaskModel({
 			name: '',
 			folder_id: this.id

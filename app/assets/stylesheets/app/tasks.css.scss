@@ -65,3 +65,8 @@ div.container {
 ul.tasks {
 	padding:0 0 0px 15px;
 }
+
+.dragging {
+	background-color:$taskHighlightBgColor;
+	height:23px;
+}

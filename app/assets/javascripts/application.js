@@ -22,6 +22,7 @@
 //= require date
 //= require jquery.flot
 //= require jquery.flot.resize
+//= require jquery.ui.sortable
 //= require_tree ./models
 //= require_tree ./collections
 //= require_tree ./views
