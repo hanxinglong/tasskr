@@ -53,6 +53,13 @@ var BaseModel = Backbone.Model.extend({
 	},
 
 
+	onDestroy: function() {
+		this.deselectModel();
+		this.view.remove();
+		this.containerView.remove();
+	},
+
+
 	hasChildren: function() {
 		return this.tasks.length > 0;
 	},

@@ -21,6 +21,7 @@ var FolderModel = BaseModel.extend({
 		new ContainerView({ model:this });
 		this.bind("change:name",this.onChangeName);
 		this.bind("change:openFolder",this.onChangeOpenFolder);
+		this.bind("destroy", this.onDestroy);
 		this.lazySave = _.debounce(this.save, 400);
 
 		// collection for child tasks
@@ -54,7 +55,7 @@ var FolderModel = BaseModel.extend({
 		});
 		this.tasks.add(task, {at:at});
 		task.save();
-		task.makeEditable();
+		task.selectModel();
 	},
 
 

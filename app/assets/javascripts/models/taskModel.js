@@ -24,6 +24,8 @@ var TaskModel = BaseModel.extend({
 		this.bind("change:notes", this.onChangeNotes);
 		this.bind("change:parentTaskId", this.lazySave);
 		this.bind("change:folder_id", this.lazySave);
+		this.bind("change:checked", this.onChangeChecked);
+		this.bind("destroy", this.onDestroy);
 		//this.bind("change:checked", this.onChangeChecked);
 		//this.bind("change:startDate", this.onChangeStartDate);
 		new TaskView({ model:this});
@@ -62,7 +64,7 @@ var TaskModel = BaseModel.extend({
 		});
 		this.tasks.add(task, {at:at});
 		task.save();
-		task.makeEditable();
+		task.selectModel();
 	},
 
 	selectModel: function() {
@@ -83,7 +85,19 @@ var TaskModel = BaseModel.extend({
 		this.view.$el.removeClass('selected');
 	},
 
+
 	onChangeNotes: function() {
+		this.lazySave();
+	},
+
+
+	onChangeChecked: function() {
+		if (this.get('checked')) {
+			this.view.$el.addClass('checked');
+			//this.set({ completedDate: new Date() });
+		} else {
+			this.view.$el.removeClass('checked');
+		}
 		this.lazySave();
 	},
 
