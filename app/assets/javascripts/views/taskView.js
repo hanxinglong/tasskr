@@ -9,6 +9,7 @@ var TaskView = BaseView.extend({
 		"keyup .nameFieldEdit" : "onKeyUp",
 		"click .trashIcon": "deleteModel",
 		"click .plusIcon": "addTask",
+		"click input[type=checkbox]" : "clickCheckBox",
 		// "click .plusIcon" : "toggleOpenFolder",
 		// "click .minusIcon" : "toggleOpenFolder",
 	},
@@ -19,7 +20,18 @@ var TaskView = BaseView.extend({
 
 	render: function() {
 		this.$el.html( $(ich.taskViewTemplate( this.model.toJSON() )) );
+		if (this.model.get('checked')) { this.$el.addClass('checked'); }
 		return this;
+	},
+
+
+	clickCheckBox: function(e) {
+		if (this.model.get('checked')) {
+			this.model.set({checked:false});
+		} else {
+			this.model.set({checked:true});
+		}
+		e.stopPropagation();
 	},
 
 	
