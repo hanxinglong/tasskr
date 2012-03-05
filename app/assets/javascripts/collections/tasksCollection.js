@@ -15,12 +15,6 @@ var TasksCollection = BaseCollection.extend({
 	},
 
 
-	removeModel: function(model, collection) {
-		model.view.remove();
-		model.containerView.remove();
-	},
-
-
 	addModel: function(model, collection) {
 		if (_.isUndefined(this.parentFolder)) {
 			// parent is not a folder

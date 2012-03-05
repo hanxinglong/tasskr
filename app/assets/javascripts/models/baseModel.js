@@ -160,26 +160,39 @@ var BaseModel = Backbone.Model.extend({
 
 
 	indent: function() {
-		if (this.prevSibling()) {
-			oldCollection = this.collection;
-			newCollection = this.prevSibling().tasks;
-			oldCollection.remove(this);
-			newCollection.add(this, {at:newCollection.length});
-			return this;
+		if (!this.isFolder()) {
+			if (this.prevSibling()) {
+				oldCollection = this.collection;
+				newCollection = this.prevSibling().tasks;
+				oldCollection.remove(this);
+				newCollection.add(this, {at:newCollection.length});
+				return this;
+			}
 		}
 		return false;
 	},
 
 
 	unindent: function() {
-		if (!this.isParentAFolder()) {
-			var oldCollection = this.collection;
-			var newCollection = this.parentTask().collection;
-			oldCollection.remove(this);
-			newCollection.add(this, {at:newCollection.indexOf(oldCollection.parentTask)+1});
-			return this;
+		if (!this.isFolder()) {
+			if (!this.isParentAFolder()) {
+				var oldCollection = this.collection;
+				var newCollection = this.parentTask().collection;
+				oldCollection.remove(this);
+				newCollection.add(this, {at:newCollection.indexOf(oldCollection.parentTask)+1});
+				return this;
+			}
 		}
 		return false;
+	},
+
+
+	isFolder: function() {
+		if (this.has('user_id')) {
+			return true;
+		} else {
+			return false;
+		}
 	},
 
 

@@ -9,4 +9,10 @@ var BaseCollection = Backbone.Collection.extend({
 		});
 	},
 
+
+	removeModel: function(model, collection) {
+		model.view.remove();
+		model.containerView.remove();
+	},
+
 });

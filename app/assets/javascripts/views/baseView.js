@@ -38,7 +38,7 @@ var BaseView = Backbone.View.extend({
 
 		// up
 		if (e.keyCode === 38) {
-			if (e.ctrlKey) {
+			if (e.shiftKey) {
 				if (this.model.moveUp()) {
 					this.model.selectModel();
 				}
@@ -53,7 +53,7 @@ var BaseView = Backbone.View.extend({
 
 		// down
 		if (e.keyCode === 40) {
-			if (e.ctrlKey) {
+			if (e.shiftKey) {
 				if (this.model.moveDown()) {
 					this.model.selectModel();
 				}
