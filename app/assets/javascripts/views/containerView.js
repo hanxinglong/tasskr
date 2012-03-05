@@ -14,11 +14,15 @@ var ContainerView = Backbone.View.extend({
 
 		// render view
 		this.$el.children('.container').first().html(this.model.view.render().el);
+		this.model.view.delegateEvents();
 
 		// render child tasks
 		_.each(this.model.tasks.models, function(t) {
 			$(this.el).children('ul.tasks').first().append(t.containerView.render().el);
+			t.view.delegateEvents();
 		}, this);
+
+		this.$el.attr('cid', this.model.cid); 		// set cid of LI to model's cid
 
 		return this;
 	}

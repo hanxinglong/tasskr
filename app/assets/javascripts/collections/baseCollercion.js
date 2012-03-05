@@ -1,4 +1,5 @@
 var BaseCollection = Backbone.Collection.extend({
+
 	setOrderFromIndex: function(){
 		_.each(this.models, function(m) {
 			if (m.get('order') != _.indexOf(m.collection.models, m)) {
@@ -7,4 +8,5 @@ var BaseCollection = Backbone.Collection.extend({
 			}
 		});
 	},
+
 });

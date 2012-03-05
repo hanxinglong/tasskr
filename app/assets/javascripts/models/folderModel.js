@@ -8,11 +8,13 @@ var FolderModel = BaseModel.extend({
 		selected: false,
 	},
 
+
 	url: function() {
 		var base = 'folders';
 		if (this.isNew()) return base;
 		return base + (base.charAt(base.length - 1) == '/' ? '' : '/') + this.id;
 	},
+
 
 	initialize: function() {
 		new FolderView({ model:this });
@@ -27,6 +29,7 @@ var FolderModel = BaseModel.extend({
 		_.each(this.get('childtasks'), function(t) {
 				var task = new TaskModel(t);
 				this.tasks.add(task, {silent:true});
+				app.allTasks.add(task);
 		}, this);
 		this.unset('childtasks', {silent:true});
 	},

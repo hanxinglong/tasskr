@@ -5,11 +5,71 @@ var BaseView = Backbone.View.extend({
 		e.stopPropagation();
 	},
 
+
 	blurTextArea: function() {
 		this.model.deselectModel();
 	},
 
-	onKeyUp: function() {
+
+	onKeyDown: function(e) {
+
+		// tab
+		if (e.keyCode === 9) {
+			if (e.shiftKey) {
+				// shift + tab
+				if (this.model.unindent()) {
+					this.model.selectModel();
+				}
+			} else {
+				// tab
+				if (this.model.indent()) {
+					this.model.selectModel();
+				}
+			}
+			e.stopPropagation();
+			return false;
+		}
+
+		// enter
+		// prevent newlines when hitting enter
+		if(e.keyCode == 13) { 
+			return false;
+		}
+
+		// up
+		if (e.keyCode === 38) {
+			if (e.ctrlKey) {
+				if (this.model.moveUp()) {
+					this.model.selectModel();
+				}
+			} else {
+				if (this.model.modelAbove()) {
+					this.model.modelAbove().selectModel();
+				}
+			}
+			e.stopPropagation();
+			return false;
+		}
+
+		// down
+		if (e.keyCode === 40) {
+			if (e.ctrlKey) {
+				if (this.model.moveDown()) {
+					this.model.selectModel();
+				}
+			} else {
+				if (this.model.modelBelow()) {
+					this.model.modelBelow().selectModel();
+				}
+			}
+			e.stopPropagation();
+			return false;
+		}
+
+	},
+
+
+	onKeyUp: function(e) {
 		// auto expand textarea
 		var input = this.$('textarea');
 		// input.attr('rows', '1');
@@ -24,14 +84,17 @@ var BaseView = Backbone.View.extend({
 		}
 	},
 
+
 	blurTextArea: function() {
 		this.model.makeNonEditable();
 	},
+
 
 	addTask: function(e) {
 		this.model.addTask(0);
 		e.stopPropagation();
 	},
+
 
 	toggleOpenFolder: function(e) {
 		if (this.model.get('openFolder')) {
@@ -41,6 +104,7 @@ var BaseView = Backbone.View.extend({
 		}
 		e.stopPropagation();
 	},
+
 
 	deleteModel: function(e){
 		var answer = confirm('Delete?');

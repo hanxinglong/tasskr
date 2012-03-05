@@ -22,6 +22,8 @@ var TaskModel = BaseModel.extend({
 		this.bind("change:name", this.onChangeName);
 		this.bind("change:openFolder",this.onChangeOpenFolder);
 		this.bind("change:notes", this.onChangeNotes);
+		this.bind("change:parentTaskId", this.lazySave);
+		this.bind("change:folder_id", this.lazySave);
 		//this.bind("change:checked", this.onChangeChecked);
 		//this.bind("change:startDate", this.onChangeStartDate);
 		new TaskView({ model:this});
@@ -35,6 +37,7 @@ var TaskModel = BaseModel.extend({
 		_.each(this.get('childtasks'), function(t) {
 				var task = new TaskModel(t);
 				this.tasks.add(task, {silent:true});
+				app.allTasks.add(task);
 		}, this);
 		this.unset('childtasks', {silent:true});
 	},

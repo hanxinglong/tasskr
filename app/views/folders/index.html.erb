@@ -20,6 +20,8 @@ $(function() {
 	new ChartsView;
 	app.tabMenuView.selectScheduleTab();
 
+	app.allTasks = new AllTasksCollection();
+
 	app.folders = new FoldersCollection();
 	app.folders.reset(<%= raw @result.to_json %>);
 
@@ -28,8 +30,50 @@ $(function() {
 		placeholder: "dragging",
 		handle: ".dragHorizIcon",
 		axis: 'y',
-		containment: "ul#foldersContainer",
 		delay: 100,
+		tolerance: 'pointer',
+		receive: function(event, ui) {
+			var pos = ui.item.parent('ul').children('li').index(ui.item);
+			var model = app.allTasks.getByCid( ui.item.attr('cid') );
+			var oldCollection = model.collection;
+
+			var parentCid = ui.item.parent('ul').parent('li').attr('cid');
+			if (ui.item.parent('ul').parent('li').parent('ul').attr('id') == 'foldersContainer') {
+				var parentModel = app.folders.getByCid(parentCid);
+				model.set({folder_id: parentModel.id, parentTaskId:null});
+			} else {
+				var parentModel = app.allTasks.getByCid(parentCid);
+				model.set({folder_id: parentModel.get('folder_id'), parentTaskId: parentModel.id});
+			}
+
+			oldCollection.remove(model, {silent:true});
+			parentModel.tasks.add(model, {at:pos, silent:true});
+			parentModel.tasks.setOrderFromIndex();
+			model.save();
+		},
+
+		update: function(event, ui) {
+			// do all this shit so that update only runs when moving in same collection
+			if (!ui.sender) {
+				var pos = ui.item.parent('ul').children('li').index(ui.item);
+				var model = app.allTasks.getByCid( ui.item.attr('cid') );
+				if (model) {
+					var oldCollection = model.collection
+					var parentCid = ui.item.parent('ul').parent('li').attr('cid');
+					if (ui.item.parent('ul').parent('li').parent('ul').attr('id') == 'foldersContainer') {
+						var parentModel = app.folders.getByCid(parentCid);
+					} else {
+						var parentModel = app.allTasks.getByCid(parentCid);
+					}
+					if (parentModel.tasks == model.collection) {
+						oldCollection.remove(model, {silent:true});
+						oldCollection.add(model, {at:pos, silent:true});
+						oldCollection.setOrderFromIndex();
+						model.save();
+					}
+				}
+			}
+		},
 	});
 
 	$("ul#foldersContainer").sortable({
@@ -37,6 +81,12 @@ $(function() {
 		handle: ".dragHorizIcon",
 		axis: 'y',
 		delay: 100,
+		update: function(event, ui) {
+			var pos = ui.item.parent('ul').children('li').index(ui.item);
+			var model = app.folders.getByCid( ui.item.attr('cid') );
+			app.folders.remove(model);
+			app.folders.add(model, {at:pos});
+		},
 	});
 
 });

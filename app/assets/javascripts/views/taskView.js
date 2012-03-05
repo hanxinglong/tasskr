@@ -5,6 +5,7 @@ var TaskView = BaseView.extend({
 	events: {
 		"click": "clickedOn",
 		"blur .nameFieldEdit": "blurTextArea",
+		"keydown .nameFieldEdit": "onKeyDown",
 		"keyup .nameFieldEdit" : "onKeyUp",
 		"click .trashIcon": "deleteModel",
 		"click .plusIcon": "addTask",

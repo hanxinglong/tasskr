@@ -9,7 +9,8 @@ var FolderView = BaseView.extend({
 		"click .plusIcon": "addTask",
 		"click .openFolderIcon" : "toggleOpenFolder",
 		"click .closedFolderIcon" : "toggleOpenFolder",
-		"keyup .nameFieldEdit" : "onKeyUp"
+		"keydown .nameFieldEdit": "onKeyDown",
+		"keyup .nameFieldEdit" : "onKeyUp",
 	},
 
 	initialize: function() {
