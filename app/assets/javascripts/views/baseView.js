@@ -13,6 +13,30 @@ var BaseView = Backbone.View.extend({
 
 	onKeyDown: function(e) {
 
+		// backspace
+		if (e.keyCode === 8) {
+			if (e.shiftKey) {
+				
+				if (this.model.modelAbove()) {
+					var select = this.model.modelAbove();
+				} else if (this.model.modelBelow()) {
+					var select = this.model.modelBelow();
+				}
+
+				v = this;
+				$(this.model.containerView.el).slideUp(200, function() {
+					v.model.destroy();
+				});
+
+				if (!_.isUndefined(select)) {
+					select.selectModel();
+				}
+
+				e.stopPropagation();
+				return false;
+			}
+		}
+
 		// tab
 		if (e.keyCode === 9) {
 			if (e.shiftKey) {
@@ -32,7 +56,11 @@ var BaseView = Backbone.View.extend({
 
 		// enter
 		// prevent newlines when hitting enter
-		if(e.keyCode == 13) { 
+		if(e.keyCode == 13) {
+			if (!this.model.isFolder()) {
+				this.model.parentTaskOrFolder().addTask(this.model.collection.indexOf(this.model)+1); 
+			}
+			e.stopPropagation();
 			return false;
 		}
 

@@ -105,6 +105,15 @@ var BaseModel = Backbone.Model.extend({
 	},
 
 
+	parentTaskOrFolder: function() {
+		if (this.isParentAFolder()) {
+			return this.parentFolder();
+		} else {
+			return this.parentTask();
+		}
+	},
+
+
 	parentTask: function() {
 		return this.collection.parentTask;
 	},
