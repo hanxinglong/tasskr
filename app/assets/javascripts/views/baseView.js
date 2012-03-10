@@ -16,21 +16,20 @@ var BaseView = Backbone.View.extend({
 		// backspace
 		if (e.keyCode === 8) {
 			if (e.shiftKey) {
-				
+
 				if (this.model.modelAbove()) {
-					var select = this.model.modelAbove();
+					var selectAfter = this.model.modelAbove();
 				} else if (this.model.modelBelow()) {
-					var select = this.model.modelBelow();
+					var selectAfter = this.model.modelBelow();
 				}
 
 				v = this;
 				$(this.model.containerView.el).slideUp(200, function() {
 					v.model.destroy();
+					if (!_.isUndefined(selectAfter)) {
+						selectAfter.selectModel();
+					}
 				});
-
-				if (!_.isUndefined(select)) {
-					select.selectModel();
-				}
 
 				e.stopPropagation();
 				return false;

@@ -11,7 +11,7 @@ var TasksCollection = BaseCollection.extend({
 		this.bind('add', this.addToAllTasksCollection);
 		this.bind('remove', this.removeFromAllTasksCollection);
 		this.bind('remove', this.removeModel);
-		this.bind('add', this.addModel);
+		//this.bind('add', this.addModel);
 	},
 
 
@@ -37,19 +37,19 @@ var TasksCollection = BaseCollection.extend({
 	},
 
 
-	// addViewToDom: function(model, collection) {
-	// 	var index = _.indexOf(this.models, model);
-	// 	if (index == 0) {
-	// 		if (!_.isUndefined(this.parentTask)) {
-	// 			$(this.parentTask.containerView.el).children('ul.tasks').prepend(model.containerView.render().el);
-	// 		} else {
-	// 			$(this.parentFolder.containerView.el).children('ul.tasks').prepend(model.containerView.render().el);
-	// 		}
-	// 	} else {
-	// 		$(this.at(index-1).view.el).after(model.containerView.render().el);
-	// 	}
-	// 	model.view.delegateEvents();
-	// },
+	addViewToDom: function(model, collection) {
+		var index = _.indexOf(this.models, model);
+		if (index == 0) {
+			if (!_.isUndefined(this.parentTask)) {
+				$(this.parentTask.containerView.el).children('ul.tasks').prepend(model.containerView.render().el);
+			} else {
+				$(this.parentFolder.containerView.el).children('ul.tasks').prepend(model.containerView.render().el);
+			}
+		} else {
+			$(this.at(index-1).view.el).after(model.containerView.render().el);
+		}
+		model.view.delegateEvents();
+	},
 
 
 	addToAllTasksCollection: function(model, collection) {

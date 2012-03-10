@@ -7,7 +7,7 @@ var FoldersCollection = BaseCollection.extend({
     this.bind('add', this.setOrderFromIndex);
     this.bind('add', this.addViewToDom);
     this.bind('remove', this.removeModel);
-    this.bind('add', this.addModel);
+    //this.bind('add', this.addModel);
   },
 
 
@@ -23,7 +23,7 @@ var FoldersCollection = BaseCollection.extend({
     if (index == 0) {
       $('#foldersContainer').prepend(model.containerView.render().el);
     } else {
-      $(this.at(index-1).view.el).after(model.containerView.render().el);
+      $(this.at(index-1).containerView.el).after(model.containerView.render().el);
     }
   },
 
