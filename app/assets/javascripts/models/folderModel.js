@@ -22,6 +22,8 @@ var FolderModel = BaseModel.extend({
 		this.bind("change:name",this.onChangeName);
 		this.bind("change:openFolder",this.onChangeOpenFolder);
 		this.bind("destroy", this.onDestroy);
+		this.bind("error", this.saveError);
+		this.bind("success", this.saveSuccess);
 		this.lazySave = _.debounce(this.save, 400);
 
 		// collection for child tasks

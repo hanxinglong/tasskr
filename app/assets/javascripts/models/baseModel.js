@@ -1,7 +1,8 @@
 var BaseModel = Backbone.Model.extend({
 
-	save: function(attributes, options) {
-		m = this;
+	save: function(attributes) {
+
+		var m = this;
 		if (this.isNew()) {
 			if (this.get('createdInDb')) {
 				clearTimeout(this.get('saveTimerId'));
@@ -12,8 +13,21 @@ var BaseModel = Backbone.Model.extend({
 				this.set({createdInDb:true}, {silent:true});
 			}
 		} else {
-			Backbone.Model.prototype.save.call(this, attributes, options);
+			Backbone.Model.prototype.save.call(this, attributes, {
+				error: function(){m.trigger("error")},
+				success: function(){m.trigger("success")},
+			});
 		}
+	},
+
+
+	saveError: function() {
+		$('#errorMsg').show();
+	},
+
+
+	saveSuccess: function() {
+		$('#errorMsg').hide();
 	},
 
 

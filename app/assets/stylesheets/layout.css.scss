@@ -30,6 +30,17 @@ header {
 	}
 }
 
+#errorMsg {
+	width:100%;
+	position:fixed;
+	bottom:$footerHeight;
+	height:$footerHeight;
+	text-align:center;
+	padding:5px;
+	background-color:red;
+	color:#fff;
+}
+
 footer {
 	width:100%;
 	position:fixed;
