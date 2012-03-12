@@ -56,8 +56,10 @@ var BaseView = Backbone.View.extend({
 		// enter
 		// prevent newlines when hitting enter
 		if(e.keyCode == 13) {
-			if (!this.model.isFolder()) {
-				this.model.parentTaskOrFolder().addTask(this.model.collection.indexOf(this.model)+1); 
+			if (this.model.isFolder()) {
+				this.model.addTask(0);
+			} else {
+				this.model.parentTaskOrFolder().addTask(this.model.collection.indexOf(this.model)+1);
 			}
 			e.stopPropagation();
 			return false;

@@ -5,11 +5,17 @@ var BaseModel = Backbone.Model.extend({
 		var m = this;
 		if (this.isNew()) {
 			if (this.get('createdInDb')) {
-				clearTimeout(this.get('saveTimerId'));
-				var t = setTimeout('m.save()', 100);
-				this.set({saveTimerId: t}, {silent: true});
+				// clearTimeout(this.get('saveTimerId'));
+				// var t = setTimeout(m.save(), 100);
+				var saveFunction = _.bind(m.save, m);
+				_.delay(saveFunction, 100);
+				//this.set({saveTimerId: t}, {silent: true});
 			} else {
-				Backbone.Model.prototype.save.call(this, attributes, {silent:true});
+				Backbone.Model.prototype.save.call(this, attributes, {
+					silent:true,
+					error: function(){m.trigger("error")},
+					success: function(){m.trigger("success")},
+				});
 				this.set({createdInDb:true}, {silent:true});
 			}
 		} else {
@@ -82,7 +88,7 @@ var BaseModel = Backbone.Model.extend({
 		var index = this.collection.indexOf(this);
 
 		if (this.prevSibling()) {			// if has sibling above
-			if (app.folders.get(this.prevSibling().get('folder_id')).get('openFolder')) {
+			if (this.prevSibling().isParentFolderOpen()) {
 				if (this.prevSibling().hasChildren()) {			// if model above has children
 					return this.prevSibling().leaf();			// select leaf of model above
 				} else {
@@ -113,6 +119,15 @@ var BaseModel = Backbone.Model.extend({
 			} else {
 				return this.nextAboveBranch();			// return next task on above branch
 			}
+		}
+	},
+
+
+	isParentFolderOpen: function() {
+		if (this.isFolder()) {
+			return this.get('openFolder');
+		} else {
+			return this.parentFolder().get('openFolder');
 		}
 	},
 

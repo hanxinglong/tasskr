@@ -2,14 +2,19 @@
 
 ul#foldersContainer {
 	margin:0;border:0;
-	padding: 20px 10px 20px 10px;
+	padding: 0px 0px 0px 0px;
 	li {
 		list-style: none;
 		cursor:pointer;cursor:hand;
 		padding:0;margin:0;border:0;
+		border-left:1px solid #ccc;
 	}
 	& > li {
-		padding-bottom:30px;
+		padding-bottom:25px;
+		border:0;
+	}
+	li:last-child {
+		border:0;
 	}
 }
 
@@ -17,6 +22,10 @@ div.container {
 	div.folder {
 		border-bottom:1px solid #888;
 		cursor:pointer;cursor:hand;
+		padding-left:15px;
+		padding-right:15px;
+		padding-top:2px;
+		padding-bottom:2px;
 		.nameField {
 			font-size:120%;
 		}
@@ -32,14 +41,27 @@ div.container {
 			outline: none;
 			width:100%;
 		}
+		&.selected {
+			background-color:lighten($taskHighlightBgColor, 25%);
+			border-bottom:1px solid $taskHighlightBgColor;
+			textarea {
+				background-color:lighten($taskHighlightBgColor, 25%);
+			}
+		}
 		&:hover {
 			border-bottom:1px solid $taskHighlightBgColor;
 		}
 	}
-	div.folder.selected {}
+
 	div.task {
+		border:0;
+		border-left:1px solid #ccc;
 		border-bottom:1px solid #ccc;
 		cursor:pointer;cursor:hand;
+		padding-left:15px;
+		padding-right:15px;
+		padding-top:2px;
+		padding-bottom:2px;
 		textarea {
 			margin:0;padding:0;border:0;
 			background-color:$midColumnBg;
@@ -57,6 +79,7 @@ div.container {
 		&.selected {
 			background-color:lighten($taskHighlightBgColor, 25%);
 			border-bottom:1px solid $taskHighlightBgColor;
+			border-left:1px solid $taskHighlightBgColor;
 			textarea {
 				background-color:lighten($taskHighlightBgColor, 25%);
 			}
@@ -74,9 +97,7 @@ div.container {
 
 
 ul.tasks {
-	padding:0 0 0px 15px;
-	background-image: url('/assets/bg_items.png');
-	background-repeat: repeat-y;
+	padding:0 0 0px 25px;
 }
 
 .dragging {
