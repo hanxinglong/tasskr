@@ -79,7 +79,6 @@ div.container {
 		&.selected {
 			background-color:lighten($taskHighlightBgColor, 25%);
 			border-bottom:1px solid $taskHighlightBgColor;
-			border-left:1px solid $taskHighlightBgColor;
 			textarea {
 				background-color:lighten($taskHighlightBgColor, 25%);
 			}
