@@ -99,12 +99,12 @@ var BaseView = Backbone.View.extend({
 	onKeyUp: function(e) {
 		// auto expand textarea
 		var input = this.$('textarea');
-		// input.attr('rows', '1');
-		// while (input.height() < input[0].scrollHeight) {
-		// 	input.css('overflow-y', 'scroll');
-		// 	input.attr('rows', input[0].rows + 1);
-		// 	input.css('overflow-y', 'hidden');
-		// }
+		input.attr('rows', '1');
+		while (input.height() < input[0].scrollHeight) {
+			input.css('overflow-y', 'scroll');
+			input.attr('rows', input[0].rows + 1);
+			input.css('overflow-y', 'hidden');
+		}
 
 		if (input.val() != this.model.get('name')) {
 			this.model.set({name: input.val()});

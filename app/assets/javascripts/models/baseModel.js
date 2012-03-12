@@ -35,9 +35,8 @@ var BaseModel = Backbone.Model.extend({
 		if (this.view.$('.nameField').is(':visible')) {
 			this.view.$('.nameField').hide();
 			this.view.$('.nameFieldEdit').show();
-			//this.view.onKeyUp();		// resize textarea
+			this.view.onKeyUp();		// resize textarea
 			this.view.$('.nameFieldEdit').find('textarea').caretToEnd();
-
 		}
 	},
 
@@ -83,10 +82,14 @@ var BaseModel = Backbone.Model.extend({
 		var index = this.collection.indexOf(this);
 
 		if (this.prevSibling()) {			// if has sibling above
-			if (this.prevSibling().hasChildren()) {			// if model above has children
-				return this.prevSibling().leaf();			// select leaf of model above
+			if (app.folders.get(this.prevSibling().get('folder_id')).get('openFolder')) {
+				if (this.prevSibling().hasChildren()) {			// if model above has children
+					return this.prevSibling().leaf();			// select leaf of model above
+				} else {
+					return this.prevSibling();
+				}
 			} else {
-				return this.prevSibling();
+				return app.folders.get(this.prevSibling().get('folder_id'));
 			}
 		} else {
 			if (this.isParentAFolder()) {		// if parent is a folder
