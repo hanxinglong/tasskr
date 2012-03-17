@@ -23,6 +23,7 @@ var FolderModel = BaseModel.extend({
 		new OutlineRowView({ model:this });
 		this.bind("change:name",this.onChangeName);
 		this.bind("change:openFolder",this.onChangeOpenFolder);
+		this.bind("change:displayStartDateFromNow", this.onDisplayStartDateFromNow);
 		this.bind("destroy", this.onDestroy);
 		this.bind("error", this.saveError);
 		this.bind("success", this.saveSuccess);

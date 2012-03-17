@@ -78,11 +78,17 @@ var BaseModel = Backbone.Model.extend({
 	          	startDateString: dateString.trim(),
 	          	startDate: moment(date).format('MMMM Do YYYY, h:mm:ss a'),
 	          	displayName: this.get('name').replace(dateString.trim(), ''),
+	          	displayStartDateFromNow: moment(date).fromNow(),
 	          });
 	        }
 	      }
 	    }
 	  }
+	},
+
+
+	onDisplayStartDateFromNow: function() {
+		this.view.$('.displayStartDateFromNow').html(this.get('displayStartDateFromNow'));
 	},
 
 
