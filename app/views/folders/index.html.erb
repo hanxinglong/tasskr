@@ -102,7 +102,7 @@ $(function() {
 				<input type="text" placeholder="Add Project" id="addFolderInput">
 			</td>
 			<td style="text-align:right;width:1%;">
-				&nbsp;<span class="btn">Add Project</span>
+				&nbsp;<span class="btn" id="addProjectSubmitButton">Add Project</span>
 				<span class="btn">Clear Completed</span>
 			</td>
 		</tr>
@@ -183,7 +183,7 @@ $(function() {
 			<textarea style="width:100%;height:100%;" placeholder="Notes">{{notes}}</textarea>
 		</td></tr>
 		<tr style="height:1%;"><td>
-			asdf
+			Task created {{tempCreatedDateFromNow}}
 		</td></tr>
 	</table>
 </script>

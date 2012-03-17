@@ -7,11 +7,11 @@ var TasksCollection = BaseCollection.extend({
 	initialize: function() {
 		this.bind('add', this.setOrderFromIndex);
 		this.bind('add', this.setParentId);
-		this.bind('add', this.addViewToDom);
+		//this.bind('add', this.addViewToDom);
 		this.bind('add', this.addToAllTasksCollection);
 		this.bind('remove', this.removeFromAllTasksCollection);
 		this.bind('remove', this.removeModel);
-		//this.bind('add', this.addModel);
+		this.bind('add', this.addModel);
 	},
 
 
@@ -21,7 +21,7 @@ var TasksCollection = BaseCollection.extend({
 			collection.parentTask.containerView.render();
 		} else {
 			// parent is a folder
-			app.folders.get(model.get('folder_id')).containerView.render();
+			model.collection.parentFolder.containerView.render();
 		}
 	},
 

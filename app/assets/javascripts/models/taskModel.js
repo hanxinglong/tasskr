@@ -25,6 +25,7 @@ var TaskModel = BaseModel.extend({
 		this.bind("change:parentTaskId", this.lazySave);
 		this.bind("change:folder_id", this.lazySave);
 		this.bind("change:checked", this.onChangeChecked);
+		this.bind("change:createdInDb", this.onCreatedInDb);
 		this.bind("destroy", this.onDestroy);
 		this.bind("error", this.saveError);
 		this.bind("success", this.saveSuccess);
@@ -85,6 +86,13 @@ var TaskModel = BaseModel.extend({
 		this.makeNonEditable();
 		delete app.selectedModel;
 		this.view.$el.removeClass('selected');
+	},
+
+
+	onCreatedInDb: function() {
+		if (!_.isUndefined(this.taskEditView)) {
+			this.taskEditView.render();
+		}
 	},
 
 

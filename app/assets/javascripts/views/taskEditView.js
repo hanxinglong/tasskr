@@ -13,6 +13,11 @@ var TaskEditView = Backbone.View.extend({
 	},
 
 	render: function() {
+		if (this.model.has('created_at')) {
+			this.model.set({ tempChowCreatedDate: true}, {silent:true});
+			this.model.set({ tempCreatedDateFromNow: moment( this.model.get( 'created_at' ) ).calendar().toLowerCase() }, {silent:true});
+		}
+
 		this.$el.html( $(ich.taskEditViewTemplate( this.model.toJSON() )) );
 		return this;
 	},

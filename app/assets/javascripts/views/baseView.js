@@ -55,7 +55,7 @@ var BaseView = Backbone.View.extend({
 
 		// enter
 		// prevent newlines when hitting enter
-		if(e.keyCode == 13) {
+		if(e.keyCode == 13) {console.log('asdf')
 			if (this.model.isFolder()) {
 				this.model.addTask(0);
 			} else {
@@ -74,6 +74,8 @@ var BaseView = Backbone.View.extend({
 			} else {
 				if (this.model.modelAbove()) {
 					this.model.modelAbove().selectModel();
+				} else {
+					$('#addFolderInput').focus();
 				}
 			}
 			e.stopPropagation();

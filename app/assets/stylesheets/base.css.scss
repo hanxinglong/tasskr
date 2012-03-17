@@ -52,3 +52,8 @@ input[type=text],textarea {
 	background-image: -o-linear-gradient(top, #E6E6E6, #E6E6E6);
 	background-image: linear-gradient(top, #E6E6E6, #E6E6E6);
 }
+.btn:active {
+	background-image: -webkit-linear-gradient(top, #555, #555);
+	background-image: -o-linear-gradient(top, #555, #555);
+	background-image: linear-gradient(top, #555, #555);
+}
