@@ -9,6 +9,7 @@ var TaskModel = BaseModel.extend({
 		hideTask: false,
 		parentTaskId: null,
 		openFolder: true,
+		modelType: 'task',
 	},
 
 	url: function() {
@@ -39,6 +40,7 @@ var TaskModel = BaseModel.extend({
 		// collection for child tasks
 		this.tasks = new TasksCollection;		
 		this.tasks.parentTask = this;
+		this.tasks.parentModel = this;
 		_.each(this.get('childtasks'), function(t) {
 				var task = new TaskModel(t);
 				this.tasks.add(task, {silent:true});

@@ -6,6 +6,7 @@ var FolderModel = BaseModel.extend({
 		openFolder: true,
 		createdInDb: false,
 		selected: false,
+		modelType: 'folder',
 	},
 
 
@@ -29,6 +30,7 @@ var FolderModel = BaseModel.extend({
 		// collection for child tasks
 		this.tasks = new TasksCollection;		
 		this.tasks.parentFolder = this;
+		this.tasks.parentModel = this;
 		_.each(this.get('childtasks'), function(t) {
 				var task = new TaskModel(t);
 				this.tasks.add(task, {silent:true});

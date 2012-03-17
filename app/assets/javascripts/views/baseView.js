@@ -19,8 +19,8 @@ var BaseView = Backbone.View.extend({
 
 				if (this.model.modelAbove()) {
 					var selectAfter = this.model.modelAbove();
-				} else if (this.model.modelBelow()) {
-					var selectAfter = this.model.modelBelow();
+				} else if (this.model.nextSibling()) {
+					var selectAfter = this.model.nextSibling();
 				}
 
 				v = this;
@@ -55,7 +55,7 @@ var BaseView = Backbone.View.extend({
 
 		// enter
 		// prevent newlines when hitting enter
-		if(e.keyCode == 13) {console.log('asdf')
+		if(e.keyCode == 13) {
 			if (this.model.isFolder()) {
 				this.model.addTask(0);
 			} else {

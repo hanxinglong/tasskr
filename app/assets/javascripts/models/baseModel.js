@@ -98,11 +98,7 @@ var BaseModel = Backbone.Model.extend({
 				return app.folders.get(this.prevSibling().get('folder_id'));
 			}
 		} else {
-			if (this.isParentAFolder()) {		// if parent is a folder
-				return this.parentFolder();
-			} else {
-				return this.parentTask();		// return parent task
-			}
+			return this.collection.parentModel;
 		}
 		return false;
 	},
@@ -138,21 +134,29 @@ var BaseModel = Backbone.Model.extend({
 
 
 	parentTaskOrFolder: function() {
-		if (this.isParentAFolder()) {
-			return this.parentFolder();
-		} else {
-			return this.parentTask();
-		}
+		return this.collection.parentModel;
 	},
 
 
 	parentTask: function() {
-		return this.collection.parentTask;
+		if (_.isUndefined(this.collection.parentTask)) {
+			console.log('ERROR')
+		} else {
+			return this.collection.parentTask;
+		}
 	},
 
 
 	parentFolder: function() {
-		return app.folders.get(this.get('folder_id'));
+		if (this.isFolder()) {
+			return this;
+		} else {
+			if (this.isParentAFolder()) {
+				return this.collection.parentModel;
+			} else {
+				return this.collection.parentModel.parentFolder();
+			}
+		}
 	},
 
 
@@ -236,11 +240,7 @@ var BaseModel = Backbone.Model.extend({
 
 
 	isFolder: function() {
-		if (this.has('user_id')) {
-			return true;
-		} else {
-			return false;
-		}
+		return this.get('modelType') == 'folder';
 	},
 
 
