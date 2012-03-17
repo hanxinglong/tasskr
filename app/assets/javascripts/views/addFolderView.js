@@ -22,7 +22,10 @@ var AddFolderView = Backbone.View.extend({
 
 
 	addProjectSubmitButton: function(e) {console.log('asdf')
-		if ($('#addFolderInput').val() != '') {
+		if ($('#addFolderInput').val() == '') {
+			$('#addFolderInput').val('Enter project name here');
+			$('#addFolderInput').focus();
+		} else {
 			var folder = new FolderModel({
 				name: $('#addFolderInput').val()
 			});

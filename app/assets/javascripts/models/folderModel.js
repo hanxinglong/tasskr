@@ -20,6 +20,7 @@ var FolderModel = BaseModel.extend({
 	initialize: function() {
 		new FolderView({ model:this });
 		new ContainerView({ model:this });
+		new OutlineRowView({ model:this });
 		this.bind("change:name",this.onChangeName);
 		this.bind("change:openFolder",this.onChangeOpenFolder);
 		this.bind("destroy", this.onDestroy);

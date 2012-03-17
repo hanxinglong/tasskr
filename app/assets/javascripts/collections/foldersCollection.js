@@ -7,7 +7,10 @@ var FoldersCollection = BaseCollection.extend({
     this.bind('add', this.setOrderFromIndex);
     this.bind('add', this.addViewToDom);
     this.bind('remove', this.removeModel);
-    //this.bind('add', this.addModel);
+
+    this.bind('add', this.renderOutline);
+    this.bind('remove', this.renderOutline);
+    this.bind('reset', this.renderOutline);
   },
 
 
@@ -26,6 +29,13 @@ var FoldersCollection = BaseCollection.extend({
       $(this.at(index-1).containerView.el).after(model.containerView.render().el);
     }
   },
+
+
+  renderOutline: function() {
+    _.each(this.models, function(model) {
+      model.outlineRowView.render();
+    })
+  }
 
 
   // addModel: function(model, collection) {

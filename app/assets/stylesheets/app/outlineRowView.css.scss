@@ -1,0 +1,11 @@
+@import "variables";
+
+.outlineRow {
+	cursor:hand;cursor:pointer;
+	border-bottom:1px solid darken($leftColumnBg, 10%);
+	padding:5px;
+	&:hover {
+		background-color: lighten($taskHighlightBgColor, 25%);
+		border-bottom:1px solid $taskHighlightBgColor;
+	}
+}
