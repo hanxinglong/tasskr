@@ -13,6 +13,15 @@ var TaskEditView = Backbone.View.extend({
 	},
 
 	render: function() {
+		// start date
+		this.model.set({tempShowStartDate: false}, {silent:true});
+		if (Date.parse(this.model.get('startDate'))) {
+			this.model.set({tempPrettyStartDate: moment(Date.parse(this.model.get('startDate'))).format("LLLL")}, {silent:true});
+			this.model.set({tempStartDateFromNow: moment(Date.parse(this.model.get('startDate'))).fromNow()}, {silent:true});
+			this.model.set({tempShowStartDate: true}, {silent:true});
+		}
+
+		// created at
 		if (this.model.has('created_at')) {
 			this.model.set({ tempChowCreatedDate: true}, {silent:true});
 			this.model.set({ tempCreatedDateFromNow: moment( this.model.get( 'created_at' ) ).calendar().toLowerCase() }, {silent:true});

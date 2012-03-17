@@ -126,7 +126,7 @@ $(function() {
 								<icon class="button {{#openFolder}}openFolderIcon{{/openFolder}}{{^openFolder}}closedFolderIcon{{/openFolder}}"></icon>
 							</td>
 							<td>
-								<div class="nameField">{{name}}</div>
+								<div class="nameField">{{displayName}}</div>
 								<div class="nameFieldEdit" style="display:none;"><textarea style="width:100%;" rows="1">{{name}}</textarea><div>
 							</td>
 						</tr>
@@ -152,13 +152,14 @@ $(function() {
 								<input type="checkbox"{{#checked}} checked{{/checked}}>
 							</td>
 							<td>
-								<div class="nameField">{{name}}</div>
+								<div class="nameField">{{displayName}}</div>
 								<div class="nameFieldEdit" style="display:none;"><textarea style="width:100%;" rows="1">{{name}}</textarea><div>
 							</td>
 						</tr>
 					</table>
 				</td>
 				<td style="text-align:right;vertical-align:top;width:40px;white-space:nowrap;">
+					{{startDateString}}
 					<icon class="plusIcon button"></icon>
 					<icon class="trashIcon button"></icon>
 					<icon class="dragHorizIcon button"></icon>
@@ -183,6 +184,9 @@ $(function() {
 			<textarea style="width:100%;height:100%;" placeholder="Notes">{{notes}}</textarea>
 		</td></tr>
 		<tr style="height:1%;"><td>
+			{{#tempShowStartDate}}
+				<div>Due Date: {{tempPrettyStartDate}} {{tempStartDateFromNow}}</div>
+			{{/tempShowStartDate}}
 			Task created {{tempCreatedDateFromNow}}
 		</td></tr>
 	</table>
@@ -200,5 +204,5 @@ $(function() {
 
 
 <script id="outlineRowViewTemplate" type="text/html">
-	<div>{{name}}</div>
+	<div>{{displayName}}</div>
 </script>

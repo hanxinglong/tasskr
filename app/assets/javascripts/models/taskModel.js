@@ -31,7 +31,7 @@ var TaskModel = BaseModel.extend({
 		this.bind("error", this.saveError);
 		this.bind("success", this.saveSuccess);
 		//this.bind("change:checked", this.onChangeChecked);
-		//this.bind("change:startDate", this.onChangeStartDate);
+		this.bind("change:startDate", this.onChangeStartDate);
 		new TaskView({ model:this});
 		new ContainerView({ model:this });
 		//new ScheduleRowView({ model:this });
@@ -113,15 +113,6 @@ var TaskModel = BaseModel.extend({
 		this.lazySave();
 	},
 
-	// onChangeChecked: function() {
-	//   if (this.get('checked')) {
-	//     $(this.view.el).addClass('checked');
-	//     this.set({ completedDate: new Date() });
-	//   } else {
-	//     $(this.view.el).removeClass('checked');
-	//   }
-	//   this.lazySave();
-	// },
 
 	// parseName: function(name) {
 	//   var dateString = '';
@@ -149,16 +140,19 @@ var TaskModel = BaseModel.extend({
 	//   }
 	// },
 
-	// onChangeStartDate: function() {
-	//   //$(this.view.el).find('.startDateFromNow').html('');   // clear right side of task
-	//   if (date = Date.parse(this.get('startDate'))) {
-	//     //$(this.view.el).find('.startDateFromNow').html(moment(date).fromNow());     // right side of task
-	//     $('#schedule_' + moment(date).format("YYYY-MM-DD")).append( this.scheduleRowView.render().el );   // schedule
-	//     this.scheduleRowView.delegateEvents();
-	//   } else {
-	//     this.scheduleRowView.remove();
-	//   }
-	//   this.lazySave();
-	// },
+	onChangeStartDate: function() {
+	  //$(this.view.el).find('.startDateFromNow').html('');   // clear right side of task
+	  if (date = Date.parse(this.get('startDate'))) {
+	    //$(this.view.el).find('.startDateFromNow').html(moment(date).fromNow());     // right side of task
+	    //$('#schedule_' + moment(date).format("YYYY-MM-DD")).append( this.scheduleRowView.render().el );   // schedule
+	    //this.scheduleRowView.delegateEvents();
+	  } else {
+	    //this.scheduleRowView.remove();
+	  }
+	  if (!_.isUndefined(this.taskEditView)) {
+	  		this.taskEditView.render();
+	  }
+	  this.lazySave();
+	},
 	
 });

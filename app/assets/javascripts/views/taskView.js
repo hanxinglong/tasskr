@@ -19,6 +19,7 @@ var TaskView = BaseView.extend({
 	},
 
 	render: function() {
+		this.model.parseName();
 		this.$el.html( $(ich.taskViewTemplate( this.model.toJSON() )) );
 		if (this.model.get('checked')) { this.$el.addClass('checked'); }
 		return this;

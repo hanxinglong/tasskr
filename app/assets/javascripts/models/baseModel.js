@@ -55,9 +55,41 @@ var BaseModel = Backbone.Model.extend({
 	},
 
 
+	parseName: function() {
+	  var dateString = '';
+	  var onDatePart = false;
+	  var words = this.get('name').split(' ');
+	  var skipTheseWords = ['from', 'todd', 'the', 'say', 'mom', 'day', 'tod'];
+	  for (var i = words.length - 1; i >= 0; i--) {
+	    if (Date.parse(words[i] + dateString) &&  _.indexOf(skipTheseWords, words[i]) == -1) {
+	      dateString = words[i] + ' ' + dateString;
+	      onDatePart = true;
+	    } else {
+	      if (dateString != '') { i = 0; }
+	      onDatePart = false;
+	    }
+	  }
+	  this.set({startDate: '', displayName: this.get('name')});
+	  if (dateString != '') {
+	    if (dateString.length > 3) {    // why is this 3 and not four?? 'sat' = 4 characters
+	      if (date = Date.parse(dateString)) {
+	        if ( moment(date).format('YYYY') > 1980 ) {   // things break if time is before 1969
+	          this.set({
+	          	startDateString: dateString.trim(),
+	          	startDate: moment(date).format('MMMM Do YYYY, h:mm:ss a'),
+	          	displayName: this.get('name').replace(dateString.trim(), ''),
+	          });
+	        }
+	      }
+	    }
+	  }
+	},
+
+
 	onChangeName: function() {
 		this.lazySave();
-		this.view.$('.nameField').html(this.get('name'));
+		this.parseName();
+		this.view.$('.nameField').html(this.get('displayName'));
 	},
 
 

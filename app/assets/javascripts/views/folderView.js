@@ -19,6 +19,7 @@ var FolderView = BaseView.extend({
 	},
 
 	render: function() {
+		this.model.parseName();
 		this.$el.html( $(ich.folderViewTemplate( this.model.toJSON() )) );
 		return this;
 	},
