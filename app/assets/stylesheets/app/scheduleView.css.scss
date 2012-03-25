@@ -1,0 +1,27 @@
+@import "variables";
+
+#scheduleView {
+	overflow:scroll;
+	height:100%;
+	table {
+		width:100%;
+		td {
+			padding:5px;
+			vertical-align:top;
+		}
+		tr {
+			border-bottom:1px solid darken($leftColumnBg, 15%);
+		}
+		td.schedule_date {
+			background-color: darken($leftColumnBg, 10%);
+			width:1%;
+			white-space:nowrap;
+		}
+		tr.weekend {
+			background-color: darken($leftColumnBg, 10%);
+			td.schedule_date {
+				background-color: darken($leftColumnBg, 20%);
+			}
+		}
+	}
+}
