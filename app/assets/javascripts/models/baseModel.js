@@ -110,6 +110,18 @@ var BaseModel = Backbone.Model.extend({
 	},
 
 
+	onChangeStartDate: function() {
+		if (!_.isUndefined(app.scheduleView)) {
+			app.scheduleView.render();
+		}
+
+	  if (!_.isUndefined(this.taskEditView)) {
+	  		this.taskEditView.render();
+	  }
+	  this.lazySave();
+	},
+
+	
 	onDestroy: function() {
 		this.deselectModel();
 		this.view.remove();

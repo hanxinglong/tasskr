@@ -31,7 +31,8 @@
 
 
 function fixSizes() {
-    $('#rightContent').height( $(window).height() - $('footer').outerHeight(true) - $('header').outerHeight(true) - $('#tabs').outerHeight(true)  );	
+    var height = $(window).height() - $('footer').outerHeight(true) - $('header').outerHeight(true) - $('#tabs').outerHeight(true);
+    $('#rightContent').height(height);	
 }
 
 $(window).scroll(function() {

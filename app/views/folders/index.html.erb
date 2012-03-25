@@ -16,16 +16,18 @@
 
 <script>
 $(function() {
-	new AddFolderView;
-	new TabMenuView;
-	new ScheduleView;
-	new ChartsView;
-	app.tabMenuView.selectScheduleTab();
+	new AddFolderView;	
 
 	app.allTasks = new AllTasksCollection();
+	app.allFolders = new AllFoldersCollection();
 
 	app.folders = new FoldersCollection();
 	app.folders.reset(<%= raw @result.to_json %>);
+
+	new TabMenuView;
+	new ChartsView;
+	new ScheduleView;
+	app.tabMenuView.selectScheduleTab();	
 
 	$("ul.tasks").sortable({
 		connectWith: "ul.tasks",
@@ -200,10 +202,28 @@ $(function() {
 
 
 <script id="scheduleViewTemplate" type="text/html">
-	<div>scheduleView</div>
+
+	<table>
+			<% (0..30).each do |i| %>
+		      <% 
+		      date_id = (Time.zone.today + i.days).to_s() 
+		      date_str = i == 0 ? 'Today' : (Time.zone.today + i.days).to_s(:chart) 
+		      weekend = ['Sat', 'Sun']
+		      %>
+		      <tr class="<%= cycle("schedule_even", "schedule_odd") %><%= " weekend" if weekend.include?((Time.zone.today+i.days).strftime("%a")) %>">
+		        <td class="schedule_date"><%= date_str %></td>
+		        <td class="schedule_date_container" id="<%= "schedule_#{date_id}" %>"></td>
+		      </tr>
+		    <% end %>
+		</table>
 </script>
 
 
 <script id="outlineRowViewTemplate" type="text/html">
+	<div>{{displayName}}</div>
+</script>
+
+
+<script id="scheduleRowViewTemplate" type="text/html">
 	<div>{{displayName}}</div>
 </script>

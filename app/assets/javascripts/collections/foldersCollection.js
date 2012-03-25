@@ -11,6 +11,9 @@ var FoldersCollection = BaseCollection.extend({
     this.bind('add', this.renderOutline);
     this.bind('remove', this.renderOutline);
     this.bind('reset', this.renderOutline);
+
+    this.bind('add', this.addToAllTasksCollection);
+    this.bind('remove', this.removeFromAllTasksCollection);
   },
 
 
@@ -35,11 +38,21 @@ var FoldersCollection = BaseCollection.extend({
     _.each(this.models, function(model) {
       model.outlineRowView.render();
     })
-  }
+  },
 
 
   // addModel: function(model, collection) {
   //  model.containerView.render();
   // },
+
+
+  addToAllFoldersCollection: function(model, collection) {
+    app.allFolders.add(model);
+  },
+
+
+  removeFromAllFoldersCollection: function(model, collection) {
+    app.allFolders.remove(model);
+  },
   
 });

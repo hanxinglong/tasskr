@@ -31,12 +31,9 @@ var TaskModel = BaseModel.extend({
 		this.bind("destroy", this.onDestroy);
 		this.bind("error", this.saveError);
 		this.bind("success", this.saveSuccess);
-		//this.bind("change:checked", this.onChangeChecked);
 		this.bind("change:startDate", this.onChangeStartDate);
 		new TaskView({ model:this});
 		new ContainerView({ model:this });
-		//new ScheduleRowView({ model:this });
-		//this.trigger("change:startDate");   // fill in schedule
 
 		// collection for child tasks
 		this.tasks = new TasksCollection;		
@@ -112,48 +109,6 @@ var TaskModel = BaseModel.extend({
 			this.view.$el.removeClass('checked');
 		}
 		this.lazySave();
-	},
-
-
-	// parseName: function(name) {
-	//   var dateString = '';
-	//   var onDatePart = false;
-	//   var words = name.split(' ');
-	//   var skipTheseWords = ['from', 'todd', 'the', 'say', 'mom', 'day', 'tod'];
-	//   for (var i = words.length - 1; i >= 0; i--) {
-	//     if (Date.parse(words[i] + dateString) &&  _.indexOf(skipTheseWords, words[i]) == -1) {
-	//       dateString = words[i] + ' ' + dateString;
-	//       onDatePart = true;
-	//     } else {
-	//       if (dateString != '') { i = 0; }
-	//       onDatePart = false;
-	//     }
-	//   }
-	//   this.set({startDate: ''});
-	//   if (dateString != '') {
-	//     if (dateString.length > 3) {    // why is this 3 and not for?? 'sat' = 4 characters
-	//       if (date = Date.parse(dateString)) {
-	//         if ( moment(date).format('YYYY') > 1980 ) {   // things break if time is before 1969
-	//           this.set({startDateString: dateString.trim(), startDate: moment(date).format('MMMM Do YYYY, h:mm:ss a')});
-	//         }
-	//       }
-	//     }
-	//   }
-	// },
-
-	onChangeStartDate: function() {
-	  //$(this.view.el).find('.startDateFromNow').html('');   // clear right side of task
-	  if (date = Date.parse(this.get('startDate'))) {
-	    //$(this.view.el).find('.startDateFromNow').html(moment(date).fromNow());     // right side of task
-	    //$('#schedule_' + moment(date).format("YYYY-MM-DD")).append( this.scheduleRowView.render().el );   // schedule
-	    //this.scheduleRowView.delegateEvents();
-	  } else {
-	    //this.scheduleRowView.remove();
-	  }
-	  if (!_.isUndefined(this.taskEditView)) {
-	  		this.taskEditView.render();
-	  }
-	  this.lazySave();
 	},
 	
 });
