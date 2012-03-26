@@ -93,6 +93,9 @@ $(function() {
 		},
 	});
 
+
+	doCharts();
+
 });
 </script>
 
@@ -197,7 +200,19 @@ $(function() {
 
 
 <script id="chartsViewTemplate" type="text/html">
-	<div>chartsView</div>
+	<div>
+		<div class="chartTitle">Completed Tasks</div>
+		<div id="completedChartDate" style="height:200px;width:94%;"></div>
+		<br>
+		<div class="chartTitle">Total Created and Completed</div>
+		<div id="completedVsCreatedHour" style="height:200px;width:94%;"></div>
+		<br>
+		<div class="chartTitle">Completed Tasks Grouped by Day</div>
+		<div id="completedChartDay" style="height:200px;width:94%;"></div>
+		<br>
+		<div class="chartTitle">Completed Tasks Grouped by Hour</div>
+		<div id="completedChartHour" style="height:200px;width:94%;"></div>
+	</div>
 </script>
 
 
@@ -225,5 +240,5 @@ $(function() {
 
 
 <script id="scheduleRowViewTemplate" type="text/html">
-	<div>{{displayName}}</div>
+	<div>&bull; {{displayName}}</div>
 </script>

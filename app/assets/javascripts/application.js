@@ -72,6 +72,7 @@ function createCookie(name,value,days) {
     document.cookie = name+"="+value+expires+"; path=/";
 }
 
+
 function readCookie(name) {
     var nameEQ = name + "=";
     var ca = document.cookie.split(';');
@@ -83,6 +84,85 @@ function readCookie(name) {
     return null;
 }
 
+
 function eraseCookie(name) {
     createCookie(name,"",-1);
+}
+
+
+function doCharts() {
+    $.ajax({
+        url: '/folders/chartCompleted',
+        success: function( data ) {
+            var options = {
+                legend: {
+                    backgroundColor: null
+                },
+                grid: {
+                    color: "#cccccc",
+                    backgroundColor: "#555555"
+                }
+            };
+            var dateOptions = {};
+            _.extend(dateOptions, options, {
+                bars: {
+                    show: true,
+                    // barWidth: 24 * 60 * 60 * 1000        // full
+                    barWidth: 24 * 60 * 60 * 1000,
+                    align: "center"
+                },
+                xaxis: {
+                    mode: "time",
+                    twelveHourClock: true
+                },
+            });
+            var dayOptions = {};
+            _.extend(dayOptions, options, {
+                bars: {
+                  show: true,
+                  align: "center"
+                },
+                xaxis: {
+                    min: -0.5,
+                    max: 6.5,
+                    ticks: [[0, "Sun"], [1, "Mon"], [2, "Tues"], [3, "Wed"], [4, "Thur"], [5, "Fri"], [6, "Sat"]]
+                }
+            });
+            var hourOptions = {};
+            _.extend(hourOptions, options, {
+                bars: {
+                    show: true,
+                    align: "center"
+                },
+                xaxis: {
+                    min: -0.5,
+                    max: 23.5,
+                    ticks: [[0, '12 am'], [6, '6 am'], [12, '12 pm'], [18, '6 pm'], [23, '11 pm']],
+                }
+            });
+            var completedVsCreatedOptions = {};
+            _.extend(completedVsCreatedOptions, options, {
+                xaxis: {
+                    mode: "time",
+                    twelveHourClock: true
+                },
+                legend: {
+                    position: "nw",
+                    backgroundColor: "null",
+                },
+                lines: {
+                    fill: true
+                }
+            });
+            // $.plot($("#completedChart"), [{label: "Completed Tasks", data: data}], options );
+            //$.plot($("#completedChart"), [data], options );
+            $.plot($("#completedChartDate"), [{color: "#6796f5", data: data['byDate']}], dateOptions );
+            $.plot($("#completedChartDay"), [{color: "#6796f5", data: data['byDay']}], dayOptions );
+            $.plot($("#completedChartHour"), [{color: "#6796f5", data: data['byHour']}], hourOptions );
+            $.plot($("#completedVsCreatedHour"), [
+                {label: data['totalCreated'][data['totalCreated'].length-1][1] + ' Created', color: "#6799f4", data: data['totalCreated']},
+                {label: data['totalCompleted'][data['totalCompleted'].length-1][1] + ' Completed', color: "#c1f467", data: data['totalCompleted']}
+                ], completedVsCreatedOptions );
+        }
+    });
 }

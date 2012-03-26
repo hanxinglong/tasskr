@@ -53,25 +53,30 @@ class FoldersController < ApplicationController
 		end
 		@data[:byHour] = completedHourData
 
-		c=0
-		(completedDates[0].in_time_zone.to_date..Time.now.in_time_zone.to_date).each do |date|
-			c=c+completedDates.count{ |key, value| key.in_time_zone.to_date == date }
-			column = Array.new
-			column << date.to_time.utc.to_i * 1000		# this is for Flot
-		 	column << c
-		 	totalCompletedData << column
-		end
-		@data[:totalCompleted] = totalCompletedData
+		unless completedDates.empty?
+			c=0
+			(completedDates[0].in_time_zone.to_date..Time.now.in_time_zone.to_date).each do |date|
+				c=c+completedDates.count{ |key, value| key.in_time_zone.to_date == date }
+				column = Array.new
+				column << date.to_time.utc.to_i * 1000		# this is for Flot
+			 	column << c
+			 	totalCompletedData << column
+			end
+			@data[:totalCompleted] = totalCompletedData
 
-		c=0
-		(createdDates[0].in_time_zone.to_date..Time.now.in_time_zone.to_date).each do |date|
-			c=c+createdDates.count{ |key, value| key.in_time_zone.to_date == date }
-			column = Array.new
-			column << date.to_time.utc.to_i * 1000		# this is for Flot
-		 	column << c
-		 	totalCreatedData << column
+			c=0
+			(createdDates[0].in_time_zone.to_date..Time.now.in_time_zone.to_date).each do |date|
+				c=c+createdDates.count{ |key, value| key.in_time_zone.to_date == date }
+				column = Array.new
+				column << date.to_time.utc.to_i * 1000		# this is for Flot
+			 	column << c
+			 	totalCreatedData << column
+			end
+			@data[:totalCreated] = totalCreatedData
+		else 
+			@data[:totalCompleted] = Array.new
+			@data[:totalCreated] = Array.new
 		end
-		@data[:totalCreated] = totalCreatedData
 
 		render :json => @data
 	end
@@ -114,7 +119,7 @@ class FoldersController < ApplicationController
 	end
 
 	def create
-		folder = current_or_guest_user.folders.new pick(params[:folder], :name, :order, :openFolder, :createdInDb)
+		folder = current_or_guest_user.folders.new pick(params[:folder], :name, :order, :openFolder, :createdInDb, :startDate, :startDateString)
 		if folder.save
 			x = Hash.new
 			x['_id'] = folder._id 
@@ -127,7 +132,7 @@ class FoldersController < ApplicationController
 
 	def update
 		folder = current_or_guest_user.folders.find params[:id]
-		if folder.update_attributes pick(params[:folder], :name, :order, :openFolder, :createdInDb)
+		if folder.update_attributes pick(params[:folder], :name, :order, :openFolder, :createdInDb, :startDate, :startDateString)
 			render :json => ''
 		else
 			render :json => folder.errors

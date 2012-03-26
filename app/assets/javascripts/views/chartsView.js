@@ -1,4 +1,6 @@
 var ChartsView = Backbone.View.extend({
+
+	id: "chartsView",
 	
 	events: {},
 

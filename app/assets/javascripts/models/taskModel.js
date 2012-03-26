@@ -68,6 +68,7 @@ var TaskModel = BaseModel.extend({
 		this.tasks.add(task, {at:at});
 		task.save();
 		task.selectModel();
+		_.delay(doCharts, 100);	// this should maybe be 1000? it was in tasskr4
 	},
 
 	selectModel: function() {
@@ -109,6 +110,7 @@ var TaskModel = BaseModel.extend({
 			this.view.$el.removeClass('checked');
 		}
 		this.lazySave();
+		_.delay(doCharts, 100);	// this should maybe be 1000? it was in tasskr4
 	},
 	
 });

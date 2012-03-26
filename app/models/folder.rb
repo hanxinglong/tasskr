@@ -8,6 +8,8 @@ field :order, type: Integer
 field :checked, type: Boolean
 field :openFolder, type: Boolean
 field :createdInDb, type: Boolean	# to prevent models from being created twice
+field :startDate, type: DateTime
+field :startDateString, type: String
 before_destroy :destroyTasks
 
 protected
