@@ -12,8 +12,8 @@ var FoldersCollection = BaseCollection.extend({
     this.bind('remove', this.renderOutline);
     this.bind('reset', this.renderOutline);
 
-    this.bind('add', this.addToAllTasksCollection);
-    this.bind('remove', this.removeFromAllTasksCollection);
+    this.bind('add', this.addToAllFoldersCollection);
+    this.bind('remove', this.removeFromAllFoldersCollection);
   },
 
 

@@ -21,6 +21,15 @@ var ScheduleView = Backbone.View.extend({
 				$(id).append( row.render().el );
 			}
 		});
+
+		_.each(app.allFolders.models, function(m) {
+			if (Date.parse( m.get('startDate'))) {
+				var row = new ScheduleRowView({ model:m });
+				var startDate = Date.parse(m.get('startDate'));
+				var id = "#schedule_" + moment(startDate).format('YYYY-MM-DD');
+				$(id).append( row.render().el );
+			}
+		});
 	
 		return this;
 	},

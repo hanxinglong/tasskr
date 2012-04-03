@@ -126,6 +126,7 @@ var BaseModel = Backbone.Model.extend({
 		this.deselectModel();
 		this.view.remove();
 		this.containerView.remove();
+		_.delay(doCharts, 100);	// this should maybe be 1000? it was in tasskr4
 	},
 
 

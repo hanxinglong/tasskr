@@ -27,6 +27,7 @@ var FolderModel = BaseModel.extend({
 		this.bind("destroy", this.onDestroy);
 		this.bind("error", this.saveError);
 		this.bind("success", this.saveSuccess);
+		this.bind("change:startDate", this.onChangeStartDate);
 		this.lazySave = _.debounce(this.save, 400);
 
 		// collection for child tasks
@@ -39,6 +40,8 @@ var FolderModel = BaseModel.extend({
 				app.allTasks.add(task);
 		}, this);
 		this.unset('childtasks', {silent:true});
+
+		app.folders.add(this);
 	},
 
 
@@ -62,6 +65,7 @@ var FolderModel = BaseModel.extend({
 		this.tasks.add(task, {at:at});
 		task.save();
 		task.selectModel();
+		_.delay(doCharts, 100);	// this should maybe be 1000? it was in tasskr4
 	},
 
 
