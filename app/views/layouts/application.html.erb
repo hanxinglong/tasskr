@@ -104,7 +104,12 @@ $(function() {
 			<li><span class="btn" id="signUpButton">Sign Up</span></li>
 			<li><span class="btn" id="loginButton">Sign In</span></li>
 		<% end %>
-		<a href="javascript:UserVoice.showPopupWidget();" title="Open feedback & support dialog"><span class="btn" id="feedback">Feedback/Help</span></a>
+		<a href="javascript:UserVoice.showPopupWidget();" title="Open feedback & support dialog">
+			<span class="btn" id="feedback">Feedback/Help</span>
+		</a>
+		<% if current_or_guest_user.admin %>
+			<%= link_to 'A', '/admin' %>
+		<% end %>
 	</ul>
 </script>
 
