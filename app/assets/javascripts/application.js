@@ -99,7 +99,7 @@ function doCharts() {
                     backgroundColor: null
                 },
                 grid: {
-                    color: "#cccccc",
+                    color: "#222",
                     backgroundColor: "#555555"
                 }
             };

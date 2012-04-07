@@ -10,7 +10,7 @@
 			vertical-align:top;
 		}
 		tr {
-			border-bottom:1px solid darken($leftColumnBg, 15%);
+			border-bottom:1px solid darken($leftColumnBg, 10%);
 		}
 		td.schedule_date {
 			background-color: darken($leftColumnBg, 10%);
@@ -19,8 +19,10 @@
 		}
 		tr.weekend {
 			background-color: darken($leftColumnBg, 10%);
+			border-bottom:1px solid darken($leftColumnBg, 20%);
 			td.schedule_date {
 				background-color: darken($leftColumnBg, 20%);
+				border-bottom:1px solid darken($leftColumnBg, 30%);
 			}
 		}
 	}

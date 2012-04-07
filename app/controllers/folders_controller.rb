@@ -74,8 +74,11 @@ class FoldersController < ApplicationController
 			end
 			@data[:totalCreated] = totalCreatedData
 		else 
-			@data[:totalCompleted] = Array.new
-			@data[:totalCreated] = Array.new
+			column = Array.new
+			column << Time.now.in_time_zone.to_i * 1000		# this is for Flot
+		 	column << 0
+			@data[:totalCompleted] = column
+			@data[:totalCreated] = column
 		end
 
 		render :json => @data

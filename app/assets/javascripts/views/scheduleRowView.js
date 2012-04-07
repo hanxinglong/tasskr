@@ -1,5 +1,5 @@
 var ScheduleRowView = Backbone.View.extend({
-	
+
 	events: {
 		"click": "onClickRow",
 	},

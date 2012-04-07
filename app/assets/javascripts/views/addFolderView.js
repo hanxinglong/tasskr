@@ -6,6 +6,7 @@ var AddFolderView = Backbone.View.extend({
 	events: {
 		"keydown #addFolderInput": "addFolderInputKeydown",
 		"click #addProjectSubmitButton": "addProjectSubmitButton",
+		"click #clearCompletedButton": "clearCompletedButton",
 	},
 
 
@@ -21,7 +22,12 @@ var AddFolderView = Backbone.View.extend({
 	},
 
 
-	addProjectSubmitButton: function(e) {console.log('asdf')
+	clearCompletedButton: function(e) {
+		app.allTasks.clearCompleted();
+	},
+
+
+	addProjectSubmitButton: function(e) {
 		if ($('#addFolderInput').val() == '') {
 			$('#addFolderInput').val('Enter project name here');
 			$('#addFolderInput').focus();

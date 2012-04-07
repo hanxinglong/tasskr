@@ -96,6 +96,9 @@ var BaseModel = Backbone.Model.extend({
 		this.lazySave();
 		this.parseName();
 		this.view.$('.nameField').html(this.get('displayName'));
+		if (this.outlineRowView) {
+			this.outlineRowView.render();
+		}
 	},
 
 
@@ -126,7 +129,7 @@ var BaseModel = Backbone.Model.extend({
 		this.deselectModel();
 		this.view.remove();
 		this.containerView.remove();
-		_.delay(doCharts, 100);	// this should maybe be 1000? it was in tasskr4
+		_.delay(doCharts, 1000);	// this should maybe be 1000? it was in tasskr4
 	},
 
 
@@ -317,5 +320,22 @@ var BaseModel = Backbone.Model.extend({
 		}
 		return false;
 	},
+
+
+	markThisAndChildrenChecked: function() {
+		_.each(this.tasks.models, function(m) {
+			m.markThisAndChildrenChecked();
+		})
+		this.set({checked:true});
+	},
+
+
+	changeChildrenAndThisFolderId: function(folder_id) {
+		_.each(this.tasks.models, function(m) {
+			m.changeChildrenAndThisFolderId(folder_id);
+		})
+		this.set({folder_id:folder_id});
+	},
+
 	
 });

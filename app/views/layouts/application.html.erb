@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tasskr</title>
-  <%= stylesheet_link_tag "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+		<title>Tasskr</title>
+		<%= stylesheet_link_tag "application", :media => "all" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
 </head>
 <body>
 	<header>
@@ -15,6 +15,14 @@
 	</header>
 
 	<div id="content">
+		<% flash.each do |name, msg| %>
+	      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+		   <script type="text/javascript">
+				$(document).ready( function() {
+					$("#flash_<%=name%>").delay(4000).hide( 'blind', '', 400 );
+				});
+			</script>
+		<% end %>
 		<%= yield %>
 	</div>
 
@@ -23,6 +31,15 @@
 	<footer>
 		up/down: navigate; enter: new task; shift+backspace: delete task; tab: indent; shift+tab:unindent; shift+up/down: move;
 	</footer>
+
+<script type="text/javascript">
+  var uvOptions = {};
+  (function() {
+    var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
+    uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/5RtJjokh93WCtdG4wTom4w.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
+  })();
+</script>
 
 </body>
 </html>
@@ -46,7 +63,9 @@ $(function() {
 		<% else %>
 			<li><span id="menuWords">Sign up to save your tasks.</span></li>
 			<li><span class="btn" id="signUpButton">Sign Up</span></li>
-			<li><span class="btn" id="loginButton">Log In</span></li>
+			<li><span class="btn" id="loginButton">Sign In</span></li>
 		<% end %>
+		<a href="javascript:UserVoice.showPopupWidget();" title="Open feedback & support dialog"><span class="btn" id="feedback">Feedback/Help</span></a>
 	</ul>
 </script>
+

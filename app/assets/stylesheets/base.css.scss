@@ -57,3 +57,10 @@ input[type=text],textarea {
 	background-image: -o-linear-gradient(top, #555, #555);
 	background-image: linear-gradient(top, #555, #555);
 }
+
+#flash_error, #flash_info, #flash_alert, #flash_notice {
+	background-color: $taskHighlightBgColor;
+	color:#fff;
+	text-align:center;
+	padding: 10px;
+}

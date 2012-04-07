@@ -44,10 +44,14 @@ $(function() {
 			var parentCid = ui.item.parent('ul').parent('li').attr('cid');
 			if (ui.item.parent('ul').parent('li').parent('ul').attr('id') == 'foldersContainer') {
 				var parentModel = app.folders.getByCid(parentCid);
-				model.set({folder_id: parentModel.id, parentTaskId:null});
+				//model.set({folder_id: parentModel.id, parentTaskId:null});
+				model.changeChildrenAndThisFolderId(parentModel.id);
+				model.set({parentTaskId:null});
 			} else {
 				var parentModel = app.allTasks.getByCid(parentCid);
-				model.set({folder_id: parentModel.get('folder_id'), parentTaskId: parentModel.id});
+				//model.set({folder_id: parentModel.get('folder_id'), parentTaskId: parentModel.id});
+				model.changeChildrenAndThisFolderId(parentModel.get('folder_id'));
+				model.set({parenetTaskId: parentModel.id});
 			}
 
 			oldCollection.remove(model, {silent:true});
@@ -108,7 +112,7 @@ $(function() {
 			</td>
 			<td style="text-align:right;width:1%;">
 				&nbsp;<span class="btn" id="addProjectSubmitButton">Add Project</span>
-				<span class="btn">Clear Completed</span>
+				<span class="btn" id="clearCompletedButton">Clear Completed</span>
 			</td>
 		</tr>
 	</table>
@@ -200,18 +204,18 @@ $(function() {
 
 
 <script id="chartsViewTemplate" type="text/html">
-	<div>
+	<div class="chartContainer">
 		<div class="chartTitle">Completed Tasks</div>
-		<div id="completedChartDate" style="height:200px;width:94%;"></div>
+		<div id="completedChartDate" style="height:200px;width:100%;"></div>
 		<br>
 		<div class="chartTitle">Total Created and Completed</div>
-		<div id="completedVsCreatedHour" style="height:200px;width:94%;"></div>
+		<div id="completedVsCreatedHour" style="height:200px;width:100%;"></div>
 		<br>
 		<div class="chartTitle">Completed Tasks Grouped by Day</div>
-		<div id="completedChartDay" style="height:200px;width:94%;"></div>
+		<div id="completedChartDay" style="height:200px;width:100%;"></div>
 		<br>
 		<div class="chartTitle">Completed Tasks Grouped by Hour</div>
-		<div id="completedChartHour" style="height:200px;width:94%;"></div>
+		<div id="completedChartHour" style="height:200px;width:100%;"></div>
 	</div>
 </script>
 
@@ -240,5 +244,7 @@ $(function() {
 
 
 <script id="scheduleRowViewTemplate" type="text/html">
-	<div>&bull; {{displayName}}</div>
+	<div class="scheduleRowView">&bull; {{displayName}}</div>
 </script>
+
+

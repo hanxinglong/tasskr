@@ -28,6 +28,7 @@ var TaskModel = BaseModel.extend({
 		this.bind("change:checked", this.onChangeChecked);
 		this.bind("change:createdInDb", this.onCreatedInDb);
 		this.bind("change:displayStartDateFromNow", this.onDisplayStartDateFromNow);
+		this.bind("change:hideTask", this.onHideTask);
 		this.bind("destroy", this.onDestroy);
 		this.bind("error", this.saveError);
 		this.bind("success", this.saveSuccess);
@@ -81,7 +82,9 @@ var TaskModel = BaseModel.extend({
 	},
 
 	deselectModel: function() {
-		this.taskEditView.remove();
+		if (this.taskEditView) {
+			this.taskEditView.remove();
+		}
 		app.tabMenuView.$('#taskTab').hide();
 		app.tabMenuView.selectScheduleTab();
 		this.makeNonEditable();
@@ -102,15 +105,30 @@ var TaskModel = BaseModel.extend({
 	},
 
 
+	onHideTask: function() {
+		this.lazySave();
+		this.deselectModel();
+		var t = this;
+		this.containerView.$el.slideUp(200, function() {
+			t.view.remove();
+			t.containerView.remove();
+			_.delay(doCharts, 1000);	// this should maybe be 1000? it was in tasskr4
+		});
+	},
+
+
 	onChangeChecked: function() {
 		if (this.get('checked')) {
 			this.view.$el.addClass('checked');
-			//this.set({ completedDate: new Date() });
+			this.set({ completedDate: new Date() });
+			console.log(this.view.$('input[type=checkbox]'))
+			this.view.$('input[type=checkbox]').attr("checked", true);
 		} else {
 			this.view.$el.removeClass('checked');
+			this.view.$('input[type=checkbox]').attr("checked", false);
 		}
 		this.lazySave();
-		_.delay(doCharts, 100);	// this should maybe be 1000? it was in tasskr4
+		_.delay(doCharts, 1000);	// this should maybe be 1000? it was in tasskr4
 	},
 	
 });

@@ -1,5 +1,12 @@
 @import "variables";
 
+.displayStartDateFromNow {
+	vertical-align:sub;
+	height:100%;
+	display:inline-block;
+	color:#888;
+}
+
 ul#foldersContainer {
 	margin:0;border:0;
 	padding: 0px 0px 0px 0px;

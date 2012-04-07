@@ -30,7 +30,7 @@ var TaskView = BaseView.extend({
 		if (this.model.get('checked')) {
 			this.model.set({checked:false});
 		} else {
-			this.model.set({checked:true});
+			this.model.markThisAndChildrenChecked();
 		}
 		e.stopPropagation();
 	},
