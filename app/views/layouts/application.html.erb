@@ -59,7 +59,8 @@ $(function() {
 <script id="menuViewTemplate" type="text/html">
 	<ul>
 		<% if logged_in? %>
-		<li><span class="btn" id="logoutButton">Log Out</span></li>
+			<li><span id="menuWords"><%= current_user.email %></span></li>
+			<li><span class="btn" id="logoutButton">Log Out</span></li>
 		<% else %>
 			<li><span id="menuWords">Sign up to save your tasks.</span></li>
 			<li><span class="btn" id="signUpButton">Sign Up</span></li>
