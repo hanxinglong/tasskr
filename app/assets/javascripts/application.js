@@ -166,3 +166,22 @@ function doCharts() {
         }
     });
 }
+
+
+function trackEvent(category, action) {
+    //_gaq.push(['_trackEvent', category, action]);
+    if (_gaq) {
+        _gaq.push(['_trackPageview', '/#'+category+'/'+action]);
+    } else {
+        console.warn('ga not tracking');
+    }
+    if (clicky) {
+        clicky.log('#'+category+'/'+action, action);
+    } else {
+        console.warn('click not tracking');
+    }
+    //if (_guages) {
+        //console.log('trying to track');
+    _gauges.push(['track']);
+    //}
+}

@@ -6,7 +6,6 @@ var MenuView = Backbone.View.extend({
 		"click #signUpButton": "signUp",
 		"click #loginButton": "login",
 		"click #logoutButton": "logout",
-		"click #aboutButton": "toggleAbout",
 	},
 
 	initialize: function() {
@@ -20,25 +19,18 @@ var MenuView = Backbone.View.extend({
 	},
 
 	signUp: function() {
+		trackEvent('user', 'signup');
 		window.location = "/signup";
 	},
 
 	login: function() {
+		trackEvent('user', 'signin');
 		window.location = "/signin";
 	},
 
 	logout: function() {
+		trackEvent('user', 'logout');
 		window.location = "/logout"
-	},
-
-
-	toggleAbout: function() {
-		if (app.aboutView.$el.is(":visible")) {
-			$('#aboutButton').html('About');	
-		} else {
-			$('#aboutButton').html('Close About');	
-		}
-		app.aboutView.$el.slideToggle(200);
 	},
 
 });
