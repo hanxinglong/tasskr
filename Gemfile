@@ -14,3 +14,5 @@ gem "bson_ext"
 gem 'sorcery'						#, :git => 'git://github.com/NoamB/sorcery.git'
 gem 'newrelic_rpm'		# newrelic
 gem 'chronic'
+
+gem 'bcrypt-ruby'
