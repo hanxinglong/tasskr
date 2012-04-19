@@ -1,3 +1,8 @@
+@import "variables";
+
 .scheduleRowView {
 	cursor:hand;cursor:pointer;
+	.displayTime{
+		color: darken($leftColumnBg, 40%);
+	}
 }

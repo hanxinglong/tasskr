@@ -6,6 +6,7 @@ var MenuView = Backbone.View.extend({
 		"click #signUpButton": "signUp",
 		"click #loginButton": "login",
 		"click #logoutButton": "logout",
+		"click #mobileButton": "mobile",
 	},
 
 	initialize: function() {
@@ -32,5 +33,10 @@ var MenuView = Backbone.View.extend({
 		trackEvent('user', 'logout');
 		window.location = "/logout"
 	},
+
+	mobile: function() {
+		trackEvent('user', 'goto_mobile');
+		window.location = 'http://m.tasskr.com';
+	}
 
 });
