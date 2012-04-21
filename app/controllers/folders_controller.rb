@@ -91,15 +91,6 @@ class FoldersController < ApplicationController
 		folders = current_or_guest_user.folders.order_by([:order, :asc])
 		folders.each do |f|
 			tasks = f.tasks.where(hideTask: false).order_by([:order, :asc])
-			# topTasks = tasks.find_all{|item| item.parent_task == nil}
-			# topTasks['childtasks'] = makeTaskTree 
-
-
-			# topTasks.each_with_index do |t, key|
-			# 	#makeTaskTree(t, tasks)
-			# 	topTasks[key]['childtasks'] = makeTaskTree t, tasks
-			# 	logger.debug "====== #{topTasks[key]}"
-			# end
 			f['childtasks'] = makeTaskTree f, tasks
 			@result << f
 		end

@@ -37,7 +37,7 @@ var AddFolderView = Backbone.View.extend({
 			});
 			app.folders.add(folder, {at:0});
 			folder.save();
-			$('#foldersContainer').prepend(folder.containerView.el);
+			//$('#foldersContainer').prepend(folder.containerView.el);
 			
 			$('#addFolderInput').val('');
 			folder.addTask(0);
@@ -54,7 +54,7 @@ var AddFolderView = Backbone.View.extend({
 				});
 				app.folders.add(folder, {at:0});
 				folder.save();
-				$('#foldersContainer').prepend(folder.containerView.el);
+				//$('#foldersContainer').prepend(folder.containerView.el);
 				
 				$('#addFolderInput').val('');
 				folder.addTask(0);

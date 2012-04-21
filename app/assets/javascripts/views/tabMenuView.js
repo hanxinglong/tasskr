@@ -8,6 +8,7 @@ var TabMenuView = Backbone.View.extend({
 		"click #scheduleTab": "selectScheduleTab",
 		"click #chartsTab": "selectChartsTab",
 		"click #taskTab": "selectTaskTab",
+		"click #helpTab": "selectHelpTab",
 	},
 
 	initialize: function() {
@@ -24,8 +25,10 @@ var TabMenuView = Backbone.View.extend({
 		this.$('#scheduleTab').removeClass('selected');
 		this.$('#chartsTab').removeClass('selected');
 		this.$('#taskTab').removeClass('selected');
+		this.$('#helpTab').removeClass('selected');
 		app.scheduleView.hideView();
 		app.chartsView.hideView();
+		app.helpView.hideView();
 		if (!_.isUndefined(app.selectedModel)) {
 			if (!_.isUndefined(app.selectedModel.taskEditView)) {
 				app.selectedModel.taskEditView.hideView();
@@ -49,6 +52,12 @@ var TabMenuView = Backbone.View.extend({
 		this.deselectAllTabs();
 		this.$('#taskTab').addClass('selected');
 		app.selectedModel.taskEditView.showView();
+	},
+
+	selectHelpTab: function() {
+		this.deselectAllTabs();
+		this.$('#helpTab').addClass('selected');
+		app.helpView.showView();
 	},
 
 });

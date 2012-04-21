@@ -1,10 +1,11 @@
 var BaseCollection = Backbone.Collection.extend({
 
-	setOrderFromIndex: function(){
-		_.each(this.models, function(m) {
-			if (m.get('order') != _.indexOf(m.collection.models, m)) {
-				m.set({order: _.indexOf(m.collection.models, m)}, {silent:true});
-				m.save(m.attributes, {silent:true});
+	setOrderFromIndex: function(model, collection, options){
+		_.each(collection.models, function(m) {
+			if (m.get('order') != _.indexOf(collection.models, m)) {
+				m.set({order: _.indexOf(collection.models, m)});
+				m.lazySave();
+				//m.save(m.attributes, {silent:true});
 			}
 		});
 	},

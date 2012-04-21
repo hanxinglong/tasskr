@@ -69,7 +69,7 @@ var BaseModel = Backbone.Model.extend({
 	      onDatePart = false;
 	    }
 	  }
-	  this.set({startDate: '', displayName: this.get('name')});
+	  this.set({startDate: '', displayName: this.get('name'), displayStartDateFromNow: ''});
 	  if (dateString != '') {
 	    if (dateString.length > 3) {    // why is this 3 and not four?? 'sat' = 4 characters
 	      if (date = Date.parse(dateString)) {

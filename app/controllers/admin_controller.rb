@@ -2,9 +2,16 @@ class AdminController < ApplicationController
 	before_filter :is_admin?
 
 	def index
-		@users = User.where(guest: false).order_by([:last_activity_at, :desc]).includes(:folders).limit(20)
+		@users = User.where(guest: false).order_by([:last_activity_at, :desc]).includes(:folders).limit(40)
 		@tasks = Task.where(:name.ne => '').order_by([:created_at, :desc]).limit(30)
 		@folders = Folder.order_by([:updated_at, :desc]).includes(:tasks).limit(20)
+
+		# folders = Folders.order_by([:updated_at, :desc]).limit(20)
+		# folders.each do |f|
+		# 	tasks = f.tasks.where(hideTask: false).order_by([:order, :asc])
+		# 	f['childtasks'] = makeTaskTree f, tasks
+		# 	@foldersTree << f
+		# end
 
 		@numUsers = Array.new
 		models = Stat.where(type: 'numUsers').order_by([:date, :asc])

@@ -27,6 +27,7 @@ $(function() {
 	new TabMenuView;
 	new ChartsView;
 	new ScheduleView;
+	new HelpView;
 	app.tabMenuView.selectScheduleTab();	
 
 	$("ul.tasks").sortable({
@@ -183,6 +184,7 @@ $(function() {
 	<ul>
 		<li id="scheduleTab">Schedule</li>
 		<li id="chartsTab">Charts</li>
+		<li id="helpTab">Help</li>
 		<li id="taskTab" style="display:none;">Task</li>
 	</ul>
 </script>
@@ -245,6 +247,39 @@ $(function() {
 
 <script id="scheduleRowViewTemplate" type="text/html">
 	<div class="scheduleRowView">&bull; {{#displayTimeShow}}<span class="displayTime">{{displayTime}}</span> {{/displayTimeShow}} {{displayName}}</div>
+</script>
+
+
+<script id="helpViewTemplate" type="text/html">
+	<div>
+		<h3>Keyboard Shortcuts</h3>
+			<ul>
+				<li>up/down: up/down arrow keys</li>
+				<li>move task up/down: shift + up/down arrows</li>
+				<li>create new task: enter key</li>
+				<li>delete task: shift + backspace/delete</li>
+				<li>indent: tab key</li>
+				<li>un-indent: shift + tab key</li>
+			</ul>
+		<h3>Schedule</h3>
+			Tasks can have due dates.  Create due dates by adding a date to a task.  Here are some examples.
+			<ul>
+				<li>party 4/19</li>
+				<li>birthday 5/19, 3:30pm</li>
+				<li>dentist appointment march 5, 3pm</li>
+				<li>do something important today</li>
+			</ul>
+			Dates and times must be seperated by a comma.<br>
+			<br><br>
+			<div>
+				<g:plusone></g:plusone><br>
+
+				<div class="fb-like" data-href="http://tasskr.com" data-send="false" data-layout="button_count" data-width="120" data-show-faces="true"></div><br>
+
+				<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://tasskr.com" data-via="Tasskr" data-hashtags="tasskr">Tweet</a><br>
+
+			</div>
+	</div>
 </script>
 
 

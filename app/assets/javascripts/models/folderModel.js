@@ -28,6 +28,7 @@ var FolderModel = BaseModel.extend({
 		this.bind("error", this.saveError);
 		this.bind("success", this.saveSuccess);
 		this.bind("change:startDate", this.onChangeStartDate);
+		//this.bind("change:order", this.onOrderChange);
 		this.lazySave = _.debounce(this.save, 400);
 
 		// collection for child tasks
