@@ -2,7 +2,7 @@
 
 html, body {
 	height:100%;
-	background-color:$midColumnBg;
+	background-color:$headerBg;
 }
 
 header {
@@ -62,7 +62,7 @@ footer {
 		left:0;
 		position:fixed;
 		background-color:$leftColumnBg;
-		border-right:$columnSpacerWidth solid lighten($midColumnBg, 30%);
+		margin-top:5px;
 		height:100%;
 		div:first-child {
 			margin:0;
@@ -70,9 +70,14 @@ footer {
 		box-shadow:-5px 0 4px -4px darken($leftColumnBg, 30%) inset;
 	}
 	#middleContainer {
+		background-color:$midColumnBg;
 		width:$midColumnWidth;
 		margin-left:$leftColumnWidth;
 		height:100%;
+		border-top-right-radius:4px;
+		border-top-left-radius:4px;
+		border-right:$columnSpacerWidth solid lighten($midColumnBg, 40%);
+		border-left:$columnSpacerWidth solid lighten($midColumnBg, 40%);
 		div:first-child {}
 	}
 	#rightContainer {
@@ -81,7 +86,6 @@ footer {
 		right:0;
 		height:100%;
 		background-color:$headerBg;
-		border-left:$columnSpacerWidth solid lighten($midColumnBg, 30%);
 		div:first-child {
 			margin:0;
 		}
