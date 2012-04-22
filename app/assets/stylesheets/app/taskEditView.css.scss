@@ -1,3 +1,6 @@
+@import "variables";
+
 #taskEditView {
 	padding:10px;
+	box-shadow:5px 0px 4px -4px darken($rightColumnBg, 30%) inset;
 }
