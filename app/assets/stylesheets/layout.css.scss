@@ -2,7 +2,7 @@
 
 html, body {
 	height:100%;
-	background-color:$headerBg;
+	background-color:$midColumnBg;
 }
 
 header {
@@ -62,7 +62,6 @@ footer {
 		left:0;
 		position:fixed;
 		background-color:$leftColumnBg;
-		margin-top:5px;
 		height:100%;
 		div:first-child {
 			margin:0;
