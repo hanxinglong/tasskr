@@ -3,6 +3,7 @@
 #scheduleView {
 	overflow-y:scroll;
 	height:100%;
+	box-shadow:5px 0px 4px -4px darken($rightColumnBg, 30%) inset;
 	table {
 		width:100%;
 		td {
@@ -16,6 +17,8 @@
 			background-color: darken($leftColumnBg, 10%);
 			width:1%;
 			white-space:nowrap;
+			box-shadow:5px 0px 4px -4px darken($rightColumnBg, 40%) inset;
+			border-bottom:1px solid darken($leftColumnBg, 20%);
 		}
 		tr.weekend {
 			background-color: darken($leftColumnBg, 10%);
@@ -23,6 +26,7 @@
 			td.schedule_date {
 				background-color: darken($leftColumnBg, 20%);
 				border-bottom:1px solid darken($leftColumnBg, 30%);
+				box-shadow:5px 0px 4px -4px darken($rightColumnBg, 50%) inset;
 			}
 		}
 	}

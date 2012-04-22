@@ -6,6 +6,7 @@
 	height:100%;
 	text-align:center;
 	padding: 15px 22px 20px 15px;
+	box-shadow:5px 0px 4px -4px darken($rightColumnBg, 30%) inset;
 	.chartTitle {
 		padding: 8px 0 8px 0;
 	}

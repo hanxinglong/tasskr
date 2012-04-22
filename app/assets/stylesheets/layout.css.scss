@@ -50,6 +50,7 @@ footer {
 	padding:5px;
 	background-color:$footerBg;
 	color:#fff;
+	box-shadow:0px -1px 4px 0px darken($midColumnBg, 40%);
 }
 
 #content {
@@ -61,11 +62,12 @@ footer {
 		left:0;
 		position:fixed;
 		background-color:$leftColumnBg;
-		border-right:$columnSpacerWidth solid $headerBg;
+		border-right:$columnSpacerWidth solid lighten($midColumnBg, 30%);
 		height:100%;
 		div:first-child {
 			margin:0;
 		}
+		box-shadow:-5px 0 4px -4px darken($leftColumnBg, 30%) inset;
 	}
 	#middleContainer {
 		width:$midColumnWidth;
@@ -79,7 +81,7 @@ footer {
 		right:0;
 		height:100%;
 		background-color:$headerBg;
-		border-left:$columnSpacerWidth solid $headerBg;
+		border-left:$columnSpacerWidth solid lighten($midColumnBg, 30%);
 		div:first-child {
 			margin:0;
 		}
