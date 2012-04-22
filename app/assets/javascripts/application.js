@@ -33,7 +33,7 @@
 function fixSizes() {
     var height = $(window).height() - $('footer').outerHeight(true) - $('header').outerHeight(true) - $('#tabs').outerHeight(true);
     $('#rightContent').height(height);
-    $('#middleContainer').height(height + $('#tabs').outerHeight(true));
+    $('#middleContainer').css('min-height', height+$('#tabs').outerHeight(true));
 }
 
 $(window).scroll(function() {
