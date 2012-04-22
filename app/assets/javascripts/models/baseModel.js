@@ -59,7 +59,7 @@ var BaseModel = Backbone.Model.extend({
 	  var dateString = '';
 	  var onDatePart = false;
 	  var words = this.get('name').split(' ');
-	  var skipTheseWords = ['from', 'todd', 'the', 'say', 'mom', 'day', 'tod'];
+	  var skipTheseWords = ['from', 'todd', 'the', 'say', 'mom', 'day', 'tod', 'on', 'd', 'tom', 'yes', 'next', 'we', 'days', 'ago'];
 	  for (var i = words.length - 1; i >= 0; i--) {
 	    if (Date.parse(words[i] + dateString) &&  _.indexOf(skipTheseWords, words[i]) == -1) {
 	      dateString = words[i] + ' ' + dateString;

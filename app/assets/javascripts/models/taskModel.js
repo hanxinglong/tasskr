@@ -121,7 +121,6 @@ var TaskModel = BaseModel.extend({
 		if (this.get('checked')) {
 			this.view.$el.addClass('checked');
 			this.set({ completedDate: new Date() });
-			console.log(this.view.$('input[type=checkbox]'))
 			this.view.$('input[type=checkbox]').attr("checked", true);
 		} else {
 			this.view.$el.removeClass('checked');

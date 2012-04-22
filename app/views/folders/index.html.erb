@@ -246,7 +246,7 @@ $(function() {
 
 
 <script id="scheduleRowViewTemplate" type="text/html">
-	<div class="scheduleRowView">&bull; {{#displayTimeShow}}<span class="displayTime">{{displayTime}}</span> {{/displayTimeShow}} {{displayName}}</div>
+	<div class="scheduleRowView"{{#checked}} style="text-decoration:line-through;"{{/checked}}>&bull; {{#displayTimeShow}}<span class="displayTime">{{displayTime}}</span> {{/displayTimeShow}} {{displayName}}</div>
 </script>
 
 
@@ -269,7 +269,7 @@ $(function() {
 				<li>dentist appointment march 5, 3pm</li>
 				<li>do something important today</li>
 			</ul>
-			Dates and times must be seperated by a comma.<br>
+			Dates and times should be separated by a comma.<br>
 			<br><br>
 			<div>
 				<g:plusone></g:plusone><br>

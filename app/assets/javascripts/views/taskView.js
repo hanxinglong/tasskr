@@ -32,6 +32,9 @@ var TaskView = BaseView.extend({
 		} else {
 			this.model.markThisAndChildrenChecked();
 		}
+		if (!_.isUndefined(app.scheduleView)) {
+			app.scheduleView.render();
+		}
 		e.stopPropagation();
 	},
 
