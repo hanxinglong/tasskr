@@ -24,6 +24,9 @@ var AddFolderView = Backbone.View.extend({
 
 	clearCompletedButton: function(e) {
 		app.allTasks.clearCompleted();
+		if (!_.isUndefined(app.scheduleView)) {
+			app.scheduleView.render();
+		}
 	},
 
 
