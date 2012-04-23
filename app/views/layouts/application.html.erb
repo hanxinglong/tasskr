@@ -55,6 +55,38 @@
 		up/down: navigate; enter: new task; shift+backspace: delete task; tab: indent; shift+tab:unindent; shift+up/down: move;
 	</footer>
 
+
+<script>
+Backbone.Model.prototype.idAttribute = "_id";
+var app = {};
+$(function() {
+	new MenuView();
+	createCookie('timezoneOffset',getTimeZoneOffsetDST(),10);
+	fixSizes();
+});
+</script>
+
+
+<script id="menuViewTemplate" type="text/html">
+	<ul>
+		<% if logged_in? %>
+			<li><%= current_user.email %></li>
+			<li>| <%= link_to 'Log Out', '/logout' %></li>
+		<% else %>
+			<li>Sign up to save your tasks.</li>
+			<li>| <%= link_to 'Sign Up', '/signup' %></li>
+			<li>| <%= link_to 'Sign In', '/signin' %></li>
+		<% end %>
+			| <a href="javascript:UserVoice.showPopupWidget();" title="Open feedback & support dialog" style="text-decoration:none;">Feedback/Help</a>
+		</a>
+		| <%= link_to 'mobile', 'http://m.tasskr.com/' %>
+		<% if current_or_guest_user.admin %>
+			| <%= link_to 'A', '/admin' %>
+		<% end %>
+	</ul>
+</script>
+
+
 <script type="text/javascript">
   var uvOptions = {};
   (function() {
@@ -101,35 +133,3 @@ clicky_site_ids.push(66386349);
 
 </body>
 </html>
-
-
-<script>
-Backbone.Model.prototype.idAttribute = "_id";
-var app = {};
-$(function() {
-	new MenuView();
-	createCookie('timezoneOffset',getTimeZoneOffsetDST(),10);
-	fixSizes();
-});
-</script>
-
-
-<script id="menuViewTemplate" type="text/html">
-	<ul>
-		<% if logged_in? %>
-			<li><%= current_user.email %></li>
-			<li>| <%= link_to 'Log Out', '/logout' %></li>
-		<% else %>
-			<li>Sign up to save your tasks.</li>
-			<li>| <%= link_to 'Sign Up', '/signup' %></li>
-			<li>| <%= link_to 'Sign In', '/signin' %></li>
-		<% end %>
-			| <a href="javascript:UserVoice.showPopupWidget();" title="Open feedback & support dialog" style="text-decoration:none;">Feedback/Help</a>
-		</a>
-		| <%= link_to 'mobile', 'http://m.tasskr.com/' %>
-		<% if current_or_guest_user.admin %>
-			| <%= link_to 'A', '/admin' %>
-		<% end %>
-	</ul>
-</script>
-
