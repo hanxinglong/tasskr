@@ -136,7 +136,7 @@ $(function() {
 								<icon class="button {{#openFolder}}openFolderIcon{{/openFolder}}{{^openFolder}}closedFolderIcon{{/openFolder}}"></icon>
 							</td>
 							<td>
-								<div class="nameField">{{displayName}}</div>
+								<div class="nameField{{#startDateInPast}} startDateInPast{{/startDateInPast}}">{{displayName}}</div>
 								<div class="nameFieldEdit" style="display:none;"><textarea style="width:100%;" rows="1">{{name}}</textarea><div>
 							</td>
 						</tr>
@@ -163,7 +163,7 @@ $(function() {
 								<input type="checkbox"{{#checked}} checked{{/checked}}>
 							</td>
 							<td>
-								<div class="nameField">{{displayName}}</div>
+								<div class="nameField{{#startDateInPast}} startDateInPast{{/startDateInPast}}">{{displayName}}</div>
 								<div class="nameFieldEdit" style="display:none;"><textarea style="width:100%;" rows="1">{{name}}</textarea><div>
 							</td>
 						</tr>

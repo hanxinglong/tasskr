@@ -69,16 +69,23 @@ var BaseModel = Backbone.Model.extend({
 	      onDatePart = false;
 	    }
 	  }
-	  this.set({startDate: '', displayName: this.get('name'), displayStartDateFromNow: ''});
+	  this.set({startDate: '', displayName: this.get('name'), displayStartDateFromNow: '', startDateInPast:false});
 	  if (dateString != '') {
 	    if (dateString.length > 3) {    // why is this 3 and not four?? 'sat' = 4 characters
 	      if (date = Date.parse(dateString)) {
 	        if ( moment(date).format('YYYY') > 1980 ) {   // things break if time is before 1969
-	          this.set({
+	        	var now = new Date();
+	        	if (date.isAfter(now)) {
+	        		var startDateInPast = false;
+	        	} else {
+	        		var startDateInPast = true;
+	        	}
+	         this.set({
 	          	startDateString: dateString.trim(),
 	          	startDate: moment(date).format('MMMM Do YYYY, h:mm:ss a'),
 	          	displayName: this.get('name').replace(dateString.trim(), ''),
 	          	displayStartDateFromNow: moment(date).fromNow(),
+	          	startDateInPast: startDateInPast
 	          });
 	        }
 	      }
@@ -89,6 +96,15 @@ var BaseModel = Backbone.Model.extend({
 
 	onDisplayStartDateFromNow: function() {
 		this.view.$('.displayStartDateFromNow').html(this.get('displayStartDateFromNow'));
+	},
+
+
+	onChangeStartDateInPast: function() {
+		if (this.get('startDateInPast')) {
+			this.view.$('.nameField').addClass('startDateInPast');
+		} else {
+			this.view.$('.nameField').removeClass('startDateInPast');
+		}
 	},
 
 

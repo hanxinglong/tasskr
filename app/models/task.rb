@@ -13,4 +13,5 @@ class Task
   field :completedDate, type: DateTime
   field :parentTaskId, type: String, default: nil
   field :openFolder, type: Boolean, default: true
+  field :startDateInPast, type: Boolean, default: false
 end

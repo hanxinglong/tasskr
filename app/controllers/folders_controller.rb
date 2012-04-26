@@ -113,7 +113,7 @@ class FoldersController < ApplicationController
 	end
 
 	def create
-		folder = current_or_guest_user.folders.new pick(params[:folder], :name, :order, :openFolder, :createdInDb, :startDate, :startDateString)
+		folder = current_or_guest_user.folders.new pick(params[:folder], :name, :order, :openFolder, :createdInDb, :startDate, :startDateString, :startDateInPast)
 		if folder.save
 			x = Hash.new
 			x['_id'] = folder._id 
@@ -126,7 +126,7 @@ class FoldersController < ApplicationController
 
 	def update
 		folder = current_or_guest_user.folders.find params[:id]
-		if folder.update_attributes pick(params[:folder], :name, :order, :openFolder, :createdInDb, :startDate, :startDateString)
+		if folder.update_attributes pick(params[:folder], :name, :order, :openFolder, :createdInDb, :startDate, :startDateString, :startDateInPast)
 			render :json => ''
 		else
 			render :json => folder.errors

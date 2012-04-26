@@ -10,6 +10,7 @@ field :openFolder, type: Boolean
 field :createdInDb, type: Boolean	# to prevent models from being created twice
 field :startDate, type: DateTime
 field :startDateString, type: String
+field :startDateInPast, type: Boolean, default: false
 before_destroy :destroyTasks
 
 protected

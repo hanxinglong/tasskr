@@ -33,6 +33,7 @@ var TaskModel = BaseModel.extend({
 		this.bind("error", this.saveError);
 		this.bind("success", this.saveSuccess);
 		this.bind("change:startDate", this.onChangeStartDate);
+		this.bind("change:startDateInPast", this.onChangeStartDateInPast);
 		new TaskView({ model:this});
 		new ContainerView({ model:this });
 
