@@ -28,7 +28,10 @@ $(function() {
 	new ChartsView;
 	new ScheduleView;
 	new HelpView;
-	app.tabMenuView.selectScheduleTab();	
+	//app.tabMenuView.selectScheduleTab();		// clicky breaks because of this so do lines below instead
+	app.tabMenuView.deselectAllTabs();
+	$('#scheduleTab').addClass('selected');
+	app.scheduleView.showView();
 
 	$("ul.tasks").sortable({
 		connectWith: "ul.tasks",
