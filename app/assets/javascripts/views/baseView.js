@@ -58,6 +58,7 @@ var BaseView = Backbone.View.extend({
 		if(e.keyCode == 13) {
 			if (this.model.isFolder()) {
 				this.model.addTask(0);
+				trackEvent('addTask', 'addTask');
 			} else {
 				this.model.parentTaskOrFolder().addTask(this.model.collection.indexOf(this.model)+1);
 			}
@@ -124,6 +125,7 @@ var BaseView = Backbone.View.extend({
 	addTask: function(e) {
 		this.model.addTask(0);
 		e.stopPropagation();
+		trackEvent('addTask', 'addTask');
 	},
 
 
@@ -134,6 +136,7 @@ var BaseView = Backbone.View.extend({
 			this.model.set({openFolder:true});
 		}
 		e.stopPropagation();
+		trackEvent('toggleOpenFolder', 'toggleOpenFolder');
 	},
 
 
@@ -143,6 +146,7 @@ var BaseView = Backbone.View.extend({
 			v = this;
 			$(this.model.containerView.el).slideUp(200, function() {
 				v.model.destroy();
+				trackEvent('deleteModel', 'deleteModel');
 			});
 		}
 		e.stopPropagation();
