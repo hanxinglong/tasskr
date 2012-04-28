@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"start",
+				"startDateInPast"
+			],
+			[
+				"star",
+				"startDateIsInFuture"
+			],
+			[
+				"mi",
+				"middleContainer"
+			],
+			[
+				"midColum",
+				"midColumnBg"
+			],
+			[
+				"index",
+				"index"
+			],
+			[
+				"display",
+				"displayTimeShow"
+			],
+			[
+				"hide",
+				"hideTask"
+			],
+			[
 				"sche",
 				"scheduleDay"
 			],
@@ -99,14 +127,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "/Users/dan/rails/tasskr5/app/views/folders/index.html.erb",
-			"settings":
-			{
-				"buffer_size": 6640,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -132,45 +152,86 @@
 	},
 	"file_history":
 	[
-		"/Users/dan/rails/tasskr5/app/assets/stylesheets/app/scheduleView.css.scss",
-		"/Users/dan/rails/tasskr5/app/assets/javascripts/application.js",
-		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/scheduleView.js",
-		"/Users/dan/rails/tasskr5/app/assets/stylesheets/app/tasks.css.scss",
-		"/Users/dan/rails/tasskr4/app/views/folders/index.html.erb",
+		"/Users/dan/rails/tasskr5/app/views/folders/index.html.erb",
+		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/folderView.js",
 		"/Users/dan/rails/tasskr5/app/assets/javascripts/models/taskModel.js",
 		"/Users/dan/rails/tasskr5/app/assets/javascripts/models/folderModel.js",
 		"/Users/dan/rails/tasskr5/app/assets/javascripts/models/baseModel.js",
-		"/Users/dan/rails/tasskr5/config/initializers/time_formats.rb",
-		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/scheduleRowView.js",
-		"/Users/dan/rails/tasskr5/app/views/folders/index.html.erb",
-		"/Users/dan/rails/tasskr5/app/assets/javascripts/collections/foldersCollection.js",
-		"/Users/dan/rails/tasskr5/app/assets/stylesheets/app/outlineRowView.css.scss",
+		"/Users/dan/rails/tasskr5/app/assets/stylesheets/app/tasks.css.scss",
+		"/Users/dan/rails/tasskr5/app/views/admin/index.html.erb",
+		"/Users/dan/rails/tasskr5/app/assets/stylesheets/application.css",
+		"/Users/dan/rails/tasskr5/app/assets/stylesheets/app/tabMenuView.css.scss",
+		"/Users/dan/rails/tasskr5/vendor/assets/javascripts/moment.js",
+		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/taskView.js",
+		"/Users/dan/rails/tasskr5/app/assets/stylesheets/base.css.scss",
+		"/Users/dan/rails/tasskr5/app/models/task.rb",
+		"/Users/dan/rails/tasskr5/app/models/folder.rb",
+		"/Users/dan/rails/tasskr5/app/controllers/folders_controller.rb",
+		"/Users/dan/rails/tasskr5/app/controllers/tasks_controller.rb",
+		"/Users/dan/rails/tasskr5/app/assets/javascripts/application.js",
+		"/Users/dan/rails/tasskr5/app/views/layouts/application.html.erb",
+		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/menuView.js",
+		"/Users/dan/rails/tasskr5/app/views/sessions/new.html.erb",
 		"/Users/dan/rails/tasskr5/app/assets/stylesheets/_variables.css.scss",
 		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/addFolderView.js",
-		"/Users/dan/rails/tasskr5/app/assets/javascripts/collections/baseCollercion.js",
 		"/Users/dan/rails/tasskr5/app/assets/javascripts/collections/allTasksCollection.js",
-		"/Users/dan/rails/tasskr5/app/assets/javascripts/collections/allFoldersCollection.js",
-		"/Users/dan/rails/tasskr5/app/assets/javascripts/collections/tasksCollection.js",
+		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/scheduleView.js",
+		"/Users/dan/rails/tasskr5/app/assets/stylesheets/app/taskEditView.css.scss",
+		"/Users/dan/rails/tasskr5/app/assets/stylesheets/app/helpView.css.scss",
+		"/Users/dan/rails/tasskr5/app/assets/stylesheets/app/scheduleView.css.scss",
+		"/Users/dan/rails/tasskr5/app/assets/stylesheets/layout.css.scss",
+		"/Users/dan/rails/tasskr5/app/assets/stylesheets/app/chartsView.css.scss",
+		"/Users/dan/rails/tasskr5/app/assets/stylesheets/app/scheduleRowView.css.scss",
+		"/Users/dan/rails/tasskr5/app/assets/stylesheets/app/menuView.css.scss",
+		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/baseView.js",
+		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/tabMenuView.js",
+		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/helpView.js",
+		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/helpView.css.scss",
+		"/Users/dan/rails/tasskr5/app/assets/javascripts/collections/baseCollercion.js",
+		"/Users/dan/rails/tasskr5/app/assets/javascripts/collections/foldersCollection.js",
+		"/Users/dan/rails/tasskr5/vendor/assets/javascripts/backbone.js",
+		"/Users/dan/rails/tasskr5/app/controllers/admin_controller.rb",
+		"/Users/dan/rails/tasskr5/app/models/user.rb",
+		"/Users/dan/rails/tasskr5/Gemfile",
+		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/scheduleRowView.js",
+		"/Users/dan/meteor/example-leaderboard/leaderboard/leaderboard.js",
+		"/Users/dan/meteor/example-leaderboard/leaderboard/leaderboard.html",
+		"/Users/dan/rails/tasskr4/config/environment.rb",
+		"/Users/dan/rails/tasskr4/config/application.rb",
+		"/Users/dan/rails/tasskr5/lib/tasks/scheduler.rake",
+		"/Users/dan/rails/tasskr4/app/assets/javascripts/application.js",
+		"/Users/dan/rails/tasskr4/app/assets/javascripts/functions.js",
+		"/Users/dan/rails/tasskr5/vendor/assets/javascripts/jquery.flot.resize.js",
+		"/Users/dan/rails/tasskr5/app/views/users/new.html.erb",
+		"/Users/dan/rails/tasskr4/app/views/layouts/application.html.erb",
+		"/Users/dan/rails/tasskr4/app/views/admin/index.html.erb",
+		"/Users/dan/rails/tasskr5/app/assets/stylesheets/app/aboutView.css.scss",
+		"/Users/dan/rails/tasskr4/app/views/folders/index.html.erb",
+		"/Users/dan/rails/tasskr4/app/views/static/index.html.erb",
+		"/Users/dan/rails/tasskr5/app/assets/stylesheets/glyphIcons.css",
+		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/aboutView.js",
+		"/Users/dan/rails/tasskr5/app/assets/stylesheets/app/addFolderView.css.scss",
 		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/outlineRowView.js",
+		"/Users/dan/rails/tasskr5/app/assets/stylesheets/app/outlineRowView.css.scss",
+		"/Users/dan/rails/tasskr4/app/assets/javascripts/models/model_task.js",
+		"/Users/dan/rails/tasskr4/app/assets/javascripts/views/view_task.js",
+		"/Users/dan/rails/tasskr4/app/assets/javascripts/bb_views.js",
+		"/Users/dan/rails/tasskr4/app/assets/javascripts/bb_collections.js",
+		"/Users/dan/rails/tasskr5/app/assets/javascripts/collections/tasksCollection.js",
+		"/Users/dan/rails/tasskr4/app/assets/javascripts/bb_models.js",
+		"/Users/dan/rails/tasskr5/app/assets/stylesheets/app/untitled",
+		"/Users/dan/rails/tasskr5/config/initializers/time_formats.rb",
+		"/Users/dan/rails/tasskr5/app/assets/javascripts/collections/allFoldersCollection.js",
 		"/Users/dan/rails/tasskr4/app/assets/javascripts/views/view_schedule.js",
 		"/Users/dan/rails/tasskr4/app/assets/javascripts/views/view_scheduleRow.js",
 		"/Users/dan/rails/tasskr4/app/assets/javascripts/views/view_outlinerRow.js",
 		"/Users/dan/rails/tasskr4/app/assets/javascripts/views/view_outliner.js",
 		"/Users/dan/rails/tasskr4/app/assets/javascripts/views/view_chart.js",
-		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/taskView.js",
 		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/chartsView.js",
-		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/folderView.js",
-		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/baseView.js",
 		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/outlineView.js",
-		"/Users/dan/rails/tasskr5/vendor/assets/javascripts/backbone.js",
 		"/Users/dan/rails/tasskr4/vendor/assets/javascripts/backbone.js",
-		"/Users/dan/rails/tasskr5/app/assets/stylesheets/base.css.scss",
 		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/taskEditView.js",
-		"/Users/dan/rails/tasskr4/app/assets/javascripts/models/model_task.js",
-		"/Users/dan/rails/tasskr4/app/assets/javascripts/bb_models.js",
 		"/Users/dan/rails/tasskr4/app/assets/javascripts/models/model_folder.js",
-		"/Users/dan/rails/tasskr4/app/views/layouts/application.html.erb",
-		"/Users/dan/rails/tasskr5/app/views/layouts/application.html.erb",
 		"/Users/dan/rails/tasskr4/app/assets/javascripts/views/view.editview.js",
 		"/Users/dan/rails/tasskr4/app/assets/stylesheets/app/tasks.css.scss",
 		"/Users/dan/rails/tasskrMobile/app/views/folders/index.html.erb",
@@ -181,27 +242,12 @@
 		"/Users/dan/rails/tasskrMobile/app/views/layouts/application.html.erb",
 		"/Users/dan/rails/tasskrMobile/app/assets/javascripts/functions.js",
 		"/Users/dan/rails/tasskrMobile/app/assets/javascripts/application.js",
-		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/tabMenuView.js",
-		"/Users/dan/rails/tasskr5/app/assets/stylesheets/application.css",
-		"/Users/dan/rails/tasskr4/app/assets/javascripts/views/view_task.js",
 		"/Users/dan/rails/tasskrMobile/app/assets/javascripts/models/taskModel.js",
 		"/Users/dan/rails/tasskrMobile/app/assets/javascripts/views/taskView.js",
-		"/Users/dan/rails/tasskr4/app/assets/javascripts/bb_views.js",
-		"/Users/dan/rails/tasskr5/app/controllers/folders_controller.rb",
-		"/Users/dan/rails/tasskr5/app/controllers/tasks_controller.rb",
-		"/Users/dan/rails/tasskr5/app/assets/stylesheets/app/addFolderView.css.scss",
-		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/menuView.js",
-		"/Users/dan/rails/tasskr5/app/assets/stylesheets/app/menuView.css.scss",
 		"/Users/dan/rails/tasskr5/vendor/assets/javascripts/modernizr-2.5.3.js",
-		"/Users/dan/rails/tasskr5/app/assets/stylesheets/app/taskEditView.css.scss",
-		"/Users/dan/rails/tasskr5/app/assets/stylesheets/layout.css.scss",
-		"/Users/dan/rails/tasskr5/app/models/task.rb",
-		"/Users/dan/rails/tasskr5/app/assets/stylesheets/app/tabMenuView.css.scss",
 		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/chartView.js",
-		"/Users/dan/rails/tasskr5/app/models/folder.rb",
 		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/taskContainerView.js",
 		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/folderContainerView.js",
-		"/Users/dan/rails/tasskr4/app/assets/javascripts/bb_collections.js",
 		"/Users/dan/rails/tasskrMobile/app/assets/javascripts/models/folderModel.js",
 		"/Users/dan/rails/tasskrMobile/app/assets/javascripts/collections/tasksCollection.js",
 		"/Users/dan/rails/tasskrMobile/app/assets/javascripts/views/folderContainerView.js",
@@ -215,13 +261,10 @@
 		"/Users/dan/rails/tasskr5/app/assets/stylesheets/normalize.css",
 		"/Users/dan/rails/tasskr5/app/assets/stylesheets/addFolderView.css.scss",
 		"/Users/dan/rails/tasskr4/app/assets/stylesheets/app/editview.css.scss",
-		"/Users/dan/rails/tasskr4/app/assets/javascripts/functions.js",
-		"/Users/dan/rails/tasskr4/app/assets/javascripts/application.js",
 		"/Users/dan/rails/tasskr4/app/assets/stylesheets/app/app.css.scss",
 		"/Users/dan/sinatra/tempTasskrLayout/views/index.erb",
 		"/Users/dan/sinatra/tempTasskrLayout/public/stylesheets/app.scss",
 		"/Users/dan/rails/tasskr5/app/controllers/users_controller.rb",
-		"/Users/dan/rails/tasskr5/app/models/user.rb",
 		"/Users/dan/rails/tasskr5/app/controllers/application_controller.rb",
 		"/Users/dan/rails/tasskr4/app/controllers/application_controller.rb",
 		"/Users/dan/rails/tasskr5/config/routes.rb",
@@ -229,7 +272,6 @@
 		"/Users/dan/rails/tasskr5/config/initializers/sorcery.rb",
 		"/Users/dan/rails/tasskr4/config/routes.rb",
 		"/Users/dan/rails/tasskr4/app/controllers/folders_controller.rb",
-		"/Users/dan/rails/tasskr5/Gemfile",
 		"/Users/dan/rails/tasskr4/Gemfile",
 		"/Users/dan/sinatra/tempTasskrLayout/app.rb",
 		"/Users/dan/rails/tasskr4/app/assets/stylesheets/normalize.css",
@@ -237,29 +279,7 @@
 		"/Users/dan/sinatra/tempTasskrLayout/public/stylesheets/app.css",
 		"/Users/dan/sinatra/tempTasskrLayout/public/stylesheets/app.css.scss",
 		"/Users/dan/sinatra/tempTasskrLayout/public/app.css",
-		"/Users/dan/rails/twitterBootstrap/config/routes.rb",
-		"/Users/dan/rails/twitterBootstrap/app/controllers/static_controller.rb",
-		"/Users/dan/rails/twitterBootstrap/app/views/static/index.html.erb",
-		"/Users/dan/rails/twitterBootstrap/app/controllers/application_controller.rb",
-		"/Users/dan/rails/twitterBootstrap/app/assets/javascripts/application.js",
-		"/Users/dan/sinatra/tempTasskrLayout/views/index.html.erb",
-		"/Users/dan/rails/tasskr4/config/environments/development.rb",
-		"/Users/dan/rails/tasskr4/config/environments/production.rb",
-		"/Users/dan/rails/tasskr4/config/environment.rb",
-		"/Users/dan/rails/tasskr4/config/initializers/time_formats.rb",
-		"/Users/dan/rails/tasskr4/config/initializers/session_store.rb",
-		"/Users/dan/rails/tasskr4/config/environments/test.rb",
-		"/Users/dan/rails/tasskrMobile/app/assets/javascripts/views/tasksPageView.js",
-		"/Users/dan/rails/tasskr4/app/views/admin/index.html.erb",
-		"/Users/dan/rails/tasskrMobile/app/assets/stylesheets/base.css.scss",
-		"/Users/dan/rails/tasskr4/app/controllers/admin_controller.rb",
-		"/Users/dan/rails/tasskrMobile/app/controllers/tasks_controller.rb",
-		"/Users/dan/rails/tasskrMobile/app/controllers/application_controller.rb",
-		"/Users/dan/rails/tasskr4/app/assets/javascripts/views/view_folder.js",
-		"/Users/dan/rails/tasskrMobile/app/controllers/folders_controller.rb",
-		"/Users/dan/rails/tasskr4/config/newrelic.yml",
-		"/Users/dan/rails/tasskrMobile/config/newrelic.yml",
-		"/Users/dan/rails/tasskrMobile/config/routes.rb"
+		"/Users/dan/rails/twitterBootstrap/config/routes.rb"
 	],
 	"find":
 	{
@@ -267,9 +287,10 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
+			"/Users/dan/rails/tasskr5/app/assets/",
 			"/Users/dan/rails/tasskr5/app/assets/javascripts",
 			"/Users/dan/rails/tasskr4/app/assets/javascripts"
 		]
@@ -279,6 +300,39 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"_d ",
+			"_d",
+			"ondisplay",
+			"onDisplayStartDateFromNow",
+			"onstartdateF",
+			"onhidetask",
+			"radiu",
+			"check",
+			"schedule",
+			"tabview",
+			"onDisplayStartDateFromNow\nondisplaystar",
+			"ondisplaystar",
+			"onDisplayStartDateFromNow\nonDisplayStartDateFromNow\nonDisplayStartDateFromNow\nonDisplayStartDateFromNow",
+			"onDisplayStartDateFromNow\nonDisplayStartDateFromNow\nonDisplayStartDateFromNow",
+			"onDisplayStartDateFromNow\nonDisplayStartDateFromNow",
+			"onkey",
+			"setOrderFromIndex",
+			"setorder",
+			"about",
+			"toggleAbout",
+			"uservo",
+			"help",
+			"onchangeche",
+			"check",
+			"date ",
+			"totalcre",
+			"chart",
+			"destroy",
+			"ondestroy",
+			"destroy",
+			"delete",
+			"deleteMo",
+			"deleteModel",
 			"1%",
 			"schedule",
 			"outline",
@@ -373,19 +427,7 @@
 			".save",
 			"add_el",
 			"each",
-			"preventde",
-			"subtasks",
-			"Placement",
-			"placement",
-			"Reminder",
-			"reminder",
-			"console",
-			"rem_model",
-			"equals",
-			"error",
-			"title",
-			"@item",
-			"xml"
+			"preventde"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -414,43 +456,15 @@
 		],
 		"reverse": false,
 		"show_context": true,
-		"use_buffer2": true,
+		"use_buffer2": false,
 		"whole_word": false,
 		"wrap": true
 	},
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "/Users/dan/rails/tasskr5/app/views/folders/index.html.erb",
-					"settings":
-					{
-						"buffer_size": 6640,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5886,
-								5886
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 3032.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -485,6 +499,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 374.0
+	},
 	"replace":
 	{
 		"height": 62.0
