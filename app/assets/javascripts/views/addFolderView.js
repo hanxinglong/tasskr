@@ -44,6 +44,7 @@ var AddFolderView = Backbone.View.extend({
 			
 			$('#addFolderInput').val('');
 			folder.addTask(0);
+			trackEvent('addProject', 'addProject');
 		}
 	},
 
@@ -61,6 +62,7 @@ var AddFolderView = Backbone.View.extend({
 				
 				$('#addFolderInput').val('');
 				folder.addTask(0);
+				trackEvent('addProject', 'addProject');
 			}
 			e.stopPropagation();
 			e.preventDefault();

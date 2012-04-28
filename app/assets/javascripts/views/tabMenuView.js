@@ -40,24 +40,28 @@ var TabMenuView = Backbone.View.extend({
 		this.deselectAllTabs();
 		this.$('#scheduleTab').addClass('selected');
 		app.scheduleView.showView();
+		trackEvent('selectScheduleTab', 'selectScheduleTab');
 	},
 
 	selectChartsTab: function() {
 		this.deselectAllTabs();
 		this.$('#chartsTab').addClass('selected');
 		app.chartsView.showView();
+		trackEvent('selectChartsTab', 'selectChartsTab');
 	},
 
 	selectTaskTab: function() {
 		this.deselectAllTabs();
 		this.$('#taskTab').addClass('selected');
 		app.selectedModel.taskEditView.showView();
+		trackEvent('selectTaskTab', 'selectTaskTab');
 	},
 
 	selectHelpTab: function() {
 		this.deselectAllTabs();
 		this.$('#helpTab').addClass('selected');
 		app.helpView.showView();
+		trackEvent('selectHelpTab', 'selectHelpTab');
 	},
 
 });

@@ -22,6 +22,7 @@ var OutlineRowView = Backbone.View.extend({
 
 	onSelect: function() {
 		this.model.selectModel();
+		trackEvent('outlinerSelectProject', 'outlinerSelectProject');
 	},
 
 });
