@@ -59,7 +59,7 @@ var BaseModel = Backbone.Model.extend({
 	  var dateString = '';
 	  var onDatePart = false;
 	  var words = this.get('name').split(' ');
-	  var skipTheseWords = ['from', 'todd', 'the', 'say', 'mom', 'day', 'tod', 'on', 'd', 'tom', 'yes', 'next', 'we', 'days', 'ago'];
+	  var skipTheseWords = ['from', 'todd', 'the', 'say', 'mom', 'day', 'tod', 'on', 'd', 'tom', 'yes', 'next', 'we', 'days', 'ago', 'past', 'with', 'to'];
 	  for (var i = words.length - 1; i >= 0; i--) {
 	    if (Date.parse(words[i] + dateString) &&  _.indexOf(skipTheseWords, words[i]) == -1) {
 	      dateString = words[i] + ' ' + dateString;
@@ -102,8 +102,10 @@ var BaseModel = Backbone.Model.extend({
 	onChangeStartDateInPast: function() {
 		if (this.get('startDateInPast')) {
 			this.view.$('.nameField').addClass('startDateInPast');
+			this.view.$('.displayStartDateFromNow').addClass('startDateInPast');
 		} else {
 			this.view.$('.nameField').removeClass('startDateInPast');
+			this.view.$('.displayStartDateFromNow').removeClass('startDateInPast');
 		}
 	},
 
