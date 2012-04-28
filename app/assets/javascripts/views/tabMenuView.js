@@ -54,7 +54,6 @@ var TabMenuView = Backbone.View.extend({
 		this.deselectAllTabs();
 		this.$('#taskTab').addClass('selected');
 		app.selectedModel.taskEditView.showView();
-		trackEvent('selectTaskTab', 'selectTaskTab');
 	},
 
 	selectHelpTab: function() {
