@@ -1,11 +1,14 @@
 <div id="admin">
-<div id="flotStats" style="width:95%;height:400px;"></div>
+<div id="flotStats" style="width:95%;height:300px;"></div>
+<div id="flotStats2" style="width:95%;height:300px;"></div>
+<div id="flotStats3" style="width:95%;height:300px;"></div>
+
 
 <script>
 $(function() {
 	//var numGuests = <%= raw @numGuests.to_json %>;
 	var numUsers = <%= raw @numUsers.to_json %>;
-	//var numTasks = <%= raw @numTasks.to_json %>;
+	var numTasks = <%= raw @numTasks.to_json %>;
 	//var numFolders = <%= raw @numFolders.to_json %>;
 	var numCompletedTasks = <%= raw @numCompletedTasks.to_json %>;
 	var numUserTasks = <%= raw @numUserTasks.to_json %>;
@@ -19,6 +22,8 @@ $(function() {
 		}
 	};
 	$.plot($("#flotStats"), [{label: "<%= @numUsers.last.last %> Users", data: numUsers}, {label: "<%= @numCompletedTasks.last.last %> Completed User Tasks", data: numCompletedTasks}, {label: "<%= @numUserTasks.last.last %> User Tasks", data: numUserTasks}], options);
+	$.plot($("#flotStats2"), [{label: "<%= @numUsers.last.last %> Users", data: numUsers}], options);
+	$.plot($("#flotStats3"), [{label: "<%= @numTasks.last.last %> Tasks", data: numTasks}], options);
 });
 </script>
 
