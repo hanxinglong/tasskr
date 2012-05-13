@@ -41,6 +41,7 @@ $(function() {
 		delay: 100,
 		tolerance: 'pointer',
 		receive: function(event, ui) {
+			event.stopPropagation();
 			var pos = ui.item.parent('ul').children('li').index(ui.item);
 			var model = app.allTasks.getByCid( ui.item.attr('cid') );
 			var oldCollection = model.collection;
@@ -65,6 +66,7 @@ $(function() {
 		},
 
 		update: function(event, ui) {
+			event.stopPropagation();
 			// do all this shit so that update only runs when moving in same collection
 			if (!ui.sender) {
 				var pos = ui.item.parent('ul').children('li').index(ui.item);
@@ -94,6 +96,7 @@ $(function() {
 		axis: 'y',
 		delay: 100,
 		update: function(event, ui) {
+			event.stopPropagation();
 			var pos = ui.item.parent('ul').children('li').index(ui.item);
 			var model = app.folders.getByCid( ui.item.attr('cid') );
 			app.folders.remove(model);
