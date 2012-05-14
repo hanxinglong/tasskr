@@ -34,6 +34,7 @@ class User
       tasks = Task.where(:hideTask => false, :checked => false, :startDate  => {'$gte' => today, '$lt' => tomorrow})
       #folders = Folder.where(:startDate => {'$gte' => today, '$lt' => tomorrow})
       puts u.email + ' - ' + tasks.count.to_s + ' tasks'
+      logger.debug u.email + ' - ' + tasks.count.to_s + ' tasks'
       if u.email == 'danphi@gmail.com'
         UserMailer.reminder_email(u, tasks, today)
       end
