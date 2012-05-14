@@ -3,7 +3,7 @@
 		<%= f.check_box :emailReminders %>
 		<%= f.label "Email Reminders" %><br>
 		Send me an email in the morning containing tasks due that day.<br>
-		<%= current_or_guest_user.emailRemindersLastSent %>
+		test: <%= current_or_guest_user.emailRemindersLastSent %>
 		<br>
 		<%= f.submit 'Save Settings' %>
 	<% end %>
