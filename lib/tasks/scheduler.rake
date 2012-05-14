@@ -10,3 +10,7 @@ task :recordStats => :environment do
 	Stat.completedTasks
 	Stat.userTasks
 end
+
+task :sendEmailReminders => :environment do
+	User.sendEmailReminders
+end

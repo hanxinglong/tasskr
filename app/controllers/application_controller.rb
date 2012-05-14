@@ -8,8 +8,9 @@ class ApplicationController < ActionController::Base
 	def setTimezone
 		if cookies.has_key? 'timezoneOffset'
 			min = cookies[:timezoneOffset].to_i
-			Time.zone = ActiveSupport::TimeZone[-min.minutes]
+			Time.zone = ActiveSupport::TimeZone[min.minutes*-1]
 			logger.info Time.zone
+			current_or_guest_user.update_attribute(:timezoneOffset, min*-1)
 		else
 			Time.zone = 'UTC'
 		end

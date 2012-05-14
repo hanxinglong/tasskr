@@ -4,6 +4,7 @@ Tasskr5::Application.routes.draw do
   get "logout" => "sessions#destroy", :as => "logout"
   get "signin" => "sessions#new", :as => "signin"
   get "signup" => "users#new", :as => "signup"
+  get "settings" => "users#edit", :as => "settings"
   resources :users
   resources :sessions
   resources :password_resets

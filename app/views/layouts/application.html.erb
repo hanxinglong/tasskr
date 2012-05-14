@@ -71,17 +71,17 @@ $(function() {
 	<ul>
 		<% if logged_in? %>
 			<li><%= current_user.email %></li>
-			<li>| <%= link_to 'Log Out', '/logout' %></li>
+			<li>| <%= link_to 'log out', '/logout' %></li>
 		<% else %>
 			<li>Sign up to save your tasks.</li>
-			<li>| <%= link_to 'Sign Up', '/signup' %></li>
-			<li>| <%= link_to 'Sign In', '/signin' %></li>
+			<li>| <%= link_to 'sign up', '/signup' %></li>
+			<li>| <%= link_to 'sign in', '/signin' %></li>
 		<% end %>
-			| <a href="javascript:UserVoice.showPopupWidget();" title="Open feedback & support dialog" style="text-decoration:none;">Feedback/Help</a>
-		</a>
+		| <%= link_to 'settings', '/settings' %>
+		| <a href="javascript:UserVoice.showPopupWidget();" title="Open feedback & support dialog" style="text-decoration:none;">feedback/help</a>
 		| <%= link_to 'mobile', 'http://m.tasskr.com/' %>
 		<% if current_or_guest_user.admin %>
-			| <%= link_to 'A', '/admin' %>
+			| <%= link_to 'a', '/admin' %>
 		<% end %>
 	</ul>
 </script>

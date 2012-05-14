@@ -1,0 +1,9 @@
+<div class="userForm">
+	<%= form_for @user do |f| %>
+		<%= f.check_box :emailReminders %>
+		<%= f.label "Email Reminders" %><br>
+		Send me an email in the morning containing tasks due that day.<br>
+		<br>
+		<%= f.submit 'Save Settings' %>
+	<% end %>
+</div>

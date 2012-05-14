@@ -12,4 +12,14 @@ class UserMailer < ActionMailer::Base
     mail(:to => user.email,
          :subject => "Your password has been reset")
   end
+
+
+  def reminder_email(user, tasks, dateToday)
+    @user = user
+    @tasks = tasks
+    @dateToday = dateToday
+    mail(:to => user.email,
+        :from => "reminder@tasskr.com",
+        :subject => "Tasskr Reminder")
+  end
 end
