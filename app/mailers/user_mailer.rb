@@ -27,10 +27,8 @@ class UserMailer < ActionMailer::Base
         puts u.email + ' - ' + @tasks.count.to_s + ' tasks'
         logger.debug u.email + ' - ' + @tasks.count.to_s + ' tasks'
 
-        if u.email == 'danphi@gmail.com'
-          mail(:to => u.email, :from => "reminder@tasskr.com", :subject => "Tasskr Reminder")
-          u.update_attribute(:emailRemindersLastSent, @dateToday)
-        end
+        mail(:to => u.email, :from => "reminder@tasskr.com", :subject => "Tasskr Reminder")
+        u.update_attribute(:emailRemindersLastSent, @dateToday)
       end
     end
   end
