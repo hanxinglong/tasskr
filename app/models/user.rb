@@ -7,6 +7,7 @@ class User
   field :admin, type: Boolean, default: false
   field :timezoneOffset, type: Integer
   field :emailReminders, type: Boolean, default: false
+  field :emailRemindersLastSent, type: String
   
   has_many :folders
   

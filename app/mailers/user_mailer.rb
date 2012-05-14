@@ -20,16 +20,17 @@ class UserMailer < ActionMailer::Base
       Time.zone = ActiveSupport::TimeZone[u.timezoneOffset.minutes]
       @dateToday = Time.now.to_date
       tomorrow = Time.now.to_date + 1
-      @tasks = Task.where(:hideTask => false, :checked => false, :startDate  => {'$gte' => @dateToday, '$lt' => tomorrow})
-      #folders = Folder.where(:startDate => {'$gte' => today, '$lt' => tomorrow})
 
-      puts u.email + ' - ' + @tasks.count.to_s + ' tasks'
-      logger.debug u.email + ' - ' + @tasks.count.to_s + ' tasks'
+      if u.emailRemindersLastSent != @dateToday
+        @tasks = Task.where(:hideTask => false, :checked => false, :startDate  => {'$gte' => @dateToday, '$lt' => tomorrow})
 
-      if u.email == 'danphi@gmail.com'
-        mail(:to => u.email,
-        :from => "reminder@tasskr.com",
-        :subject => "Tasskr Reminder")
+        puts u.email + ' - ' + @tasks.count.to_s + ' tasks'
+        logger.debug u.email + ' - ' + @tasks.count.to_s + ' tasks'
+
+        if u.email == 'danphi@gmail.com'
+          mail(:to => u.email, :from => "reminder@tasskr.com", :subject => "Tasskr Reminder")
+          u.update_attribute(:emailRemindersLastSent, @dateToday)
+        end
       end
     end
   end
