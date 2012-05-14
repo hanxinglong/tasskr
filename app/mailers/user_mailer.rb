@@ -21,6 +21,13 @@ class UserMailer < ActionMailer::Base
       @dateToday = Time.now.to_date
       tomorrow = Time.now.to_date + 1
 
+      @tasks = Array.new
+      folders = Folder.where(:user_id => u.id)
+      folders.each do |f|
+        t = Task.where(:folder_id => f.id, :hideTask => false, :checked => false, :startDate  => {'$gte' => @dateToday, '$lt' => tomorrow})
+        @tasks << t
+      end
+
       if u.emailRemindersLastSent != @dateToday
         @tasks = Task.where(:hideTask => false, :checked => false, :startDate  => {'$gte' => @dateToday, '$lt' => tomorrow})
 
