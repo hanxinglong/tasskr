@@ -25,7 +25,6 @@ class UserMailer < ActionMailer::Base
         @tasks = Task.where(:hideTask => false, :checked => false, :startDate  => {'$gte' => @dateToday, '$lt' => tomorrow})
 
         puts u.email + ' - ' + @tasks.count.to_s + ' tasks'
-        logger.debug u.email + ' - ' + @tasks.count.to_s + ' tasks'
 
         mail(:to => u.email, :from => "reminder@tasskr.com", :subject => "Tasskr Reminder")
         u.update_attribute(:emailRemindersLastSent, @dateToday)
