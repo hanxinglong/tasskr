@@ -18,10 +18,10 @@ class UserMailer < ActionMailer::Base
     users = User.where(:guest => false, :emailReminders => true)
     users.each do |u|
       Time.zone = ActiveSupport::TimeZone[u.timezoneOffset.minutes]
-      @dateToday = Time.now.to_date
-      tomorrow = Time.now.to_date + 1
+      @dateToday = Time.zone.now.to_date
+      tomorrow = @dateToday + 1
 
-      if u.emailRemindersLastSent != @dateToday
+      if u.emailRemindersLastSent != @dateToday.to_s
         @tasks = Array.new
         folders = Folder.where(:user_id => u.id)
         folders.each do |f|
@@ -34,9 +34,9 @@ class UserMailer < ActionMailer::Base
         puts u.email + ' - ' + @tasks.count.to_s + ' tasks'
 
         if @tasks.count > 0
-          mail(:to => u.email, :from => "reminder@tasskr.com", :subject => "Tasskr Reminder")
+          mail(:to => u.email, :from => "Tasskr@tasskr.com", :subject => "Tasskr Reminder")
           mail.deliver
-          u.update_attribute(:emailRemindersLastSent, @dateToday)
+          u.update_attribute(:emailRemindersLastSent, @dateToday.to_s)
         end
       end
     end
