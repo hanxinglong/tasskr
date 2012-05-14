@@ -26,14 +26,18 @@ class UserMailer < ActionMailer::Base
         folders = Folder.where(:user_id => u.id)
         folders.each do |f|
           t = Task.where(:folder_id => f.id, :hideTask => false, :checked => false, :startDate  => {'$gte' => @dateToday, '$lt' => tomorrow})
-          @tasks << t
+          t.each do |x|
+            @tasks << x
+          end
         end
 
         puts u.email + ' - ' + @tasks.count.to_s + ' tasks'
 
-        mail(:to => u.email, :from => "reminder@tasskr.com", :subject => "Tasskr Reminder")
-        mail.deliver
-        u.update_attribute(:emailRemindersLastSent, @dateToday)
+        if @tasks.count > 0
+          mail(:to => u.email, :from => "reminder@tasskr.com", :subject => "Tasskr Reminder")
+          mail.deliver
+          u.update_attribute(:emailRemindersLastSent, @dateToday)
+        end
       end
     end
   end
