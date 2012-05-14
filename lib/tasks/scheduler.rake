@@ -12,5 +12,5 @@ task :recordStats => :environment do
 end
 
 task :sendEmailReminders => :environment do
-	User.sendEmailReminders
+	UserMailer.reminder_emails
 end
