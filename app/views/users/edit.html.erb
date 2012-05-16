@@ -2,9 +2,9 @@
 	<%= form_for @user do |f| %>
 		<%= f.check_box :emailReminders %>
 		<%= f.label "Email Reminders" %><br>
-		Send me an email in the morning containing tasks due that day.<br>
-		test: <%= current_or_guest_user.emailRemindersLastSent %>
+		<span style="color:#888;">Send me an email in the morning containing tasks due that day.</span><br>
 		<br>
 		<%= f.submit 'Save Settings' %>
 	<% end %>
+	<br><br>
 </div>
