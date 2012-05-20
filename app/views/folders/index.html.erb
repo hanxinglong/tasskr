@@ -199,9 +199,9 @@ $(function() {
 <script id="taskEditViewTemplate" type="text/html">
 	<table style="height:100%;width:100%;">
 		<tr><td style="height:99%;">
-			<textarea style="width:100%;height:100%;" placeholder="Notes">{{notes}}</textarea>
+			<textarea style="width:100%;height:100%;" placeholder="Notes" id="notes">{{notes}}</textarea>
 		</td></tr>
-		<tr style="height:1%;"><td>
+		<tr style="height:1%;" class="taskEditBottom"><td>
 			{{#tempShowStartDate}}
 				<div>Due Date: {{tempPrettyStartDate}} {{tempStartDateFromNow}}</div>
 			{{/tempShowStartDate}}
