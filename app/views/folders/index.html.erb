@@ -232,7 +232,7 @@ $(function() {
 <script id="scheduleViewTemplate" type="text/html">
 	<div style="height:5px;"></div>
 	<table>
-			<% (0..30).each do |i| %>
+			<% (0..60).each do |i| %>
 		      <% 
 		      date_id = (Time.zone.today + i.days).to_s() 
 		      date_str = i == 0 ? 'Today' : (Time.zone.today + i.days).to_s(:chart) 
