@@ -14,3 +14,7 @@ end
 task :sendEmailReminders => :environment do
 	UserMailer.reminder_emails
 end
+
+task :resetRecurringTasks => :environment do
+	Task.resetRecurringTasks
+end

@@ -18,4 +18,5 @@ protected
 def destroyTasks
 	self.tasks.destroy_all
 end
+
 end

@@ -4,6 +4,7 @@ var TaskEditView = Backbone.View.extend({
 
 	events: {
 		"keyup textarea" : "textareaKeyUp",
+		"keyup #repeatInput" : "repeatInputKeyUp",
 	},
 
 	initialize: function() {
@@ -27,6 +28,14 @@ var TaskEditView = Backbone.View.extend({
 			this.model.set({ tempCreatedDateFromNow: moment( this.model.get( 'created_at' ) ).calendar().toLowerCase() }, {silent:true});
 		}
 
+		// recurring
+		if (this.model.has('repeatSeconds')) {
+			var str = juration.stringify(this.model.get('repeatSeconds'));
+			this.model.set({tempRepeatString: str}, {silent: true});
+		} else {
+			this.model.set({tempRepeatString: ''}, {silent: true});
+		}
+
 		this.$el.html( $(ich.taskEditViewTemplate( this.model.toJSON() )) );
 		return this;
 	},
@@ -46,5 +55,17 @@ var TaskEditView = Backbone.View.extend({
 			this.model.set({notes: input.val()});
 		}
 	},
+
+	repeatInputKeyUp: function() {
+		var str = this.$('#repeatInput').val();
+		
+		try {
+			var sec = juration.parse(str);
+			this.model.set({repeatSeconds: sec});
+		} catch (err) {
+			this.model.set({repeatSeconds: null});
+			return;
+		}
+	}
 
 });

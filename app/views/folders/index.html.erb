@@ -202,6 +202,7 @@ $(function() {
 			<textarea style="width:100%;height:100%;" placeholder="Notes" id="notes">{{notes}}</textarea>
 		</td></tr>
 		<tr style="height:1%;" class="taskEditBottom"><td>
+			Repeat Every <input type="text" id="repeatInput"> <span id="repeatOutput">{{tempRepeatString}}</span>
 			{{#tempShowStartDate}}
 				<div>Due Date: {{tempPrettyStartDate}} {{tempStartDateFromNow}}</div>
 			{{/tempShowStartDate}}

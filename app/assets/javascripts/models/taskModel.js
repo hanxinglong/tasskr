@@ -10,6 +10,7 @@ var TaskModel = BaseModel.extend({
 		parentTaskId: null,
 		openFolder: true,
 		modelType: 'task',
+		repeatSeconds: null,
 	},
 
 	url: function() {
@@ -34,6 +35,7 @@ var TaskModel = BaseModel.extend({
 		this.bind("success", this.saveSuccess);
 		this.bind("change:startDate", this.onChangeStartDate);
 		this.bind("change:startDateInPast", this.onChangeStartDateInPast);
+		this.bind("change:repeatSeconds", this.onChangeRepeatSeconds);
 		new TaskView({ model:this});
 		new ContainerView({ model:this });
 
@@ -129,6 +131,16 @@ var TaskModel = BaseModel.extend({
 		}
 		this.lazySave();
 		_.delay(doCharts, 1000);	// this should maybe be 1000? it was in tasskr4
+	},
+
+
+	onChangeRepeatSeconds: function() {
+		this.lazySave();
+		if (_.isNull(this.get('repeatSeconds'))) {
+			$('#repeatOutput').html('');	
+		} else {
+			$('#repeatOutput').html( juration.stringify( this.get('repeatSeconds') ) );
+		}
 	},
 	
 });

@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"passw",
+				"passwordreset"
+			],
+			[
+				"emai",
+				"emailRemindersLastSent"
+			],
+			[
+				"curre",
+				"current_or_guest_user"
+			],
+			[
 				"start",
 				"startDateInPast"
 			],
@@ -127,6 +139,69 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/Users/dan/rails/tasskr5/app/views/user_mailer/reminder_emails.text.erb",
+			"settings":
+			{
+				"buffer_size": 95,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/dan/rails/tasskr5/app/mailers/user_mailer.rb",
+			"settings":
+			{
+				"buffer_size": 1437,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/dan/rails/tasskr5/Gemfile",
+			"settings":
+			{
+				"buffer_size": 348,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/dan/rails/tasskr5/app/views/layouts/application.html.erb",
+			"settings":
+			{
+				"buffer_size": 4442,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/dan/rails/tasskr5/app/views/users/edit.html.erb",
+			"settings":
+			{
+				"buffer_size": 299,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/dan/rails/tasskr5/app/assets/stylesheets/app/taskEditView.css.scss",
+			"settings":
+			{
+				"buffer_size": 191,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/dan/rails/tasskr5/app/views/folders/index.html.erb",
+			"settings":
+			{
+				"buffer_size": 9355,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -152,57 +227,74 @@
 	},
 	"file_history":
 	[
+		"/Users/dan/rails/tasskr5/app/controllers/application_controller.rb",
+		"/Users/dan/rails/tasskr5/app/mailers/user_mailer.rb",
+		"/Users/dan/rails/tasskr5/lib/tasks/scheduler.rake",
+		"/Users/dan/rails/tasskr5/app/views/users/edit.html.erb",
+		"/Users/dan/rails/tasskr5/config/environments/production.rb",
+		"/Users/dan/rails/tasskr5/app/models/user.rb",
+		"/Users/dan/rails/tasskr5/app/models/task.rb",
+		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/menuView.js",
+		"/Users/dan/rails/tasskr5/app/views/layouts/application.html.erb",
+		"/Users/dan/rails/tasskr5/app/views/user_mailer/reminder_emails.text.erb",
+		"/Users/dan/rails/tasskr5/app/views/user_mailer/reset_password_email.text.erb",
+		"/Users/dan/rails/tasskr5/config/initializers/mail.rb",
+		"/Users/dan/rails/tasskr5/app/controllers/password_resets_controller.rb",
+		"/Users/dan/rails/tasskr5/app/controllers/users_controller.rb",
+		"/Users/dan/rails/tasskr5/app/models/folder.rb",
+		"/Users/dan/rails/tasskr5/app/controllers/folders_controller.rb",
+		"/Users/dan/rails/tasskr5/app/models/stat.rb",
+		"/Users/dan/rails/tasskr5/app/controllers/tasks_controller.rb",
+		"/Users/dan/rails/tasskr5/app/assets/javascripts/application.js",
 		"/Users/dan/rails/tasskr5/app/views/folders/index.html.erb",
-		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/folderView.js",
+		"/Users/dan/rails/tasskr5/app/assets/stylesheets/base.css.scss",
+		"/Users/dan/rails/tasskr5/app/assets/stylesheets/_variables.css.scss",
 		"/Users/dan/rails/tasskr5/app/assets/javascripts/models/taskModel.js",
-		"/Users/dan/rails/tasskr5/app/assets/javascripts/models/folderModel.js",
+		"/Users/dan/rails/tasskr5/config/routes.rb",
+		"/Users/dan/rails/tasskr5/app/views/users/update.html.erb",
+		"/Users/dan/rails/tasskr5/app/views/users/new.html.erb",
+		"/Users/dan/rails/tasskr5/app/views/password_resets/_form.html.erb",
+		"/Users/dan/rails/tasskr5/app/views/users/settings.html.erb",
+		"/Users/dan/rails/tasskr5/app/views/sessions/new.html.erb",
+		"/Users/dan/rails/tasskr5/app/views/password_resets/update.html.erb",
+		"/Users/dan/rails/tasskr5/app/views/password_resets/edit.html.erb",
+		"/Users/dan/rails/tasskr5/app/views/password_resets/create.html.erb",
 		"/Users/dan/rails/tasskr5/app/assets/javascripts/models/baseModel.js",
+		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/taskView.js",
+		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/baseView.js",
+		"/Users/dan/rails/tasskr5/app/assets/stylesheets/layout.css.scss",
+		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/tabMenuView.js",
 		"/Users/dan/rails/tasskr5/app/assets/stylesheets/app/tasks.css.scss",
+		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/folderView.js",
+		"/Users/dan/rails/tasskr5/app/assets/javascripts/models/folderModel.js",
 		"/Users/dan/rails/tasskr5/app/views/admin/index.html.erb",
 		"/Users/dan/rails/tasskr5/app/assets/stylesheets/application.css",
 		"/Users/dan/rails/tasskr5/app/assets/stylesheets/app/tabMenuView.css.scss",
 		"/Users/dan/rails/tasskr5/vendor/assets/javascripts/moment.js",
-		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/taskView.js",
-		"/Users/dan/rails/tasskr5/app/assets/stylesheets/base.css.scss",
-		"/Users/dan/rails/tasskr5/app/models/task.rb",
-		"/Users/dan/rails/tasskr5/app/models/folder.rb",
-		"/Users/dan/rails/tasskr5/app/controllers/folders_controller.rb",
-		"/Users/dan/rails/tasskr5/app/controllers/tasks_controller.rb",
-		"/Users/dan/rails/tasskr5/app/assets/javascripts/application.js",
-		"/Users/dan/rails/tasskr5/app/views/layouts/application.html.erb",
-		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/menuView.js",
-		"/Users/dan/rails/tasskr5/app/views/sessions/new.html.erb",
-		"/Users/dan/rails/tasskr5/app/assets/stylesheets/_variables.css.scss",
 		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/addFolderView.js",
 		"/Users/dan/rails/tasskr5/app/assets/javascripts/collections/allTasksCollection.js",
 		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/scheduleView.js",
 		"/Users/dan/rails/tasskr5/app/assets/stylesheets/app/taskEditView.css.scss",
 		"/Users/dan/rails/tasskr5/app/assets/stylesheets/app/helpView.css.scss",
 		"/Users/dan/rails/tasskr5/app/assets/stylesheets/app/scheduleView.css.scss",
-		"/Users/dan/rails/tasskr5/app/assets/stylesheets/layout.css.scss",
 		"/Users/dan/rails/tasskr5/app/assets/stylesheets/app/chartsView.css.scss",
 		"/Users/dan/rails/tasskr5/app/assets/stylesheets/app/scheduleRowView.css.scss",
 		"/Users/dan/rails/tasskr5/app/assets/stylesheets/app/menuView.css.scss",
-		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/baseView.js",
-		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/tabMenuView.js",
 		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/helpView.js",
 		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/helpView.css.scss",
 		"/Users/dan/rails/tasskr5/app/assets/javascripts/collections/baseCollercion.js",
 		"/Users/dan/rails/tasskr5/app/assets/javascripts/collections/foldersCollection.js",
 		"/Users/dan/rails/tasskr5/vendor/assets/javascripts/backbone.js",
 		"/Users/dan/rails/tasskr5/app/controllers/admin_controller.rb",
-		"/Users/dan/rails/tasskr5/app/models/user.rb",
 		"/Users/dan/rails/tasskr5/Gemfile",
 		"/Users/dan/rails/tasskr5/app/assets/javascripts/views/scheduleRowView.js",
 		"/Users/dan/meteor/example-leaderboard/leaderboard/leaderboard.js",
 		"/Users/dan/meteor/example-leaderboard/leaderboard/leaderboard.html",
 		"/Users/dan/rails/tasskr4/config/environment.rb",
 		"/Users/dan/rails/tasskr4/config/application.rb",
-		"/Users/dan/rails/tasskr5/lib/tasks/scheduler.rake",
 		"/Users/dan/rails/tasskr4/app/assets/javascripts/application.js",
 		"/Users/dan/rails/tasskr4/app/assets/javascripts/functions.js",
 		"/Users/dan/rails/tasskr5/vendor/assets/javascripts/jquery.flot.resize.js",
-		"/Users/dan/rails/tasskr5/app/views/users/new.html.erb",
 		"/Users/dan/rails/tasskr4/app/views/layouts/application.html.erb",
 		"/Users/dan/rails/tasskr4/app/views/admin/index.html.erb",
 		"/Users/dan/rails/tasskr5/app/assets/stylesheets/app/aboutView.css.scss",
@@ -262,24 +354,7 @@
 		"/Users/dan/rails/tasskr5/app/assets/stylesheets/addFolderView.css.scss",
 		"/Users/dan/rails/tasskr4/app/assets/stylesheets/app/editview.css.scss",
 		"/Users/dan/rails/tasskr4/app/assets/stylesheets/app/app.css.scss",
-		"/Users/dan/sinatra/tempTasskrLayout/views/index.erb",
-		"/Users/dan/sinatra/tempTasskrLayout/public/stylesheets/app.scss",
-		"/Users/dan/rails/tasskr5/app/controllers/users_controller.rb",
-		"/Users/dan/rails/tasskr5/app/controllers/application_controller.rb",
-		"/Users/dan/rails/tasskr4/app/controllers/application_controller.rb",
-		"/Users/dan/rails/tasskr5/config/routes.rb",
-		"/Users/dan/sinatra/tempTasskrLayout/views/layout.erb",
-		"/Users/dan/rails/tasskr5/config/initializers/sorcery.rb",
-		"/Users/dan/rails/tasskr4/config/routes.rb",
-		"/Users/dan/rails/tasskr4/app/controllers/folders_controller.rb",
-		"/Users/dan/rails/tasskr4/Gemfile",
-		"/Users/dan/sinatra/tempTasskrLayout/app.rb",
-		"/Users/dan/rails/tasskr4/app/assets/stylesheets/normalize.css",
-		"/Users/dan/sinatra/tempTasskrLayout/public/stylesheets/normalize.css",
-		"/Users/dan/sinatra/tempTasskrLayout/public/stylesheets/app.css",
-		"/Users/dan/sinatra/tempTasskrLayout/public/stylesheets/app.css.scss",
-		"/Users/dan/sinatra/tempTasskrLayout/public/app.css",
-		"/Users/dan/rails/twitterBootstrap/config/routes.rb"
+		"/Users/dan/sinatra/tempTasskrLayout/views/index.erb"
 	],
 	"find":
 	{
@@ -287,7 +362,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 93.0,
+		"height": 0.0,
 		"where_history":
 		[
 			"/Users/dan/rails/tasskr5/app/assets/",
@@ -300,6 +375,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"email",
+			"e.",
+			"clicky",
 			"_d ",
 			"_d",
 			"ondisplay",
@@ -424,10 +502,7 @@
 			"is_root",
 			"add_model_",
 			"add_model_to",
-			".save",
-			"add_el",
-			"each",
-			"preventde"
+			".save"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -463,8 +538,219 @@
 	"groups":
 	[
 		{
+			"selected": 6,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/Users/dan/rails/tasskr5/app/views/user_mailer/reminder_emails.text.erb",
+					"settings":
+					{
+						"buffer_size": 95,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								50,
+								50
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/dan/rails/tasskr5/app/mailers/user_mailer.rb",
+					"settings":
+					{
+						"buffer_size": 1437,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1394,
+								1394
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/dan/rails/tasskr5/Gemfile",
+					"settings":
+					{
+						"buffer_size": 348,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								285,
+								285
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/dan/rails/tasskr5/app/views/layouts/application.html.erb",
+					"settings":
+					{
+						"buffer_size": 4442,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2503,
+								2503
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 845.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/Users/dan/rails/tasskr5/app/views/users/edit.html.erb",
+					"settings":
+					{
+						"buffer_size": 299,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								292,
+								292
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/Users/dan/rails/tasskr5/app/assets/stylesheets/app/taskEditView.css.scss",
+					"settings":
+					{
+						"buffer_size": 191,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								189,
+								189
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SASS/Syntaxes/SASS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/Users/dan/rails/tasskr5/app/views/folders/index.html.erb",
+					"settings":
+					{
+						"buffer_size": 9355,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6323,
+								6337
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2906.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -499,10 +785,6 @@
 		]
 	},
 	"menu_visible": true,
-	"output.find_results":
-	{
-		"height": 374.0
-	},
 	"replace":
 	{
 		"height": 62.0

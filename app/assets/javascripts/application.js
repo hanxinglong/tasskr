@@ -20,6 +20,7 @@
 //= require jquery.caret	
 //= require moment
 //= require date
+//= require juration
 //= require jquery.flot
 //= require jquery.flot.resize
 //= require jquery.ui.sortable
