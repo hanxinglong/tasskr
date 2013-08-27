@@ -5,8 +5,11 @@ This is the code for http://tasskr.com.  I'm no longer developing it because of 
 
 installation
 ------
-* install mongodb http://www.mongodb.org/  
-* install rails http://rubyonrails.org/  
+
+Made with backbone.js http://backbonejs.org/, mongodb http://www.mongodb.org/, and rails http://rubyonrails.org/.
+
+* install mongodb
+* install rails
 * bundle install  
 * rails s  
 * http://localhost:3000  
